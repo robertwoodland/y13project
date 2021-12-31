@@ -3,7 +3,9 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import HomePage from './pages/HomePage';
 import LoginPage from "./pages/LoginPage";
 import LogoutPage from './pages/LogoutPage'
+import SamplePage from "./pages/SamplePage";
 import Secured from './components/Secured'
+
 
 export default function App() {
     const [auth, setAuth] = useState(null)
@@ -24,6 +26,7 @@ export default function App() {
 
                     <Secured auth={auth}>
                         <Route exact path="/home" component={HomePage}/>
+                        <Route exact path="/sample" component={SamplePage}/>
 
                     </Secured>
                 </Switch>
