@@ -41,8 +41,9 @@ export default function ScratchPage() {
 
 
 
-            <Container fluid align="center">
-                <Row class="mt-3">
+
+            <div class="bg-white border shadow-lg w-11/12 h-5/6 rounded-md m-auto p-3">
+                <Row align="center">
                     <Col>
                         <Link to="/sample">
                             <Button style={btn}>
@@ -57,8 +58,8 @@ export default function ScratchPage() {
                         <h1 class='text-center'>Sample Text</h1>
                     </Col>
                 </Row>
+            </div>
 
-            </Container>
 
 
 
