@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import LoginPage from "./pages/LoginPage";
 import LogoutPage from './pages/LogoutPage'
 import SamplePage from "./pages/SamplePage";
+import ScratchPage from "./pages/ScratchPage";
 import Secured from './components/Secured'
 
 
@@ -27,7 +28,8 @@ export default function App() {
                     <Secured auth={auth}>
                         <Route exact path="/home" component={HomePage}/>
                         <Route exact path="/sample" component={SamplePage}/>
-
+                        <Route exact path="/scratch" component={ScratchPage}/>
+                        
                     </Secured>
                 </Switch>
             </Router>
