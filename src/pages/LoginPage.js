@@ -45,7 +45,7 @@ function signin() {
     return (
         <div>
             {auth
-                ? <Redirect to="/home"/>
+                ? <Redirect to="/menu"/>
                 : (loading ? <Loading/> : <LoginBox signin={signin}/>)}
         </div>
     )

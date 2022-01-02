@@ -12,7 +12,7 @@ export default function SamplePage() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
+                            <Nav.Link href="#home">Menu</Nav.Link>
                             <Nav.Link href="#link">Link</Nav.Link>
                             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -39,8 +39,8 @@ export default function SamplePage() {
 
                             <Row>
                                 <Col align="right">
-                                    <Link to='/home'>
-                                        <Button variant='primary'>Home</Button>
+                                    <Link to='/menu'>
+                                        <Button variant='primary'>Menu</Button>
                                     </Link>                         
                                 </Col>
 

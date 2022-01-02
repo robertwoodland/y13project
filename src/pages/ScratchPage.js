@@ -13,14 +13,14 @@ export default function ScratchPage() {
             <div class="mb-3">
                 <Navbar bg="dark" variant="dark" expand="lg" class="mb-3">
                     <Container>
-                        <Link style={linkStyle} to='/home'>
+                        <Link style={linkStyle} to='/menu'>
                             <Navbar.Brand>Organiser</Navbar.Brand>
                         </Link>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto">
                                 <Nav.Link>
-                                    <Link to="/home" style={linkStyle}>Home</Link>
+                                    <Link to="/menu" style={linkStyle}>Menu</Link>
                                 </Nav.Link>
                                 <Nav.Link href="#link">Sample</Nav.Link>
                                 <NavDropdown title="Dropdown" id="basic-nav-dropdown">

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import HomePage from './pages/HomePage';
+import MenuPage from "./pages/MenuPage";
 import LoginPage from "./pages/LoginPage";
 import LogoutPage from './pages/LogoutPage'
 import SamplePage from "./pages/SamplePage";
@@ -26,7 +26,7 @@ export default function App() {
                     </Route>
 
                     <Secured auth={auth}>
-                        <Route exact path="/home" component={HomePage}/>
+                        <Route exact path="/menu" component={MenuPage}/>
                         <Route exact path="/sample" component={SamplePage}/>
                         <Route exact path="/scratch" component={ScratchPage}/>
                         
