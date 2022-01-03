@@ -1,15 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Col, Container, Row } from 'react-bootstrap'
-import DefNavbar from '../components/Navbar/DefNavbar'
 import ContainerPage from '../components/styled/ContainerPage'
-
-const background = {backgroundColor: '#c4b5fd'}
 
 export default function MenuPage() {
     return (
 
-        <ContainerPage background={background}>
+        <ContainerPage>
 
             <Container align="center">
 
