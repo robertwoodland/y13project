@@ -18,8 +18,12 @@ export default function HomePage() {
                         <Button variant='outline-primary mt-1 mb-1'>Sample Page</Button>
                     </Link>
 
-                    <Link to="scratch">
+                    <Link to="/scratch">
                         <Button variant='outline-primary my-1'>Scratch Page</Button>
+                    </Link>
+
+                    <Link to="/menu">
+                        <Button variant='outline-primary my-1'>Menu Page</Button>
                     </Link>
                 </div>
 
