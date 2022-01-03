@@ -14,10 +14,6 @@ export default function HomePage() {
                         <Button variant='primary mt-1 mb-1'>Log Out</Button>
                     </Link>
 
-                    <Link to='/sample'>
-                        <Button variant='outline-primary mt-1 mb-1'>Sample Page</Button>
-                    </Link>
-
                     <Link to="/scratch">
                         <Button variant='outline-primary my-1'>Scratch Page</Button>
                     </Link>
