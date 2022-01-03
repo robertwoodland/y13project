@@ -27,15 +27,6 @@ export default function MenuPage() {
                         </Col>
                     </Row>
 
-
-                    <Row>
-                        <Col>
-                            <Link to='/sample'>
-                                <Button variant='outline-primary mt-1 mb-1'>Sample Page</Button>
-                            </Link>
-                        </Col>
-                    </Row>
-
                     <Row>
                         <Col>
                             <Link to="/scratch">

@@ -18,10 +18,10 @@ export default function ScratchPage() {
             <div class="bg-white border shadow-lg w-11/12 h-5/6 rounded-md m-auto p-3">
                 <Row align="center">
                     <Col>
-                        <Link to="/sample">
+                        <Link to="/menu">
                             <Button style={btn}>
                                 <h2 class="text-center">
-                                    Sample Page
+                                    Menu
                                 </h2>
                             </Button>
                         </Link>
