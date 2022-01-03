@@ -22,7 +22,6 @@ export default function HomePage() {
                         <Button variant='outline-primary my-1'>Menu Page</Button>
                     </Link>
                 </div>
-
             </div>
         </div>
     )

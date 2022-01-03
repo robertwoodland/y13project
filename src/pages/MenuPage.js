@@ -7,14 +7,13 @@ const background = {backgroundColor: '#c4b5fd'}
 
 export default function MenuPage() {
     return (
-
         <div class="h-screen" style={background}>
         
             <DefNavbar/>
 
-
             <div class="bg-white border shadow-lg w-11/12 h-5/6 rounded-md m-auto p-3">
                 <Container align="center">
+
                     <Row align="center">
                         <h1 class="my-3">Welcome to the Menu Page</h1>
                     </Row>
@@ -42,9 +41,8 @@ export default function MenuPage() {
                             </Link>
                         </Col>
                     </Row>
+
                 </Container>
             </div>
-
-
         </div>
     )}

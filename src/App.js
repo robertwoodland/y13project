@@ -7,7 +7,6 @@ import LogoutPage from './pages/LogoutPage'
 import ScratchPage from "./pages/ScratchPage";
 import Secured from './components/Secured'
 
-
 export default function App() {
     const [auth, setAuth] = useState(null)
     return (

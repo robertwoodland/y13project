@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Col, Row } from 'react-bootstrap'
-import DefNavbar from '../components/Navbar/DefNavbar';
+import DefNavbar from '../components/Navbar/DefNavbar'
 
-const btn = {backgroundColor: '#9333ea'};
+const btn = {backgroundColor: '#9333ea'}
 const background = {backgroundColor: '#c4b5fd'}
 
 export default function ScratchPage() {
