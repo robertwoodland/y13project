@@ -18,6 +18,7 @@ useEffect(() => {
         .auth()
         .onAuthStateChanged(function (user) {
             if (user) {
+                // HERE ADD BACKGROUND COLOUR SETTING THROUGH CONTEXT
                 setAuth(user)
             } else {
                 setAuth(false);

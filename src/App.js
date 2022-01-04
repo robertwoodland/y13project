@@ -31,8 +31,7 @@ export default function App() {
                     </Route>
 
                     <Secured auth={auth}>
-                        <ThemeContext.Provider value={{userColours: userColours,
-        setUserColours: setUserColours}}>
+                        <ThemeContext.Provider value={{userColours: userColours, setUserColours: setUserColours}}>
 
                         <Route exact path="/home" component={HomePage}/>
                         <Route exact path="/menu" component={MenuPage}/>
@@ -44,3 +43,15 @@ export default function App() {
             </Router>
         </div>
     )}
+
+
+
+    /* setUserColors(prevState => prevSate + 1)
+     setUserColors(prevState => {
+        return prevSate + 1
+    })
+
+    setUserColors("newColorID")
+
+
+    */
