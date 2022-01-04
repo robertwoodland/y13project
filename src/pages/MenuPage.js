@@ -11,7 +11,7 @@ export default function MenuPage() {
             <Container align="center">
 
                 <Row align="center">
-                    <h1 class="my-3">Welcome to the Menu Page</h1>
+                    <h1 className="my-3">Welcome to the Menu Page</h1>
                 </Row>
 
                 <Row>

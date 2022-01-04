@@ -1,4 +1,4 @@
-import React, {useState, createContext} from "react";
+import React, {useState, createContext, useEffect} from "react";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import MenuPage from "./pages/MenuPage";
@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import LogoutPage from './pages/LogoutPage'
 import ScratchPage from "./pages/ScratchPage";
 import Secured from './components/Secured';
+import app from "./components/base";
 
 
 export const ThemeContext = createContext()
@@ -15,6 +16,24 @@ export default function App() {
 
     const [userColours, setUserColours] = useState(['#c4b5fd', '#9333ea']) // [backgroundColour, buttonColour]
     
+    useEffect(() => {
+        if (auth) {
+            const uid = auth.uid;
+
+            const firstName = auth.displayName.split(" ")[0]
+            console.log(firstName)
+
+            app.firestore().collection("users").doc(uid).get().then((data) => {
+                if (!data.exists) {
+                    app.firestore().collection("users").doc(uid).set({
+                        firstName
+                    })
+                }})
+    }}, [auth])
+    // THIS IS BIG SECURITY VULNERABILITY, AS USER CREATION CAN BE SPAMMED
+    // Use a cloud function in future
+
+
     return (
         <div>
             <Router>

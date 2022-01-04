@@ -14,10 +14,8 @@ export default function ScratchPage() {
     }
 
     function handleSubmit(){
-        console.log("clicked submit")
-        app.firestore().collection("preferences").doc("WGnshusimRRZuL4SCxNr").set({
-            inputState: inputState
-        })
+        console.log("Clicked submit")
+        app.firestore().collection("tasks").add({})
     }
 
 
@@ -25,10 +23,10 @@ export default function ScratchPage() {
         <ContainerPage>
 
             <Row align="center">
-                <Col class="col-6">
+                <Col className="col-6">
                     <Link to="/menu">
                         <ThemedButton>
-                            <h2 class="text-center">
+                            <h2 className="text-center">
                                 Menu
                             </h2>
                         </ThemedButton>
@@ -40,7 +38,7 @@ export default function ScratchPage() {
                 </Col>
 
                 <Col align="left">
-                        <ThemedButton onClick={handleSubmit}>Submit to Firebase</ThemedButton>
+                        <ThemedButton onClick={handleSubmit}>Add task</ThemedButton>
                 </Col>
             </Row>
 

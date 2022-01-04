@@ -6,8 +6,8 @@ const linkStyle = {'text-decoration': 'initial', color: 'currentcolor'}
 
 export default function DefNavbar() {
     return(
-        <div class="mb-3">
-            <Navbar bg="dark" variant="dark" expand="lg" class="mb-3">
+        <div className="mb-3">
+            <Navbar bg="dark" variant="dark" expand="lg" className="mb-3">
                 <Container>
 
                     <Link style={linkStyle} to='/home'>
