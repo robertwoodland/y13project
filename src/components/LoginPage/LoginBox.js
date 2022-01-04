@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import MiniBox from "../styled/MiniBox";
 
 export default function LoginBox(props) {

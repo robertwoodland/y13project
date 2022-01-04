@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react'
-import app from '../components/base'
+import React, {useEffect, useState} from 'react';
+import app from '../components/base';
 import firebase from "firebase";
 import {Redirect} from "react-router-dom";
 import LoginBox from "../components/LoginPage/LoginBox";

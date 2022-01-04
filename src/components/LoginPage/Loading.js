@@ -1,5 +1,5 @@
-import React from 'react'
-import MiniBox from '../styled/MiniBox'
+import React from 'react';
+import MiniBox from '../styled/MiniBox';
 
 export default function Loading() {
     return (

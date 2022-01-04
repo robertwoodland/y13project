@@ -5,7 +5,7 @@ import MenuPage from "./pages/MenuPage";
 import LoginPage from "./pages/LoginPage";
 import LogoutPage from './pages/LogoutPage'
 import ScratchPage from "./pages/ScratchPage";
-import Secured from './components/Secured'
+import Secured from './components/Secured';
 
 
 export const ThemeContext = createContext()

@@ -1,6 +1,6 @@
-import React, {useContext} from 'react'
-import { Button } from 'react-bootstrap'
-import { ThemeContext } from '../../App'
+import React, {useContext} from 'react';
+import { Button } from 'react-bootstrap';
+import { ThemeContext } from '../../App';
 
 export default function ThemedButton(props) {
     const value = useContext(ThemeContext)

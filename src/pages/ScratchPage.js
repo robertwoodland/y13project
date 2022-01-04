@@ -1,8 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Button, Col, Row } from 'react-bootstrap'
-import ContainerPage from '../components/styled/ContainerPage'
-import ThemedButton from '../components/styled/ThemedButton'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Button, Col, Row } from 'react-bootstrap';
+import ContainerPage from '../components/styled/ContainerPage';
+import ThemedButton from '../components/styled/ThemedButton';
 
 export default function ScratchPage() {
     return (

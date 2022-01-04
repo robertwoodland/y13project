@@ -1,6 +1,6 @@
-import React, {useContext} from 'react'
-import DefNavbar from '../Navbar/DefNavbar'
-import { ThemeContext } from '../../App'
+import React, {useContext} from 'react';
+import DefNavbar from '../Navbar/DefNavbar';
+import { ThemeContext } from '../../App';
 
 export default function ContainerPage(props) {
     const value = useContext(ThemeContext)
