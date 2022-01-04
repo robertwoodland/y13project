@@ -5,7 +5,7 @@ import { ThemeContext } from '../../App';
 export default function ThemedButton(props) {
     const value = useContext(ThemeContext)
     return (
-            <Button style={{backgroundColor: value.userColours[1]}}>
+            <Button onClick={props.onClick} style={{backgroundColor: value.userColours[1]}}>
 
                 {props.children}
 
