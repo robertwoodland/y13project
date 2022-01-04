@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import DefNavbar from '../Navbar/DefNavbar';
+import DefNavbar from './DefNavbar';
 import { ThemeContext } from '../../App';
 
 export default function ContainerPage(props) {
