@@ -18,15 +18,15 @@ export default function App() {
     
     useEffect(() => {
         if (auth) {
-            const uid = auth.uid;
-
+            const email = auth.email
+            const uid = auth.uid
             const firstName = auth.displayName.split(" ")[0]
-            console.log(firstName)
 
             app.firestore().collection("users").doc(uid).get().then((data) => {
                 if (!data.exists) {
                     app.firestore().collection("users").doc(uid).set({
-                        firstName
+                        firstName,
+                        email
                     })
                 }})
     }}, [auth])
