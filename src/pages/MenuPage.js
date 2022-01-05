@@ -5,9 +5,7 @@ import ContainerPage from '../components/styled/ContainerPage';
 
 export default function MenuPage() {
     return (
-
         <ContainerPage>
-
             <Container align="center">
 
                 <Row align="center">
@@ -39,6 +37,5 @@ export default function MenuPage() {
                 </Row>
 
             </Container>
-
         </ContainerPage>
     )}

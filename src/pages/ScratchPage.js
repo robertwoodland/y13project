@@ -42,7 +42,5 @@ export default function ScratchPage() {
                 </Col>
             </Row>
 
-
-
         </ContainerPage>
     )}

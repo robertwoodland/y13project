@@ -13,41 +13,41 @@ export default function LoginPage(props) {
     .auth
     .GoogleAuthProvider()
 
-useEffect(() => {
-    const unsubscribe = firebase
-        .auth()
-        .onAuthStateChanged(function (user) {
-            if (user) {
-                // HERE ADD BACKGROUND COLOUR SETTING THROUGH CONTEXT
-                setAuth(user)
-            } else {
-                setAuth(false);
-                setLoading(false)
-            }
-        });
-    return () => {
-        unsubscribe()
-    }
-}, [setAuth])
+    useEffect(() => {
+        const unsubscribe = firebase
+            .auth()
+            .onAuthStateChanged(function (user) {
+                if (user) {
+                    // HERE ADD BACKGROUND COLOUR SETTING THROUGH CONTEXT
+                    setAuth(user)
+                } else {
+                    setAuth(false);
+                    setLoading(false)
+                }
+            });
+        return () => {
+            unsubscribe()
+        }
+        }, [setAuth])
 
-app
-    .auth()
-    .getRedirectResult()
-    .catch(function (error) {
-        console.log(error)
-    });
-
-function signin() {
     app
         .auth()
-        .signInWithRedirect(provider)
-}
+        .getRedirectResult()
+        .catch(function (error) {
+            console.log(error)
+        });
 
-    return (
-        <div>
-            {auth
-                ? <Redirect to="/home"/>
-                : (loading ? <Loading/> : <LoginBox signin={signin}/>)}
-        </div>
-    )
-}
+    function signin() {
+        app
+            .auth()
+            .signInWithRedirect(provider)
+    }
+
+        return (
+            <div>
+                {auth
+                    ? <Redirect to="/home"/>
+                    : (loading ? <Loading/> : <LoginBox signin={signin}/>)}
+            </div>
+        )
+    }

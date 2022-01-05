@@ -8,8 +8,7 @@ import ScratchPage from "./pages/ScratchPage";
 import Secured from './components/Secured';
 import app from "./components/base";
 
-
-export const ThemeContext = createContext()
+export const ThemeContext = createContext();
 
 export default function App() {
     const [auth, setAuth] = useState(null)
@@ -65,7 +64,10 @@ export default function App() {
 
 
 
-    /* setUserColors(prevState => prevSate + 1)
+    /* How to use setState():
+    
+    
+    setUserColors(prevState => prevSate + 1)
      setUserColors(prevState => {
         return prevSate + 1
     })

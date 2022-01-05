@@ -10,6 +10,7 @@ export default function HomePage() {
                     <h1>
                         This is the Home Page
                     </h1>
+                    
                     <Link to='/logout'>
                         <Button variant='primary mt-1 mb-1'>Log Out</Button>
                     </Link>
