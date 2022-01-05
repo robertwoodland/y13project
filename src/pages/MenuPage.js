@@ -28,14 +28,6 @@ export default function MenuPage() {
                     </Col>
                 </Row>
 
-                <Row>
-                    <Col>
-                        <Link to="/home">
-                            <Button variant='outline-primary my-1'>Home Page</Button>
-                        </Link>
-                    </Col>
-                </Row>
-
             </Container>
         </ContainerPage>
     )}

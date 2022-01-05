@@ -10,7 +10,7 @@ export default function DefNavbar() {
             <Navbar bg="dark" variant="dark" expand="lg" className="mb-3">
                 <Container>
 
-                    <Link style={linkStyle} to='/home'>
+                    <Link style={linkStyle} to='/menu'>
                         <Navbar.Brand>Organiser</Navbar.Brand>
                     </Link>
 
@@ -19,7 +19,7 @@ export default function DefNavbar() {
                         <Nav className="me-auto">
 
                             <Nav.Link>
-                                <Link to="/home" style={linkStyle}>Home</Link>
+                                <Link to="/menu" style={linkStyle}>Menu</Link>
                             </Nav.Link>
 
 

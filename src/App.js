@@ -1,6 +1,5 @@
 import React, {useState, createContext, useEffect} from "react";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import HomePage from "./pages/HomePage";
 import MenuPage from "./pages/MenuPage";
 import LoginPage from "./pages/LoginPage";
 import LogoutPage from './pages/LogoutPage'
@@ -52,7 +51,6 @@ export default function App() {
                     <Secured auth={auth}>
                         <ThemeContext.Provider value={{userColours: userColours, setUserColours: setUserColours}}>
 
-                        <Route exact path="/home" component={HomePage}/>
                         <Route exact path="/menu" component={MenuPage}/>
                         <Route exact path="/scratch" component={ScratchPage}/>
                         <Route exact path="/tasks/" component={TasksPage}/>

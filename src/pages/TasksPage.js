@@ -37,7 +37,7 @@ export default function TasksPage() {
 
                     <Form.Group className="mb-3" controlId="formDropdown">
                         <Dropdown>
-                            <Dropdown.Toggle variant="success" id="dropdown-basic">
+                            <Dropdown.Toggle variant="primary" id="dropdown-basic">
                                 Dropdown Button
                             </Dropdown.Toggle>
 

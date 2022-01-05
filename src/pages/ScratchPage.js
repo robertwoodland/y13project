@@ -15,7 +15,9 @@ export default function ScratchPage() {
 
     function handleSubmit(){
         console.log("Clicked submit")
-        app.firestore().collection("tasks").add({})
+        app.firestore().collection("tasks").add({
+            name: inputState
+        })
     }
 
 

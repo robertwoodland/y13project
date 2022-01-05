@@ -46,7 +46,7 @@ export default function LoginPage(props) {
         return (
             <div>
                 {auth
-                    ? <Redirect to="/home"/>
+                    ? <Redirect to="/menu"/>
                     : (loading ? <Loading/> : <LoginBox signin={signin}/>)}
             </div>
         )
