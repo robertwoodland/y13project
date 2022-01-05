@@ -8,7 +8,7 @@ export default function ContainerPage(props) {
         <div className="h-screen" style={{backgroundColor: value.userColours[0]}}>        
             <DefNavbar/>
 
-            <div className="bg-white border shadow-lg w-11/12 h-5/6 rounded-md m-auto p-3">
+            <div className="bg-white border shadow-lg w-11/12 h-5/6 rounded-md m-auto p-5">
 
                 {props.children}
 

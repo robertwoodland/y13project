@@ -5,6 +5,7 @@ import MenuPage from "./pages/MenuPage";
 import LoginPage from "./pages/LoginPage";
 import LogoutPage from './pages/LogoutPage'
 import ScratchPage from "./pages/ScratchPage";
+import TasksPage from "./pages/TasksPage";
 import Secured from './components/Secured';
 import app from "./components/base";
 
@@ -54,7 +55,8 @@ export default function App() {
                         <Route exact path="/home" component={HomePage}/>
                         <Route exact path="/menu" component={MenuPage}/>
                         <Route exact path="/scratch" component={ScratchPage}/>
-                        
+                        <Route exact path="/tasks/" component={TasksPage}/>
+
                         </ThemeContext.Provider>
                     </Secured>
                 </Switch>
