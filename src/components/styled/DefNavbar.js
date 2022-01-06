@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 
-const linkStyle = {'text-decoration': 'initial', color: 'currentcolor'}
+const linkStyle = {'textDecoration': 'initial', color: 'currentcolor'}
 
 export default function DefNavbar() {
     return(
