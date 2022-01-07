@@ -22,8 +22,8 @@ export default function MenuPage() {
 
                 <Row>
                     <Col>
-                        <Link to="/scratch">
-                            <Button variant='outline-primary my-1'>Scratch Page</Button>
+                        <Link to="/add-tasks">
+                            <Button variant='outline-primary my-1'>Tasks Page</Button>
                         </Link>
                     </Col>
                 </Row>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row, Form } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
 import ThemedButton from '../components/styled/ThemedButton';
 import app from '../components/base';
@@ -36,12 +36,18 @@ export default function ScratchPage() {
                 </Col>
 
                 <Col align="right">
-                        <input onChange={handleInput} value={inputState} placeholder='Enter text here'/>
+                    <Form>
+                        <Form.Control onChange={handleInput} value={inputState} placeholder='Enter text here'/>
+                    </Form>
                 </Col>
 
                 <Col align="left">
                         <ThemedButton onClick={handleSubmit}>Add task</ThemedButton>
                 </Col>
+            </Row>
+
+            <Row>
+                <h1>{inputState}</h1>
             </Row>
 
         </ContainerPage>

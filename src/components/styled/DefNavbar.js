@@ -24,7 +24,7 @@ export default function DefNavbar() {
 
 
                             <Nav.Link>
-                                <Link to="/tasks" style={linkStyle}>Tasks</Link>
+                                <Link to="/add-tasks" style={linkStyle}>Tasks</Link>
                             </Nav.Link>
 
                             <Nav.Link>
