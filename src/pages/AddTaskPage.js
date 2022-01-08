@@ -12,6 +12,7 @@ export default function AddTaskPage() {
     const [projectInput, setProjectInput] = useState()
     const [taskInput, setTaskInput] = useState()
     const [projectId, setProjectId] = useState()
+    const [dateInput, setDateInput] = useState()
 
     function handleProjectInput(e){
         setProjectInput(e.target.value)
@@ -23,6 +24,11 @@ export default function AddTaskPage() {
 
     function handleTaskInput(e){
         setTaskInput(e.target.value)
+    }
+
+    function handleDateInput(e){
+        setDateInput(e.target.value)
+        console.log("date = ", dateInput)
     }
 
     // Gets list of projects from Firebase each time they update
@@ -70,7 +76,7 @@ export default function AddTaskPage() {
             app.firestore().collection("projects").add({
                 name: projectInput,
                 creationTime: creationTime,
-                accessedTime: creationTime
+                accessedTime: creationTime,
             })
         } else {
             handleProjectSelect(projectInput)
@@ -78,7 +84,7 @@ export default function AddTaskPage() {
     }
 
     function handleTaskSubmit(){
-        if (taskInput && selectedProject){
+        if (taskInput && selectedProject && dateInput){
             updateProjectAccessed()
             const creationTime = Date.now()
             if (projectId) {
@@ -87,7 +93,8 @@ export default function AddTaskPage() {
                     projectName: selectedProject,
                     projectId: projectId,
                     creationTime: creationTime,
-                    modifiedTime: creationTime
+                    modifiedTime: creationTime,
+                    dueDate: dateInput
                 })
             }
         }
@@ -157,6 +164,16 @@ export default function AddTaskPage() {
 
                                 </Dropdown.Menu>
                             </Dropdown>
+
+
+                            <Form.Group className="mb-3 mt-3" controlId="formDueDate">
+                                <Row>
+                                    <Form.Label>Due Date:</Form.Label>
+                                </Row>
+
+                                <input type="date" onChange={handleDateInput} value={dateInput}></input>
+
+                            </Form.Group>
                         </Form.Group>
 
                         <div className="mt-5">
