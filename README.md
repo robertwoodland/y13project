@@ -1,22 +1,17 @@
-# Website Scaffold
+# y13 Project - Organiser
 
-## **Remember to add firebase credentials to ./src/components/base.js and to enable login with Google and firestore in the firebase console, in addition to changing the project name in package.json and package-lock.json**
-
-## **also remember to `npm i` and `firebase init`**
-
-### Made with create-react-app
+### Made in React, with Bootstrap for styling and a small amount of Tailwind
 
 ## Available Scripts
 
-In the project directory, you can run:
+To start the program, you can run:
 
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The page will reload if you make edits, but sometimes needs to be refreshed to reinitialise states.\
 
 ### `npm test`
 
