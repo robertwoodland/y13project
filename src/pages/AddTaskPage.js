@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Col, Dropdown, Row, Form, FormLabel } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
 import app from '../components/base';
 import ThemedDropdown from '../components/styled/ThemedDropdown';
 import ThemedButton from '../components/styled/ThemedButton';
+import { UserContext } from '../App';
 
 export default function AddTaskPage() {
     const [recentProjectNames, setRecentProjectNames] = useState([])
@@ -13,6 +14,7 @@ export default function AddTaskPage() {
     const [taskInput, setTaskInput] = useState()
     const [projectId, setProjectId] = useState()
     const [dateInput, setDateInput] = useState()
+    const userId = useContext(UserContext).userId
 
     function handleProjectInput(e){
         setProjectInput(e.target.value)
@@ -28,7 +30,6 @@ export default function AddTaskPage() {
 
     function handleDateInput(e){
         setDateInput(e.target.value)
-        console.log("date = ", dateInput)
     }
 
     // Gets list of projects from Firebase each time they update
@@ -77,6 +78,7 @@ export default function AddTaskPage() {
                 name: projectInput,
                 creationTime: creationTime,
                 accessedTime: creationTime,
+                userId: userId
             })
         } else {
             handleProjectSelect(projectInput)
@@ -136,7 +138,7 @@ export default function AddTaskPage() {
 
                             <Row>
                                 <Col>
-                                    <Form.Control onChange={handleTaskInput} value={taskInput} type="project" placeholder="Enter task name (dead for now)"/>
+                                    <Form.Control onChange={handleTaskInput} value={taskInput} type="project" placeholder="Enter task name"/>
                                 </Col>
                             </Row>
                             
