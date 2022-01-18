@@ -8,6 +8,9 @@ import ThemedButton from '../components/styled/ThemedButton';
 import { UserContext } from '../App';
 
 export default function AddTaskPage() {
+    document.body.style.overflow = "hidden"
+
+    
     const [recentProjectNames, setRecentProjectNames] = useState([])
     const [selectedProject, setSelectedProject] = useState()
     const [projectInput, setProjectInput] = useState()
