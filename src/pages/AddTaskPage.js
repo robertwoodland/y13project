@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
 import { Col, Dropdown, Row, Form, FormLabel } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
 import app from '../components/base';
@@ -10,7 +9,6 @@ import { UserContext } from '../App';
 export default function AddTaskPage() {
     document.body.style.overflow = "hidden"
 
-    
     const [recentProjectNames, setRecentProjectNames] = useState([])
     const [selectedProject, setSelectedProject] = useState()
     const [projectInput, setProjectInput] = useState()
@@ -70,8 +68,7 @@ export default function AddTaskPage() {
     function RecentProject(props) {
         const {text} = props
         return <Dropdown.Item onClick={() => handleProjectSelect(text)}>{text}</Dropdown.Item>;
-    }
-      
+    } 
 
     function handleProjectSubmit(){
         if (projectInput && !recentProjectNames.includes(projectInput)){
@@ -105,7 +102,6 @@ export default function AddTaskPage() {
         }
     }
 
-
     useEffect(() => {
         if (selectedProject) {
             let docId = ""
@@ -119,10 +115,8 @@ export default function AddTaskPage() {
         }
     }, [selectedProject])
 
-
     function updateProjectAccessed(){
         const accessedTime = Date.now();
-        
         app.firestore().collection("projects").doc(projectId).update({
             accessedTime: accessedTime
         })
@@ -132,7 +126,6 @@ export default function AddTaskPage() {
 
     return (
         <ContainerPage>
-
             <Row>
                 <Col>
                     <Form>
@@ -157,7 +150,7 @@ export default function AddTaskPage() {
                                 <Dropdown.Menu style={{minWidth: "100%"}}> 
                                     <Row>
                                         <Col className="col-8">
-                                            <Form.Control onChange={handleProjectInput} value={projectInput} placeholder="Project Name" className="mx-1 overflow-hidden"/>
+                                            <Form.Control onChange={handleProjectInput} value={projectInput} placeholder="Project name" className="mx-1 overflow-hidden"/>
                                         </Col>
                                         
                                         <Col align="centre" className="col-4">
@@ -169,7 +162,6 @@ export default function AddTaskPage() {
 
                                 </Dropdown.Menu>
                             </Dropdown>
-
 
                             <Form.Group className="mb-3 mt-3" controlId="formDueDate">
                                 <Row>
@@ -189,7 +181,6 @@ export default function AddTaskPage() {
                     </Form>
                 </Col>
             </Row>
-
         </ContainerPage>
     )
 }
