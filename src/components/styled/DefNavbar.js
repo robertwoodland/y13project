@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar, Container, Nav, Form } from 'react-bootstrap';
 
 const linkStyle = {'textDecoration': 'initial', color: 'currentcolor'}
 
 export default function DefNavbar() {
     return(
         <div className="mb-3">
-            <Navbar bg="dark" variant="dark" expand="lg" className="mb-3">
+            <Navbar bg="dark" variant="dark" expand="md" className="mb-3">
                 <Container>
 
                     <Link style={linkStyle} to='/menu'>
@@ -37,6 +37,10 @@ export default function DefNavbar() {
 
                             <Nav.Link>
                                 <Link to="#/preferences" style={linkStyle}>Preferences</Link>
+                            </Nav.Link>
+
+                            <Nav.Link>
+                                <Link to="/logout" style={linkStyle}>Log Out</Link>
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
