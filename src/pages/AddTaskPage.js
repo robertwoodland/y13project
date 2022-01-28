@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, Fragment } from 'react';
 import { Col, Dropdown, Row, Form, FormLabel } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
 import app from '../components/base';
@@ -45,19 +45,19 @@ export default function AddTaskPage() {
     }, []);
 
     // Component: list of recent projects
-    function RecentProjectsMenu() {
-        let len = recentProjectNames.length;
-        if (len > 0 && len <= 5) {            
+    function RecentProjectsMenu(){
+        var len = recentProjectNames.length;
+        if (len > 0 && len <= 5){            
             const names = recentProjectNames.map((projectName) => 
                 <RecentProject text={projectName}/>
             );
-            return(<div>{names}</div>)
+            return(<Fragment>{names}</Fragment>)
             
         } else if (len > 5){
             const recentNames = recentProjectNames.slice(0, 5).map((projectName) =>
             <RecentProject text={projectName}/>
             );
-            return(<div>{recentNames}</div>)
+            return(<Fragment>{recentNames}</Fragment>)
 
         } else {
             return(<Form.Label className="ml-3 mt-2 disabled">No recent projects.</Form.Label>)
@@ -65,7 +65,7 @@ export default function AddTaskPage() {
     }
 
     // Dropdown items for recent projects
-    function RecentProject(props) {
+    function RecentProject(props){
         const {text} = props
         return <Dropdown.Item onClick={() => handleProjectSelect(text)}>{text}</Dropdown.Item>;
     } 
@@ -120,7 +120,6 @@ export default function AddTaskPage() {
         app.firestore().collection("projects").doc(projectId).update({
             accessedTime: accessedTime
         })
-
     }
 
 

@@ -13,21 +13,22 @@ export default function MenuPage() {
                 </Row>
 
                 <Row>
-                    <Col align="center">
-                            <Link to='/logout'>
-                                <Button variant='primary mt-1 mb-1'>Log Out</Button>
-                            </Link>
-                    </Col>
+                    <Link to='/logout'>
+                        <Button variant='primary mt-1 mb-1'>Log Out</Button>
+                    </Link>
                 </Row>
 
                 <Row>
-                    <Col>
-                        <Link to="/add-tasks">
-                            <Button variant='outline-primary my-1'>Tasks Page</Button>
-                        </Link>
-                    </Col>
+                    <Link to="/add-tasks">
+                        <Button variant='outline-primary my-1'>Add Task</Button>
+                    </Link>
                 </Row>
 
+                <Row>
+                    <Link to="/show-tasks">
+                        <Button variant='outline-primary my-1'>Show Tasks</Button>
+                    </Link>
+                </Row>
             </Container>
         </ContainerPage>
     )}

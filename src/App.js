@@ -1,10 +1,11 @@
-import React, {useState, createContext, useEffect} from "react";
+import React, {Fragment, useState, createContext, useEffect} from "react";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import MenuPage from "./pages/MenuPage";
 import LoginPage from "./pages/LoginPage";
 import LogoutPage from './pages/LogoutPage'
 import ScratchPage from "./pages/ScratchPage";
 import AddTaskPage from "./pages/AddTaskPage";
+import ShowTasksPage from "./pages/ShowTasksPage";
 import Secured from './components/Secured';
 import app from "./components/base";
 
@@ -38,7 +39,7 @@ export default function App() {
 
 
     return (
-        <div>
+        <Fragment>
             <Router>
                 <Switch>
                     <Route exact path="/login">
@@ -58,13 +59,14 @@ export default function App() {
 
                             <Route exact path="/menu" component={MenuPage}/>
                             <Route exact path="/scratch" component={ScratchPage}/>
-                            <Route exact path="/add-tasks/" component={AddTaskPage}/>
+                            <Route exact path="/add-tasks" component={AddTaskPage}/>
+                            <Route exact path="/show-tasks" component={ShowTasksPage}/>
                         </UserContext.Provider>
                         </ThemeContext.Provider>
                     </Secured>
                 </Switch>
             </Router>
-        </div>
+        </Fragment>
     )}
 
 
