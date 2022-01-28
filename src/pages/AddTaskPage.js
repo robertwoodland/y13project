@@ -5,6 +5,7 @@ import app from '../components/base';
 import ThemedDropdown from '../components/styled/ThemedDropdown';
 import ThemedButton from '../components/styled/ThemedButton';
 import { UserContext } from '../App';
+import ProjectDropdown from '../components/ProjectDropdown/ProjectDropdown';
 
 export default function AddTaskPage() {
     document.body.style.overflow = "hidden"
@@ -141,26 +142,10 @@ export default function AddTaskPage() {
 
                         <Form.Group className="mb-3" controlId="formDropdown">
                             <Form.Label>Project:</Form.Label>
-                            <Dropdown>
-                                <ThemedDropdown>
-                                    {selectedProject? selectedProject : "Select Project"}
-                                </ThemedDropdown>
-
-                                <Dropdown.Menu style={{minWidth: "100%"}}> 
-                                    <Row>
-                                        <Col className="col-8">
-                                            <Form.Control onChange={handleProjectInput} value={projectInput} placeholder="Project name" className="mx-1 overflow-hidden"/>
-                                        </Col>
-                                        
-                                        <Col align="centre" className="col-4">
-                                            <ThemedButton onClick={handleProjectSubmit}>Submit</ThemedButton>
-                                        </Col>
-                                    </Row>
-
-                                    <RecentProjectsMenu/>
-
-                                </Dropdown.Menu>
-                            </Dropdown>
+                            
+                            <ProjectDropdown selectedProject={selectedProject} setSelectedProject={setSelectedProject}
+                            recentProjectNames={recentProjectNames} projectInput={projectInput} 
+                            setProjectInput={setProjectInput} />
 
                             <Form.Group className="mb-3 mt-3" controlId="formDueDate">
                                 <Row>
