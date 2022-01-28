@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import MiniBox from '../styled/MiniBox';
 
 export default function Loading() {
     return (
-        <div>
+        <Fragment>
             <MiniBox className="text-2xl">
                 Loading
             </MiniBox>
-        </div>
+        </Fragment>
     )
 }
