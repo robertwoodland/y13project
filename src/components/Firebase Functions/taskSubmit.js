@@ -2,7 +2,7 @@ import app from "../base";
 
 
 
-export default function handleTaskSubmit(updateProjectAccessed, taskInput, selectedProject, dateInput, projectId){
+export default function handleTaskSubmit(updateProjectAccessed, setTaskSubmitted, taskInput, selectedProject, dateInput, projectId){
     if (taskInput && selectedProject && dateInput){
         updateProjectAccessed()
         const creationTime = Date.now()
@@ -15,6 +15,7 @@ export default function handleTaskSubmit(updateProjectAccessed, taskInput, selec
                 modifiedTime: creationTime,
                 dueDate: dateInput
             })
+            setTaskSubmitted(true)
         }
     }
 }

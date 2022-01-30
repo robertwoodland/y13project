@@ -14,17 +14,17 @@ export default function TaskDetails(props) {
     const [taskInput, setTaskInput] = useState()
     const [projectId, setProjectId] = useState()
     const [dateInput, setDateInput] = useState()
+    const [taskSubmitted, setTaskSubmitted] = useState(false);
 
     const {taskInputPlaceholder} = props
+    const projectPlaceholder = props.projectPlaceholder
 
-    function handleTaskInput(e){
-        setTaskInput(e.target.value)
-    }
-
-    function handleDateInput(e){
-        setDateInput(e.target.value)
-    }
-
+    useEffect(() => {
+      if (projectPlaceholder) {
+          setSelectedProject(projectPlaceholder)
+      }
+    }, [projectPlaceholder]);
+    
 
     getProjects(setRecentProjects, setRecentProjectNames)
     // 0 is project name, 1 is accessed time, 2 is ID
@@ -51,13 +51,24 @@ export default function TaskDetails(props) {
     }
 
 
+    useEffect(() => {
+      if (taskSubmitted) {
+          setProjectInput("")
+          setSelectedProject("")
+          setDateInput("")
+          setTaskInput("")
+          setTaskSubmitted("")
+      }
+    }, [taskSubmitted]);
+    
+
     return (
         <Form>
             <Form.Group className="mb-3" controlId="formProject">
                 <Form.Label>Task:</Form.Label>
                 <Row>
                     <Col>
-                        <Form.Control onChange={handleTaskInput} value={taskInput} type="project" placeholder={taskInputPlaceholder ? taskInputPlaceholder : "Enter task name"}/>
+                        <Form.Control onChange={(e) => setTaskInput(e.target.value)} value={taskInput} type="project" placeholder={taskInputPlaceholder ? taskInputPlaceholder : "Enter task name"}/>
                     </Col>
                 </Row>
             </Form.Group>
@@ -74,13 +85,13 @@ export default function TaskDetails(props) {
                         <Form.Label>Due Date:</Form.Label>
                     </Row>
 
-                    <input type="date" onChange={handleDateInput} value={dateInput}></input>
+                    <input type="date" onChange={(e) => setDateInput(e.target.value)} value={dateInput}></input>
 
                 </Form.Group>
             </Form.Group>
 
             <div className="mt-5">
-                <ThemedButton onClick={() => taskSubmit(updateProjectAccessed, taskInput, selectedProject, dateInput, projectId)}>
+                <ThemedButton onClick={() => taskSubmit(updateProjectAccessed, setTaskSubmitted, taskInput, selectedProject, dateInput, projectId)}>
                     {props.children}
                 </ThemedButton>
             </div>
