@@ -4,9 +4,11 @@ import { Form } from "react-bootstrap";
 
 // Gets the list of recent projects
 export default function RecentProjectsMenu(props){
-    const {recentProjectNames} = props
+    const {recentProjects} = props
     const {setSelectedProject} = props
     
+    const recentProjectNames = recentProjects.map(project => project[0])
+
     let len = 0
     if (recentProjectNames) {
         len = recentProjectNames.length

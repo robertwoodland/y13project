@@ -10,8 +10,8 @@ export default function ProjectDropdown(props) {
     const uid = useContext(UserContext).userId
 
     const {selectedProject, setSelectedProject} = props
-    const {recentProjectNames} = props
     const {projectInput, setProjectInput} = props
+    const {recentProjects} = props
 
 
     return(
@@ -30,11 +30,11 @@ export default function ProjectDropdown(props) {
                         </Col>
 
                         <Col align="centre" className="col-4">
-                            <ThemedButton onClick={() => handleProjectSubmit(uid, projectInput, recentProjectNames, setSelectedProject)}>Submit</ThemedButton>
+                            <ThemedButton onClick={() => handleProjectSubmit(uid, projectInput, recentProjects, setSelectedProject)}>Submit</ThemedButton>
                         </Col>
                     </Row>
 
-                    <RecentProjectsMenu recentProjectNames={recentProjectNames} setSelectedProject={setSelectedProject}/>
+                    <RecentProjectsMenu recentProjects={recentProjects} setSelectedProject={setSelectedProject}/>
                 
                 </Dropdown.Menu>
             </Dropdown>

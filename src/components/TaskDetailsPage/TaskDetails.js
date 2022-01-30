@@ -77,7 +77,7 @@ export default function TaskDetails(props) {
                 <Form.Label>Project:</Form.Label>
                 
                 <ProjectDropdown selectedProject={selectedProject} setSelectedProject={setSelectedProject}
-                recentProjectNames={recentProjectNames} projectInput={projectInput} 
+                projectInput={projectInput} recentProjects={recentProjects}
                 setProjectInput={setProjectInput} />
 
                 <Form.Group className="mb-3 mt-3" controlId="formDueDate">
