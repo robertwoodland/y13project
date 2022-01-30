@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useContext, Fragment } from 'react';
-import { Col, Dropdown, Row, Form, FormLabel } from 'react-bootstrap';
+import React, { useState, useEffect, useContext } from 'react';
+import { Col, Dropdown, Row, Form } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
 import app from '../components/base';
-import ThemedDropdown from '../components/styled/ThemedDropdown';
 import ThemedButton from '../components/styled/ThemedButton';
 import { UserContext } from '../App';
 import ProjectDropdown from '../components/ProjectDropdown/ProjectDropdown';
@@ -17,10 +16,6 @@ export default function AddTaskPage() {
     const [projectId, setProjectId] = useState()
     const [dateInput, setDateInput] = useState()
     const userId = useContext(UserContext).userId
-
-    function handleProjectInput(e){
-        setProjectInput(e.target.value)
-    }
 
     function handleProjectSelect(projectName){
         setSelectedProject(projectName)
@@ -45,25 +40,6 @@ export default function AddTaskPage() {
            return () => unsubscribe()
     }, []);
 
-    // Component: list of recent projects
-    function RecentProjectsMenu(){
-        var len = recentProjectNames.length;
-        if (len > 0 && len <= 5){            
-            const names = recentProjectNames.map((projectName) => 
-                <RecentProject text={projectName}/>
-            );
-            return(<Fragment>{names}</Fragment>)
-            
-        } else if (len > 5){
-            const recentNames = recentProjectNames.slice(0, 5).map((projectName) =>
-            <RecentProject text={projectName}/>
-            );
-            return(<Fragment>{recentNames}</Fragment>)
-
-        } else {
-            return(<Form.Label className="ml-3 mt-2 disabled">No recent projects.</Form.Label>)
-        }
-    }
 
     // Dropdown items for recent projects
     function RecentProject(props){
@@ -71,20 +47,6 @@ export default function AddTaskPage() {
         return <Dropdown.Item onClick={() => handleProjectSelect(text)}>{text}</Dropdown.Item>;
     } 
 
-    function handleProjectSubmit(){
-        if (projectInput && !recentProjectNames.includes(projectInput)){
-            const creationTime = Date.now()
-            handleProjectSelect(projectInput)
-            app.firestore().collection("projects").add({
-                name: projectInput,
-                creationTime: creationTime,
-                accessedTime: creationTime,
-                userId: userId
-            })
-        } else {
-            handleProjectSelect(projectInput)
-        }
-    }
 
     function handleTaskSubmit(){
         if (taskInput && selectedProject && dateInput){

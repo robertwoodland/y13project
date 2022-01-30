@@ -1,11 +1,9 @@
 import React, { Fragment, useEffect, useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { Col, Row, Form, Button, Dropdown } from 'react-bootstrap';
+import { Col, Row, Form } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
 import ThemedButton from '../components/styled/ThemedButton';
 import app from '../components/base';
 import { UserContext } from '../App';
-import ThemedDropdown from '../components/styled/ThemedDropdown';
 import ProjectDropdown from '../components/ProjectDropdown/ProjectDropdown';
 import getProjects from '../components/Firebase Functions/getProjects';
 
@@ -97,21 +95,6 @@ export default function ShowTasksPage() {
 
     function handleTaskInput(e){
         setTaskInput(e.target.value)
-    }
-
-    function handleProjectSubmit(){
-        if (projectInput && !recentProjectNames.includes(projectInput)){
-            const creationTime = Date.now()
-            handleProjectSelect(projectInput)
-            app.firestore().collection("projects").add({
-                name: projectInput,
-                creationTime: creationTime,
-                accessedTime: creationTime,
-                userId: userId
-            })
-        } else {
-            handleProjectSelect(projectInput)
-        }
     }
 
 
