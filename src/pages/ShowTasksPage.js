@@ -6,6 +6,7 @@ import app from '../components/base';
 import { UserContext } from '../App';
 import ProjectDropdown from '../components/ProjectDropdown/ProjectDropdown';
 import getProjects from '../components/Firebase Functions/getProjects';
+import TaskDetails from '../components/TaskDetailsPage/TaskDetails';
 
 
 
@@ -177,18 +178,7 @@ export default function ShowTasksPage() {
             
             return(
                 <Fragment>
-                    <Form>
-                        <Form.Label>Task Name:</Form.Label>
-                        <Form.Control className="mb-3" onChange={handleTaskInput} value={taskInput} type="name" placeholder="Test"/>
-                        
-                        <div className="mb-3">
-                            <ProjectDropdown selectedProject={selectedProject} setSelectedProject={setSelectedProject}
-                            recentProjectNames={recentProjectNames} projectInput={projectInput} 
-                            setProjectInput={setProjectInput} />
-                        </div>
-
-                    </Form>
-                    <ThemedButton>Update</ThemedButton>
+                    <TaskDetails>Update Task</TaskDetails>
                 </Fragment>
             )
         } else {

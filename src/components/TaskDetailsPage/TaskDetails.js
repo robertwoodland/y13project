@@ -15,6 +15,7 @@ export default function TaskDetails(props) {
     const [projectId, setProjectId] = useState()
     const [dateInput, setDateInput] = useState()
 
+    const {taskInputPlaceholder} = props
 
     function handleTaskInput(e){
         setTaskInput(e.target.value)
@@ -27,25 +28,6 @@ export default function TaskDetails(props) {
 
     getProjects(setRecentProjects, setRecentProjectNames)
     // 0 is project name, 1 is accessed time, 2 is ID
-
-    /*
-    function handleTaskSubmit(){
-        if (taskInput && selectedProject && dateInput){
-            updateProjectAccessed()
-            const creationTime = Date.now()
-            if (projectId) {
-                app.firestore().collection("tasks").add({
-                    name: taskInput,
-                    projectName: selectedProject,
-                    projectId: projectId,
-                    creationTime: creationTime,
-                    modifiedTime: creationTime,
-                    dueDate: dateInput
-                })
-            }
-        }
-    }
-    */
 
     useEffect(() => {
         if (selectedProject) {
@@ -75,7 +57,7 @@ export default function TaskDetails(props) {
                 <Form.Label>Task:</Form.Label>
                 <Row>
                     <Col>
-                        <Form.Control onChange={handleTaskInput} value={taskInput} type="project" placeholder="Enter task name"/>
+                        <Form.Control onChange={handleTaskInput} value={taskInput} type="project" placeholder={taskInputPlaceholder ? taskInputPlaceholder : "Enter task name"}/>
                     </Col>
                 </Row>
             </Form.Group>
