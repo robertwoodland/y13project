@@ -10,15 +10,16 @@ export default function getTasks(setRecentTasks, setMaxPageNum){
             const tasksList = querySnapshot.docs.map(doc => doc.data().name)
             const projectNames = querySnapshot.docs.map(doc => doc.data().projectName)
             const dueDates = querySnapshot.docs.map(doc => doc.data().dueDate)
+            const projectIds = querySnapshot.docs.map(doc => doc.data().projectId)
 
             const tasks = tasksList.map((taskName, index) => {
-                return [taskName, projectNames[index], dueDates[index], docIDs[index]]
+                return [taskName, projectNames[index], dueDates[index], docIDs[index], projectIds[index]]
             })
 
             setRecentTasks(tasks)
             setMaxPageNum(Math.floor(tasks.length/10) + 1)
         })
-        // 0 is name, 1 is project name, 2 is due date, 3 is ID
+        // 0 is name, 1 is project name, 2 is due date, 3 is task ID, 4 is project ID
     
       return () => unsubscribe()
     }, []);
