@@ -2,9 +2,9 @@
 Standardise task states as output of getTasks  
 Standardise project states as output of getProjects  
 
+Validate adding tasks so as not to include commas (,)
 Make updateTasks update tasks as well as adding new ones  
 Marking as complete of tasks on ShowTasksPage  
-DueDate placeholder  
 
 Add Tasks menu, and update navbar with new tasks menu
 
@@ -22,5 +22,7 @@ getTasks returns tasks correctly
 LoginPage functions work fine  
 
 ProjectDropdown is seemingly passable
+
+DatePicker placeholder updated
 
 All styled components function as expected  

@@ -7,7 +7,6 @@ import getProjects from '../Firebase Functions/getProjects'
 import taskSubmit from '../Firebase Functions/taskSubmit'
 
 export default function TaskDetails(props) {
-    const [recentProjectNames, setRecentProjectNames] = useState([])
     const [recentProjects, setRecentProjects] = useState([]);
     const [selectedProject, setSelectedProject] = useState()
     const [projectInput, setProjectInput] = useState()
@@ -17,16 +16,25 @@ export default function TaskDetails(props) {
     const [taskSubmitted, setTaskSubmitted] = useState(false);
 
     const {taskInputPlaceholder} = props
-    const projectPlaceholder = props.projectPlaceholder
+    const {projectPlaceholder} = props
+    const {dueDate} = props
 
     useEffect(() => {
       if (projectPlaceholder) {
           setSelectedProject(projectPlaceholder)
       }
     }, [projectPlaceholder]);
+
+    useEffect(() => {
+        if (dueDate) {
+            setDateInput(dueDate)
+        }
+    }, [dueDate]);
+    
+    
     
 
-    getProjects(setRecentProjects, setRecentProjectNames)
+    getProjects(setRecentProjects)
     // 0 is project name, 1 is accessed time, 2 is ID
 
     useEffect(() => {

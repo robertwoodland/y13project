@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Col, Row, Form } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
 import ThemedButton from '../components/styled/ThemedButton';
@@ -11,27 +11,29 @@ export default function ShowTasksPage() {
     const [recentTasks, setRecentTasks] = useState([]);
     const [recentProjects, setRecentProjects] = useState([]);
 
-    const [recentProjectNames, setRecentProjectNames] = useState();
     const [selectedTask, setSelectedTask] = useState();
     const [selectedProject, setSelectedProject] = useState();
     const [showTaskDetails, setShowTaskDetails] = useState(false);
     const [pageNum, setPageNum] = useState(0);
     const [maxPageNum, setMaxPageNum] = useState(0);
     const [taskInput, setTaskInput] = useState();
+    const [dueDate, setDueDate] = useState();
+    const [formattedDueDate, setFormattedDueDate] = useState();
     
 
     getTasks(setRecentTasks, setMaxPageNum)
 
     
-    getProjects(setRecentProjects, setRecentProjectNames)
+    getProjects(setRecentProjects)
     
 
     function handleTaskSelect(e){
         const value = e.target.value.split(",")
         setSelectedTask(value[0])
         setSelectedProject(value[1])
+        setDueDate(value[2] + "-" + value[3] + "-" + value[4])
+        setFormattedDueDate(value[4] + "/" + value[3])
     }
-
 
     function handleShowDetails(){
         if (selectedTask){
@@ -125,7 +127,7 @@ export default function ShowTasksPage() {
         <Fragment>
             <Row>
                 <Col>
-                    <Form.Check type="radio" value={[name, project]} label={name} name={name}/>
+                    <Form.Check type="radio" value={[name, project, dueDate]} label={name} name={name}/>
                 </Col>
                 
                 <Col>
@@ -142,7 +144,9 @@ export default function ShowTasksPage() {
             
             return(
                 <Fragment>
-                    <TaskDetails taskInputPlaceholder={selectedTask} projectPlaceholder={selectedProject}>Update Task</TaskDetails>
+                    <TaskDetails taskInputPlaceholder={selectedTask}
+                    projectPlaceholder={selectedProject} dueDate={dueDate}>Update Task
+                    </TaskDetails>
                 </Fragment>
             )
         } else {

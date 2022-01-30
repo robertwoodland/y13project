@@ -2,7 +2,7 @@ import { useEffect, useContext } from 'react'
 import app from '../base'
 import { UserContext } from '../../App';
 
-export default function getProjects(setRecentProjects, setRecentProjectNames){
+export default function getProjects(setRecentProjects){
     const uid = useContext(UserContext).userId
 
 
@@ -19,7 +19,6 @@ export default function getProjects(setRecentProjects, setRecentProjectNames){
             })
 
             setRecentProjects(projects)
-            setRecentProjectNames(projectNames)
         })  
         // 0 is project name, 1 is accessed time, 2 is ID
 
