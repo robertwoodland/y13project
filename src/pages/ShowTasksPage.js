@@ -1,12 +1,10 @@
-import React, { Fragment, useEffect, useState, useContext } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Col, Row, Form } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
 import ThemedButton from '../components/styled/ThemedButton';
-import app from '../components/base';
-import { UserContext } from '../App';
-import ProjectDropdown from '../components/ProjectDropdown/ProjectDropdown';
 import getProjects from '../components/Firebase Functions/getProjects';
 import TaskDetails from '../components/TaskDetailsPage/TaskDetails';
+import getTasks from '../components/Firebase Functions/getTasks';
 
 
 
@@ -19,61 +17,34 @@ import TaskDetails from '../components/TaskDetailsPage/TaskDetails';
 export default function ShowTasksPage() {
     const [recentTasks, setRecentTasks] = useState([]);
     const [recentProjects, setRecentProjects] = useState([]);
-
-    const [selectedProject, setSelectedProject] = useState();
     const [projectInput, setProjectInput] = useState();
 
     const [recentProjectNames, setRecentProjectNames] = useState();
     const [selectedTask, setSelectedTask] = useState();
+    const [selectedProject, setSelectedProject] = useState();
     const [showTaskDetails, setShowTaskDetails] = useState(false);
     const [pageNum, setPageNum] = useState(0);
     const [maxPageNum, setMaxPageNum] = useState(0);
     const [taskInput, setTaskInput] = useState();
-
-    const userId = useContext(UserContext).userId;
     
-    // Get tasks
-    useEffect(() => {
-        const unsubscribe = app.firestore().collection("tasks").orderBy("dueDate")
-        .onSnapshot(querySnapshot => {
-            const docIDs = querySnapshot.docs.map(doc => doc.id)
-            const tasksList = querySnapshot.docs.map(doc => doc.data().name)
-            const projectNames = querySnapshot.docs.map(doc => doc.data().projectName)
-            const dueDates = querySnapshot.docs.map(doc => doc.data().dueDate)
 
-            const tasks = tasksList.map((taskName, index) => {
-                return [taskName, projectNames[index], dueDates[index], docIDs[index]]
-            })
-
-            setRecentTasks(tasks)
-            setMaxPageNum(Math.floor(tasks.length/10) + 1)
-        })
-        // 0 is name, 1 is project name, 2 is due date, 3 is ID
-    
-      return () => unsubscribe()
-    }, []);
-
-
+    getTasks(setRecentTasks, setMaxPageNum)
 
     
     getProjects(setRecentProjects, setRecentProjectNames)
     
-    
-
-
 
     function handleTaskSelect(e){
-        setSelectedTask(e.target.value)
+        const value = e.target.value.split(",")
+        setSelectedTask(value[0])
+        setSelectedProject(value[1])
     }
+
 
     function handleShowDetails(){
         if (selectedTask){
             setShowTaskDetails(true)
         }
-    }
-
-    function handleProjectInput(projectName){
-        setProjectInput(projectName)
     }
 
     function handleMarkComplete(){
@@ -103,9 +74,11 @@ export default function ShowTasksPage() {
         const len = recentTasks.length;
         if (len > 0) {
             const names = recentTasks.map(function(task, index) {
-                if (index >= 10 * pageNum && index < (10 * pageNum) + 10) {return <RecentTask text={task}/>}
-            }
-            );
+                if (index >= 10 * pageNum && index < (10 * pageNum) + 10) {
+                    return <RecentTask text={task}/>
+                }
+            })
+
             return(
             <Fragment>
                 <div onChange={handleTaskSelect}>{names}</div>
@@ -149,6 +122,7 @@ export default function ShowTasksPage() {
         const project = text[1]
         const dueDate = text[2].split("-")
         const id = text[3]
+        // Text: 0 is name, 1 is project, 2 is dueDate, 3 is ID
 
         let formattedDueDate = ""
         if (dueDate){
@@ -159,7 +133,7 @@ export default function ShowTasksPage() {
         <Fragment>
             <Row>
                 <Col>
-                    <Form.Check type="radio" value={id} label={name} name="selectedTask"/>
+                    <Form.Check type="radio" value={[name, project]} label={name} name={name}/>
                 </Col>
                 
                 <Col>
@@ -173,12 +147,10 @@ export default function ShowTasksPage() {
 
     function SelectedDetails(){
         if (showTaskDetails && selectedTask){
-
-
             
             return(
                 <Fragment>
-                    <TaskDetails>Update Task</TaskDetails>
+                    <TaskDetails taskInputPlaceholder={selectedTask} projectPlaceholder={selectedProject}>Update Task</TaskDetails>
                 </Fragment>
             )
         } else {
