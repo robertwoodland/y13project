@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Col, Row, Form } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
 import ThemedButton from '../components/styled/ThemedButton';
@@ -10,7 +10,6 @@ import getTasks from '../components/Firebase Functions/getTasks';
 export default function ShowTasksPage() {
     const [recentTasks, setRecentTasks] = useState([]);
     const [recentProjects, setRecentProjects] = useState([]);
-    const [projectInput, setProjectInput] = useState();
 
     const [recentProjectNames, setRecentProjectNames] = useState();
     const [selectedTask, setSelectedTask] = useState();

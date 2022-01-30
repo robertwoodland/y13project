@@ -1,7 +1,5 @@
 import app from "../base";
 
-
-
 export default function handleTaskSubmit(updateProjectAccessed, setTaskSubmitted, taskInput, selectedProject, dateInput, projectId){
     if (taskInput && selectedProject && dateInput){
         updateProjectAccessed()

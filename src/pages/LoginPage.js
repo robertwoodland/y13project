@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import app from '../components/base';
 import firebase from "firebase";
-import {Redirect} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import LoginBox from "../components/LoginPage/LoginBox";
 import Loading from "../components/LoginPage/Loading";
 

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext, Fragment } from 'react';
-import { Col, Dropdown, Row, Form, FormLabel } from 'react-bootstrap';
+import React, { useContext, Fragment } from 'react';
+import { Col, Dropdown, Row, Form } from 'react-bootstrap';
 import ThemedDropdown from '../styled/ThemedDropdown';
 import ThemedButton from '../styled/ThemedButton';
 import { UserContext } from '../../App';

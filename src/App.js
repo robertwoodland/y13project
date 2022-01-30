@@ -1,5 +1,5 @@
-import React, {Fragment, useState, createContext, useEffect} from "react";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import React, { Fragment, useState, createContext, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MenuPage from "./pages/MenuPage";
 import LoginPage from "./pages/LoginPage";
 import LogoutPage from './pages/LogoutPage'
