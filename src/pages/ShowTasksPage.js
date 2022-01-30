@@ -7,13 +7,6 @@ import TaskDetails from '../components/TaskDetailsPage/TaskDetails';
 import getTasks from '../components/Firebase Functions/getTasks';
 
 
-
-// To do: Make updating tasks work
-
-
-
-
-
 export default function ShowTasksPage() {
     const [recentTasks, setRecentTasks] = useState([]);
     const [recentProjects, setRecentProjects] = useState([]);
@@ -172,6 +165,7 @@ export default function ShowTasksPage() {
                         </Col>
                         <Col>
                             {SelectedDetails()}
+                            {/* Some weird bug makes it work only when the function is called like this :/ */}
                         </Col>
                     </Row>
                 </Form.Group>
