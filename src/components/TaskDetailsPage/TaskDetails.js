@@ -75,8 +75,14 @@ export default function TaskDetails(props) {
 
 
     useEffect(() => {
-      if (taskSubmitted) {
+      if (taskSubmitted && setSelectedTask) {
           setSelectedTask()
+          setTaskSubmitted(false)
+      } else if (taskSubmitted) {
+          setTaskInput("")
+          setSelectedProject()
+          setDateInput("")
+          setTaskSubmitted(false)
       }
     }, [taskSubmitted]);
     
