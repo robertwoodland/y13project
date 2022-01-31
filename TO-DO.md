@@ -6,8 +6,6 @@ Validate adding tasks so as not to include commas (,)
 Make updateTasks update tasks as well as adding new ones  
 Marking as complete of tasks on ShowTasksPage  
 
-Add Tasks menu, and update navbar with new tasks menu
-
 ## All other areas of the app  
 
 <br/><br/>
@@ -24,5 +22,7 @@ LoginPage functions work fine
 ProjectDropdown is seemingly passable
 
 DatePicker placeholder updated
+
+Added tasks menu and updated navbar  
 
 All styled components function as expected  

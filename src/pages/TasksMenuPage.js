@@ -3,27 +3,21 @@ import { Link } from 'react-router-dom';
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
 
-export default function MenuPage() {
+export default function TasksMenuPage() {
     return (
         <ContainerPage>
             <Container align="center">
 
                 <Row align="center">
-                    <h1 className="my-3">Welcome to the Menu Page</h1>
-                </Row>
-
-                <Row>
                     <Col>
-                        <Link to='/logout'>
-                            <Button variant='primary mt-1 mb-1'>Log Out</Button>
-                        </Link>
+                        <h1 className="my-3">Welcome to the Tasks Page</h1>
                     </Col>
                 </Row>
 
                 <Row>
                     <Col>
                         <Link to="/add-tasks">
-                            <Button variant='outline-primary my-1'>Add Task</Button>
+                            <Button variant='outline-primary my-1'>Add Tasks</Button>
                         </Link>
                     </Col>
                 </Row>

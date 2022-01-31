@@ -6,6 +6,7 @@ import LogoutPage from './pages/LogoutPage'
 import ScratchPage from "./pages/ScratchPage";
 import AddTaskPage from "./pages/AddTaskPage";
 import ShowTasksPage from "./pages/ShowTasksPage";
+import TasksMenuPage from "./pages/TasksMenuPage";
 import Secured from './components/Secured';
 import app from "./components/base";
 
@@ -59,6 +60,7 @@ export default function App() {
 
                             <Route exact path="/menu" component={MenuPage}/>
                             <Route exact path="/scratch" component={ScratchPage}/>
+                            <Route exact path="/tasks-menu" component={TasksMenuPage}/>
                             <Route exact path="/add-tasks" component={AddTaskPage}/>
                             <Route exact path="/show-tasks" component={ShowTasksPage}/>
                         </UserContext.Provider>
