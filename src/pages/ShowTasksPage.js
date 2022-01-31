@@ -5,6 +5,7 @@ import ThemedButton from '../components/styled/ThemedButton';
 import getProjects from '../components/Firebase Functions/getProjects';
 import TaskDetails from '../components/TaskDetailsPage/TaskDetails';
 import getTasks from '../components/Firebase Functions/getTasks';
+import markComplete from '../components/Firebase Functions/markComplete';
 
 
 export default function ShowTasksPage() {
@@ -23,27 +24,22 @@ export default function ShowTasksPage() {
 
     getTasks(setRecentTasks, setMaxPageNum)
 
-    
     getProjects(setRecentProjects)
-    
 
     function handleTaskSelect(e){
+        // 0 is name, 1 is project name, 2 is due date, 3 is task ID, 4 is project ID
         const value = e.target.value.split(",")
-        setSelectedTask(value[0])
+        setSelectedTask(value)
         setSelectedProject(value[1])
-        setDueDate(value[2] + "-" + value[3] + "-" + value[4])
-        setFormattedDueDate(value[4] + "/" + value[3])
+
+        const date = value[2].split("-")
+        setDueDate(value[2])
+        setFormattedDueDate(date[1] + "/" + date[2])
     }
 
     function handleShowDetails(){
         if (selectedTask){
             setShowTaskDetails(true)
-        }
-    }
-
-    function handleMarkComplete(){
-        if (selectedTask){
-            console.log("Ok this is alright")
         }
     }
 
@@ -80,7 +76,7 @@ export default function ShowTasksPage() {
 
                 <Row>
                     <Col>
-                        <ThemedButton onClick={handleMarkComplete}>Mark As Complete</ThemedButton>
+                        <ThemedButton onClick={() => markComplete(selectedTask)}>Mark As Complete</ThemedButton>
                     </Col>
                     <Col>
                         <ThemedButton onClick={handleShowDetails}>Edit Details</ThemedButton>
@@ -116,7 +112,7 @@ export default function ShowTasksPage() {
         const project = text[1]
         const dueDate = text[2].split("-")
         const id = text[3]
-        // Text: 0 is name, 1 is project, 2 is dueDate, 3 is ID
+        // Text: 0 is name, 1 is project name, 2 is due date, 3 is task ID, 4 is project ID
 
         let formattedDueDate = ""
         if (dueDate){
@@ -127,7 +123,7 @@ export default function ShowTasksPage() {
         <Fragment>
             <Row>
                 <Col>
-                    <Form.Check type="radio" value={[name, project, dueDate]} label={name} name={name}/>
+                    <Form.Check type="radio" value={text} label={name} name={name}/>
                 </Col>
                 
                 <Col>
@@ -144,7 +140,7 @@ export default function ShowTasksPage() {
             
             return(
                 <Fragment>
-                    <TaskDetails taskInputPlaceholder={selectedTask}
+                    <TaskDetails taskInputPlaceholder={selectedTask[0]}
                     projectPlaceholder={selectedProject} dueDate={dueDate}>Update Task
                     </TaskDetails>
                 </Fragment>

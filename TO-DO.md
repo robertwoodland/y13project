@@ -4,7 +4,8 @@ Standardise project states as output of getProjects
 
 Validate adding tasks so as not to include commas (,)
 Make updateTasks update tasks as well as adding new ones  
-Marking as complete of tasks on ShowTasksPage  
+Completed tasks count (store in users, use as context, increment when task completed)
+
 
 ## All other areas of the app  
 
@@ -24,5 +25,7 @@ ProjectDropdown is seemingly passable
 DatePicker placeholder updated
 
 Added tasks menu and updated navbar  
+
+Marking tasks as complete on ShowTasksPage  
 
 All styled components function as expected  
