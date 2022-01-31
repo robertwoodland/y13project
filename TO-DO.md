@@ -2,7 +2,7 @@
 Standardise task states as output of getTasks  
 Standardise project states as output of getProjects  
 
-Validate adding tasks so as not to include commas (,)
+Validate adding tasks so as not to include commas (,)  
 Make updateTasks update tasks as well as adding new ones  
 Completed tasks count (store in users, use as context, increment when task completed)
 

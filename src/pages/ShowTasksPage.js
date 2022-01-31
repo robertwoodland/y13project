@@ -76,7 +76,7 @@ export default function ShowTasksPage() {
 
                 <Row>
                     <Col>
-                        <ThemedButton onClick={() => markComplete(selectedTask)}>Mark As Complete</ThemedButton>
+                        <ThemedButton onClick={() => markComplete(selectedTask, setSelectedProject, setSelectedTask, setDueDate)}>Mark As Complete</ThemedButton>
                     </Col>
                     <Col>
                         <ThemedButton onClick={handleShowDetails}>Edit Details</ThemedButton>
@@ -140,8 +140,8 @@ export default function ShowTasksPage() {
             
             return(
                 <Fragment>
-                    <TaskDetails taskInputPlaceholder={selectedTask[0]}
-                    projectPlaceholder={selectedProject} dueDate={dueDate}>Update Task
+                    <TaskDetails taskInputPlaceholder={selectedTask[0]} projectPlaceholder={selectedProject}
+                    dueDate={dueDate} update={true} selectedTask={selectedTask} setSelectedTask={setSelectedTask}>Update Task
                     </TaskDetails>
                 </Fragment>
             )

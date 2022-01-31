@@ -8,16 +8,19 @@ import taskSubmit from '../Firebase Functions/taskSubmit'
 
 export default function TaskDetails(props) {
     const [recentProjects, setRecentProjects] = useState([]);
-    const [selectedProject, setSelectedProject] = useState()
-    const [projectInput, setProjectInput] = useState()
-    const [taskInput, setTaskInput] = useState()
-    const [projectId, setProjectId] = useState()
-    const [dateInput, setDateInput] = useState()
+    const [selectedProject, setSelectedProject] = useState();
+    const [projectInput, setProjectInput] = useState();
+    const [taskInput, setTaskInput] = useState();
+    const [projectId, setProjectId] = useState();
+    const [dateInput, setDateInput] = useState();
     const [taskSubmitted, setTaskSubmitted] = useState(false);
+    const [taskInputName, setTaskInputName] = useState();
 
     const {taskInputPlaceholder} = props
     const {projectPlaceholder} = props
     const {dueDate} = props
+    const {update, selectedTask, setSelectedTask} = props
+
 
     useEffect(() => {
       if (projectPlaceholder) {
@@ -30,6 +33,18 @@ export default function TaskDetails(props) {
             setDateInput(dueDate)
         }
     }, [dueDate]);
+
+    useEffect(() => {
+        if (selectedTask) {
+            setTaskInputName(selectedTask[0])
+        } 
+    }, [selectedTask]);
+    
+    useEffect(() => {
+        if (taskInput) {
+            setTaskInputName(taskInput)
+        }
+    }, [taskInput]);
     
     
     
@@ -61,11 +76,7 @@ export default function TaskDetails(props) {
 
     useEffect(() => {
       if (taskSubmitted) {
-          setProjectInput("")
-          setSelectedProject("")
-          setDateInput("")
-          setTaskInput("")
-          setTaskSubmitted("")
+          setSelectedTask()
       }
     }, [taskSubmitted]);
     
@@ -76,7 +87,7 @@ export default function TaskDetails(props) {
                 <Form.Label>Task:</Form.Label>
                 <Row>
                     <Col>
-                        <Form.Control onChange={(e) => setTaskInput(e.target.value)} value={taskInput} type="project" placeholder={taskInputPlaceholder ? taskInputPlaceholder : "Enter task name"}/>
+                        <Form.Control onChange={(e) => setTaskInput(e.target.value)} value={taskInput} type="task" placeholder={taskInputPlaceholder ? taskInputPlaceholder : "Enter task name"}/>
                     </Col>
                 </Row>
             </Form.Group>
@@ -99,7 +110,7 @@ export default function TaskDetails(props) {
             </Form.Group>
 
             <div className="mt-5">
-                <ThemedButton onClick={() => taskSubmit(updateProjectAccessed, setTaskSubmitted, taskInput, selectedProject, dateInput, projectId)}>
+                <ThemedButton onClick={() => taskSubmit(updateProjectAccessed, setTaskSubmitted, taskInputName, selectedProject, dateInput, projectId, update, selectedTask)}>
                     {props.children}
                 </ThemedButton>
             </div>
