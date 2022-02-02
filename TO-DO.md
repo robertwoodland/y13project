@@ -2,8 +2,6 @@
 Standardise task states as output of getTasks  
 Standardise project states as output of getProjects  
 
-Unnecessary .get from firebase to get projectId by projectName in TaskDetails.js   
-
 Break out ShowRecentTasks from ShowTasksPage  
 
 Completed tasks count (store in users, use as context, increment when task completed)
@@ -32,8 +30,10 @@ Added tasks menu and updated navbar
 
 Marking tasks as complete on ShowTasksPage  
 
-Make updateTasks update tasks as well as adding new ones  
+Made updateTasks update tasks as well as adding new ones  
 
-Validate adding tasks so as not to include commas  
+Validated adding tasks so as not to include commas  
+
+Replaced unnecessary .get from firebase to get projectId by projectName in TaskDetails.js   
 
 All styled components function as expected  
