@@ -42,7 +42,8 @@ export default function TaskDetails(props) {
     
     useEffect(() => {
         if (taskInput) {
-            setTaskInputName(taskInput)
+            let taskInputValid = taskInput.replace(',', '')
+            setTaskInputName(taskInputValid)
         }
     }, [taskInput]);
     

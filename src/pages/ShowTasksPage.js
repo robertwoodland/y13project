@@ -3,7 +3,7 @@ import { Col, Row, Form } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
 import ThemedButton from '../components/styled/ThemedButton';
 import getProjects from '../components/Firebase Functions/getProjects';
-import TaskDetails from '../components/TaskDetailsPage/TaskDetails';
+import TaskDetails from '../components/TaskDetails/TaskDetails';
 import getTasks from '../components/Firebase Functions/getTasks';
 import markComplete from '../components/Firebase Functions/markComplete';
 

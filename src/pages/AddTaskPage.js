@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
-import TaskDetails from '../components/TaskDetailsPage/TaskDetails';
+import TaskDetails from '../components/TaskDetails/TaskDetails';
 
 export default function AddTaskPage() {
     document.body.style.overflow = "hidden"
