@@ -2,11 +2,12 @@
 Standardise task states as output of getTasks  
 Standardise project states as output of getProjects  
 
-Validate adding tasks so as not to include commas (,)  
 Completed tasks count (store in users, use as context, increment when task completed)
 
 
 ## All other areas of the app  
+### Timers
+### Preferences
 
 <br/><br/>
 
@@ -28,5 +29,7 @@ Added tasks menu and updated navbar
 Marking tasks as complete on ShowTasksPage  
 
 Make updateTasks update tasks as well as adding new ones  
+
+Validate adding tasks so as not to include commas  
 
 All styled components function as expected  
