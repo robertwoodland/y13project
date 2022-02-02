@@ -2,6 +2,8 @@
 Standardise task states as output of getTasks  
 Standardise project states as output of getProjects  
 
+Unnecessary .get from firebase to get projectId by projectName in TaskDetails.js   
+
 Completed tasks count (store in users, use as context, increment when task completed)
 
 

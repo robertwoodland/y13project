@@ -8,7 +8,7 @@ export default function taskSubmit(updateProjectAccessed, setTaskSubmitted, task
     }
     
     if (taskInputName && selectedProject && dateInput){
-        updateProjectAccessed()
+        updateProjectAccessed(projectId)
         const currentTime = Date.now()
         if (projectId && !update) {
             app.firestore().collection("tasks").add({

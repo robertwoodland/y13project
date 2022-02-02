@@ -3,8 +3,9 @@ import { Col, Row, Form } from 'react-bootstrap';
 import app from '../base';
 import ThemedButton from '../styled/ThemedButton';
 import ProjectDropdown from '../ProjectDropdown/ProjectDropdown';
-import getProjects from '../Firebase Functions/getProjects'
-import taskSubmit from '../Firebase Functions/taskSubmit'
+import getProjects from '../Firebase Functions/getProjects';
+import taskSubmit from '../Firebase Functions/taskSubmit';
+import updateProjectAccessed from '../Firebase Functions/updateProjectAccessed';
 
 export default function TaskDetails(props) {
     const [recentProjects, setRecentProjects] = useState([]);
@@ -52,6 +53,7 @@ export default function TaskDetails(props) {
 
     getProjects(setRecentProjects)
     // 0 is project name, 1 is accessed time, 2 is ID
+    
 
     useEffect(() => {
         if (selectedProject) {
@@ -65,15 +67,6 @@ export default function TaskDetails(props) {
             });
         }
     }, [selectedProject])
-
-
-    function updateProjectAccessed(){
-        const accessedTime = Date.now();
-        app.firestore().collection("projects").doc(projectId).update({
-            accessedTime: accessedTime
-        })
-    }
-
 
     useEffect(() => {
       if (taskSubmitted && setSelectedTask) {
