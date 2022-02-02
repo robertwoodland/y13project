@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { Col, Row, Form } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
 import ThemedButton from '../components/styled/ThemedButton';
-import getProjects from '../components/Firebase Functions/getProjects';
 import TaskDetails from '../components/TaskDetails/TaskDetails';
 import getTasks from '../components/Firebase Functions/getTasks';
 import markComplete from '../components/Firebase Functions/markComplete';
@@ -10,21 +9,18 @@ import markComplete from '../components/Firebase Functions/markComplete';
 
 export default function ShowTasksPage() {
     const [recentTasks, setRecentTasks] = useState([]);
-    const [recentProjects, setRecentProjects] = useState([]);
 
     const [selectedTask, setSelectedTask] = useState();
     const [selectedProject, setSelectedProject] = useState();
+    
     const [showTaskDetails, setShowTaskDetails] = useState(false);
+    const [formattedDueDate, setFormattedDueDate] = useState();
     const [pageNum, setPageNum] = useState(0);
     const [maxPageNum, setMaxPageNum] = useState(0);
-    const [taskInput, setTaskInput] = useState();
     const [dueDate, setDueDate] = useState();
-    const [formattedDueDate, setFormattedDueDate] = useState();
     
 
     getTasks(setRecentTasks, setMaxPageNum)
-
-    getProjects(setRecentProjects)
 
     function handleTaskSelect(e){
         // 0 is name, 1 is project name, 2 is due date, 3 is task ID, 4 is project ID
@@ -55,17 +51,12 @@ export default function ShowTasksPage() {
         }
     }
 
-    function handleTaskInput(e){
-        setTaskInput(e.target.value)
-    }
-
-
     function ShowRecentTasks(){
         const len = recentTasks.length;
         if (len > 0) {
             const names = recentTasks.map(function(task, index) {
                 if (index >= 10 * pageNum && index < (10 * pageNum) + 10) {
-                    return <RecentTask text={task}/>
+                    return <RecentTask key={task} text={task}/>
                 }
             })
 

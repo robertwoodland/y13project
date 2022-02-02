@@ -8,7 +8,7 @@ import taskSubmit from '../Firebase Functions/taskSubmit';
 import updateProjectAccessed from '../Firebase Functions/updateProjectAccessed';
 
 export default function TaskDetails(props) {
-    const [recentProjects, setRecentProjects] = useState([]);
+    const [recentProjects, setRecentProjects] = useState();
     const [selectedProject, setSelectedProject] = useState();
     const [projectInput, setProjectInput] = useState();
     const [taskInput, setTaskInput] = useState();
@@ -53,20 +53,18 @@ export default function TaskDetails(props) {
 
     getProjects(setRecentProjects)
     // 0 is project name, 1 is accessed time, 2 is ID
-    
 
+
+    // Sets projectId after project selected from dropdown
     useEffect(() => {
-        if (selectedProject) {
-            let docId = ""
-            app.firestore().collection("projects").where("name", "==", selectedProject)
-            .get().then((querySnapshot) => {
-                querySnapshot.forEach((doc) => {
-                    docId = doc.id
-                });
-                setProjectId(docId)
-            });
+        if (selectedProject && recentProjects) {
+            const projectNames = recentProjects.map((project) => project[0])
+            let index = projectNames.indexOf(selectedProject)
+            
+            setProjectId(recentProjects[index][2])
         }
-    }, [selectedProject])
+    }, [selectedProject]);
+    
 
     useEffect(() => {
       if (taskSubmitted && setSelectedTask) {
