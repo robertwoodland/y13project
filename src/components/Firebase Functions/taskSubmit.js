@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import app from "../base";
 
 export default async function taskSubmit(updateProjectAccessed, setTaskSubmitted, taskInputName, selectedProject, dateInput, projectId, update, selectedTask){
