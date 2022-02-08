@@ -4,6 +4,10 @@ Standardise project states as output of getProjects
 
 Break out ShowRecentTasks from ShowTasksPage  
 
+Fix white box height on mobile on ShowTasksPage  
+
+Maybe use Bootstrap toasts with autohide property to show task being added to database  
+
 Completed tasks count (store in users, use as context, increment when task completed)
 
 

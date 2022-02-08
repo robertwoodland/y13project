@@ -46,7 +46,7 @@ export default function ShowTasksPage() {
     }
 
     function incPageNum(){
-        if (pageNum < maxPageNum) {
+        if (pageNum + 1 < maxPageNum) {
             setPageNum((prevState) => prevState + 1)
         }
     }
