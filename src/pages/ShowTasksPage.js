@@ -5,6 +5,7 @@ import ThemedButton from '../components/styled/ThemedButton';
 import TaskDetails from '../components/TaskDetails/TaskDetails';
 import getTasks from '../components/Firebase Functions/getTasks';
 import markComplete from '../components/Firebase Functions/markComplete';
+import SubmissionToast from '../components/styled/SubmissionToast';
 
 
 export default function ShowTasksPage() {
@@ -18,6 +19,7 @@ export default function ShowTasksPage() {
     const [pageNum, setPageNum] = useState(0);
     const [maxPageNum, setMaxPageNum] = useState(0);
     const [dueDate, setDueDate] = useState();
+    const [showToast, setShowToast] = useState(true);
     
 
     getTasks(setRecentTasks, setMaxPageNum)
@@ -145,6 +147,7 @@ export default function ShowTasksPage() {
 
     return (
         <ContainerPage>
+            <SubmissionToast showToast={showToast} setShowToast={setShowToast} update={true}/>
             <Form>
                 <Form.Group className="mb-3">
                     <Form.Label>Recent tasks:</Form.Label>
