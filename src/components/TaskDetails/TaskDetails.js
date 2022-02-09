@@ -16,7 +16,7 @@ export default function TaskDetails(props) {
     const [taskSubmitted, setTaskSubmitted] = useState(false);
     const [taskInputName, setTaskInputName] = useState();
 
-    const {showToast, setShowToast} = props
+    const {setShowToast} = props
     const {taskInputPlaceholder} = props
     const {projectPlaceholder} = props
     const {dueDate} = props
@@ -24,9 +24,9 @@ export default function TaskDetails(props) {
 
 
     useEffect(() => {
-      if (projectPlaceholder) {
-          setSelectedProject(projectPlaceholder)
-      }
+        if (projectPlaceholder) {
+            setSelectedProject(projectPlaceholder)
+        }
     }, [projectPlaceholder]);
 
     useEffect(() => {
@@ -38,6 +38,7 @@ export default function TaskDetails(props) {
     useEffect(() => {
         if (selectedTask) {
             setTaskInputName(selectedTask[0])
+            setProjectId(selectedTask[4])
         } 
     }, [selectedTask]);
     
@@ -49,6 +50,14 @@ export default function TaskDetails(props) {
     }, [taskInput]);
     
     function handleSubmit(updateProjectAccessed, setTaskSubmitted, taskInputName, selectedProject, dateInput, projectId, update, selectedTask){
+        if (selectedTask) {
+            setShowToast(true)
+        }
+        if (projectId) {
+            console.log("projectId in TaskDetails.js = " && projectId)
+        } else {
+            console.log("no projectID")
+        }
         taskSubmit(updateProjectAccessed, setTaskSubmitted, taskInputName, selectedProject, dateInput, projectId, update, selectedTask)
     }
     
@@ -62,7 +71,7 @@ export default function TaskDetails(props) {
         if (selectedProject && recentProjects) {
             const projectNames = recentProjects.map((project) => project[0])
             let index = projectNames.indexOf(selectedProject)
-            
+
             setProjectId(recentProjects[index][2])
         }
     }, [selectedProject]);

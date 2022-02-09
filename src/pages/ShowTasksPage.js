@@ -19,9 +19,8 @@ export default function ShowTasksPage() {
     const [pageNum, setPageNum] = useState(0);
     const [maxPageNum, setMaxPageNum] = useState(0);
     const [dueDate, setDueDate] = useState();
-    const [showToast, setShowToast] = useState(true);
+    const [showToast, setShowToast] = useState(false);
     
-
     getTasks(setRecentTasks, setMaxPageNum)
 
     function handleTaskSelect(e){
@@ -134,7 +133,8 @@ export default function ShowTasksPage() {
             return(
                 <Fragment>
                     <TaskDetails taskInputPlaceholder={selectedTask[0]} projectPlaceholder={selectedProject}
-                    dueDate={dueDate} update={true} selectedTask={selectedTask} setSelectedTask={setSelectedTask}>Update Task
+                    dueDate={dueDate} update={true} selectedTask={selectedTask} setSelectedTask={setSelectedTask}
+                    setShowToast={setShowToast} selectedProject={selectedProject}>Update Task
                     </TaskDetails>
                 </Fragment>
             )
