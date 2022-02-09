@@ -53,11 +53,6 @@ export default function TaskDetails(props) {
         if (selectedTask) {
             setShowToast(true)
         }
-        if (projectId) {
-            console.log("projectId in TaskDetails.js = " && projectId)
-        } else {
-            console.log("no projectID")
-        }
         taskSubmit(updateProjectAccessed, setTaskSubmitted, taskInputName, selectedProject, dateInput, projectId, update, selectedTask)
     }
     
@@ -91,7 +86,7 @@ export default function TaskDetails(props) {
     
 
     return (
-        <Form>
+        <Fragment>
             <Form.Group className="mb-3" controlId="formProject">
                 <Form.Label>Task:</Form.Label>
                 <Row>
@@ -123,6 +118,6 @@ export default function TaskDetails(props) {
                     {props.children}
                 </ThemedButton>
             </div>
-        </Form>
+        </Fragment>
     )
 }

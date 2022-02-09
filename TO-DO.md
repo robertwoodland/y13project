@@ -10,7 +10,8 @@ Maybe use Bootstrap toasts with autohide property to show task being added to da
 
 Completed tasks count (store in users, use as context, increment when task completed)  
 
-Fix issues where tasks not being updated properly (no projectId)  
+Change keys to use indeces from .map rather than names  
+
 
 
 ## All other areas of the app  
@@ -43,3 +44,5 @@ Validated adding tasks so as not to include commas
 Replaced unnecessary .get from firebase to get projectId by projectName in TaskDetails.js   
 
 All styled components function as expected  
+
+Fix issues where tasks not being updated properly (no projectId)  

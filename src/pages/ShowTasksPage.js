@@ -57,7 +57,7 @@ export default function ShowTasksPage() {
         if (len > 0) {
             const names = recentTasks.map(function(task, index) {
                 if (index >= 10 * pageNum && index < (10 * pageNum) + 10) {
-                    return <RecentTask key={task} text={task}/>
+                    return <RecentTask key={index} text={task}/>
                 }
             })
 

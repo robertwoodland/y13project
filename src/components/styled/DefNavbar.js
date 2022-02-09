@@ -18,29 +18,29 @@ export default function DefNavbar() {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
 
-                            <Nav.Link>
-                                <Link to="/menu" style={linkStyle}>Menu</Link>
+                            <Nav.Link as={Link} to="/menu">
+                                Menu
                             </Nav.Link>
 
 
-                            <Nav.Link>
-                                <Link to="/tasks-menu" style={linkStyle}>Tasks</Link>
+                            <Nav.Link as={Link} to="/tasks-menu">
+                                Tasks
                             </Nav.Link>
 
-                            <Nav.Link>
-                                <Link to="#/timer" style={linkStyle}>Timer</Link>
+                            <Nav.Link as={Link} to="#/timer">
+                                Timer
                             </Nav.Link>
 
-                            <Nav.Link>
-                                <Link to="#/projects" style={linkStyle}>Projects</Link>
+                            <Nav.Link as={Link} to="#/projects">
+                                Projects
                             </Nav.Link>
 
-                            <Nav.Link>
-                                <Link to="#/preferences" style={linkStyle}>Preferences</Link>
+                            <Nav.Link as={Link} to="#/preferences">
+                                Preferences
                             </Nav.Link>
 
-                            <Nav.Link>
-                                <Link to="/logout" style={linkStyle}>Log Out</Link>
+                            <Nav.Link as={Link} to="/logout">
+                                Log Out
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>

@@ -15,8 +15,8 @@ export default function RecentProjectsMenu(props){
     }
 
     if (len > 0){
-        const recentNames = recentProjectNames.slice(0, 5).map((projectName) =>
-        <RecentProject key={projectName} text={projectName} setSelectedProject={setSelectedProject}/>
+        const recentNames = recentProjectNames.slice(0, 5).map((projectName, index) =>
+        <RecentProject key={index} text={projectName} setSelectedProject={setSelectedProject}/>
         );
         return(<Fragment>{recentNames}</Fragment>)
 
