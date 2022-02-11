@@ -1,6 +1,7 @@
 # Stuff yet to do
 Standardise task states as output of getTasks  
 Standardise project states as output of getProjects  
+Standardise array of functions to pass as props  
 
 Break out ShowRecentTasks from ShowTasksPage  
 
@@ -9,8 +10,6 @@ Fix white box height on mobile on ShowTasksPage
 Maybe use Bootstrap toasts with autohide property to show task being added to database  
 
 Completed tasks count (store in users, use as context, increment when task completed)  
-
-Change keys to use indeces from .map rather than names  
 
 
 
@@ -46,3 +45,9 @@ Replaced unnecessary .get from firebase to get projectId by projectName in TaskD
 All styled components function as expected  
 
 Fix issues where tasks not being updated properly (no projectId)  
+
+Changed keys to use indeces from .map rather than names  
+
+Fixed toast on AddTasksPage  
+
+Fixed sorting of getProjects  

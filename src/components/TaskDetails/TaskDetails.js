@@ -50,7 +50,7 @@ export default function TaskDetails(props) {
     }, [taskInput]);
     
     function handleSubmit(updateProjectAccessed, setTaskSubmitted, taskInputName, selectedProject, dateInput, projectId, update, selectedTask){
-        if (selectedTask) {
+        if (selectedTask || taskInputName) {
             setShowToast(true)
         }
         taskSubmit(updateProjectAccessed, setTaskSubmitted, taskInputName, selectedProject, dateInput, projectId, update, selectedTask)
