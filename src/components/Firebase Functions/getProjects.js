@@ -4,7 +4,7 @@ import { UserContext } from '../../App';
 
 export default function getProjects(setRecentProjects){
     const {uid} = useContext(UserContext)
-    console.log(uid)
+    
     // Get projects
     useEffect(() => {
         const unsubscribe = app.firestore().collection("projects")
