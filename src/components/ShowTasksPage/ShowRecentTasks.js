@@ -1,10 +1,13 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useContext } from 'react'
 import RecentTask from './RecentTask';
 import ThemedButton from '../styled/ThemedButton';
 import { Form, Col, Row } from 'react-bootstrap';
+import { UserContext } from '../../App';
 
 
 export default function ShowRecentTasks(props){
+
+    const {taskCount, setTaskCount, uid} = useContext(UserContext)
 
     const {recentTasks} = props
     const {pageNum} = props
@@ -16,7 +19,6 @@ export default function ShowRecentTasks(props){
     const {setFormattedDueDate} = props
 
     function handleTaskSelect(e){
-        console.log("Task selected")
         // 0 is name, 1 is project name, 2 is due date, 3 is task ID, 4 is project ID
         const value = e.target.value.split(",")
         setSelectedTask(value)
@@ -43,7 +45,7 @@ export default function ShowRecentTasks(props){
 
             <Row>
                 <Col>
-                    <ThemedButton onClick={() => markComplete(selectedTask, setSelectedProject, setSelectedTask, setDueDate)}>Mark As Complete</ThemedButton>
+                    <ThemedButton onClick={() => markComplete(selectedTask, setSelectedProject, setSelectedTask, setDueDate, taskCount, setTaskCount, uid)}>Mark As Complete</ThemedButton>
                 </Col>
                 <Col>
                     <ThemedButton onClick={handleShowDetails}>Edit Details</ThemedButton>

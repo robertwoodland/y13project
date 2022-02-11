@@ -3,7 +3,7 @@ import app from '../base'
 import { UserContext } from '../../App';
 
 export default function getProjects(setRecentProjects){
-    const uid = useContext(UserContext).userId
+    const {uid} = useContext(UserContext)
 
 
     // Get projects

@@ -10,14 +10,16 @@ import TasksMenuPage from "./pages/TasksMenuPage";
 import Secured from './components/Secured';
 import app from "./components/base";
 
+
 export const ThemeContext = createContext();
 export const UserContext = createContext();
 
 export default function App() {
     const [auth, setAuth] = useState(null)
+    const [taskCount, setTaskCount] = useState(0)
 
     const [userColours, setUserColours] = useState(['#c4b5fd', '#9333ea']) // [backgroundColour, buttonColour]
-    const [userId, setUserId] = useState()
+    const [uid, setUid] = useState()
     
     useEffect(() => {
         if (auth) {
@@ -25,15 +27,19 @@ export default function App() {
             const uid = auth.uid
             const firstName = auth.displayName.split(" ")[0]
 
-            setUserId(uid)
+            setUid(uid)
 
             app.firestore().collection("users").doc(uid).get().then((data) => {
                 if (!data.exists) {
                     app.firestore().collection("users").doc(uid).set({
                         firstName,
-                        email
+                        email,
+                        taskCount
                     })
-                }})
+                } else {
+                    setTaskCount(data.data().taskCount)
+                }
+            })
     }}, [auth])
     // THIS IS BIG SECURITY VULNERABILITY, AS USER CREATION CAN BE SPAMMED
     // Use a cloud function in future
@@ -56,7 +62,7 @@ export default function App() {
 
                     <Secured auth={auth}>
                         <ThemeContext.Provider value={{userColours: userColours, setUserColours: setUserColours}}>
-                        <UserContext.Provider value={{userId: userId}}>
+                        <UserContext.Provider value={{uid: uid, taskCount: taskCount, setTaskCount: setTaskCount}}>
 
                             <Route exact path="/menu" component={MenuPage}/>
                             <Route exact path="/scratch" component={ScratchPage}/>

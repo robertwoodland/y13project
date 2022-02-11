@@ -7,10 +7,12 @@ import getTasks from '../components/Firebase Functions/getTasks';
 import markComplete from '../components/Firebase Functions/markComplete';
 import SubmissionToast from '../components/styled/SubmissionToast';
 import ShowRecentTasks from '../components/ShowTasksPage/ShowRecentTasks';
+import getProjects from '../components/Firebase Functions/getProjects';
 
 
 export default function ShowTasksPage() {
     const [recentTasks, setRecentTasks] = useState([]);
+    const [recentProjects, setRecentProjects] = useState([]);
 
     const [selectedTask, setSelectedTask] = useState();
     const [selectedProject, setSelectedProject] = useState();
@@ -22,7 +24,8 @@ export default function ShowTasksPage() {
     const [dueDate, setDueDate] = useState();
     const [showToast, setShowToast] = useState(false);
     
-    getTasks(setRecentTasks, setMaxPageNum)
+    getProjects(setRecentProjects)
+    getTasks(setRecentTasks, setMaxPageNum, recentProjects)
 
     function handleShowDetails(){
         if (selectedTask){

@@ -1,4 +1,4 @@
-import app from '../base'
+import app from '../base';
 
 export default function getProjects(projectId){
     const accessedTime = Date.now();

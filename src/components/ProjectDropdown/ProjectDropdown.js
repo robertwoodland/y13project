@@ -7,7 +7,7 @@ import handleProjectSubmit from './handleProjectSubmit';
 import RecentProjectsMenu from './RecentProjectsMenu';
 
 export default function ProjectDropdown(props) {
-    const uid = useContext(UserContext).userId
+    const {uid} = useContext(UserContext)
 
     const {selectedProject, setSelectedProject} = props
     const {projectInput, setProjectInput} = props
