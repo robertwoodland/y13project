@@ -18,6 +18,10 @@ export default function getProjects(setRecentProjects){
                 return [projectName, accessedTimes[index], projectIds[index]]
             })
 
+            let sortedProjects = projects.sort(function(a,b) {
+                return b[1] - a[1]
+            })
+
             setRecentProjects(projects)
         })  
         // 0 is project name, 1 is accessed time, 2 is ID
