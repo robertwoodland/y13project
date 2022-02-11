@@ -14,7 +14,7 @@ export default function AddTaskPage() {
             <SubmissionToast showToast={showToast} update={false} setShowToast={setShowToast}/>
             <Row>
                 <Col>
-                    <TaskDetails showToast={showToast}>Add Task</TaskDetails>
+                    <TaskDetails showToast={showToast} setShowToast={setShowToast}>Add Task</TaskDetails>
                 </Col>
             </Row>
         </ContainerPage>
