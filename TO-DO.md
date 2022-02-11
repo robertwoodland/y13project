@@ -2,7 +2,7 @@
 Standardise task states as output of getTasks  
 Standardise project states as output of getProjects  
 Standardise array of functions to pass as props  
-Maybe use objects with names rather than just indexes  
+Maybe use objects with names rather than just indexes - bad idea as you can't use .map()  
 (const task = {  
     name: taskName,  
     id: taskId  

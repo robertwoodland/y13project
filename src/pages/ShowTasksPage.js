@@ -25,6 +25,8 @@ export default function ShowTasksPage() {
     const [showToast, setShowToast] = useState(false);
     
     getProjects(setRecentProjects)
+    // 0 is project name, 1 is accessed time, 2 is ID
+    
     getTasks(setRecentTasks, setMaxPageNum, recentProjects)
 
     function handleShowDetails(){

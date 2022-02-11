@@ -1,6 +1,6 @@
 import app from '../base';
 
-export default function getProjects(projectId){
+export default function updateProjectAccessed(projectId){
     const accessedTime = Date.now();
     app.firestore().collection("projects").doc(projectId).update({
         accessedTime: accessedTime
