@@ -5,7 +5,6 @@ import { UserContext } from '../../App';
 export default function getProjects(setRecentProjects){
     const {uid} = useContext(UserContext)
 
-
     // Get projects
     useEffect(() => {
         const unsubscribe = app.firestore().collection("projects")
@@ -21,8 +20,8 @@ export default function getProjects(setRecentProjects){
             let sortedProjects = projects.sort(function(a,b) {
                 return b[1] - a[1]
             })
-
-            setRecentProjects(projects)
+            
+            setRecentProjects(sortedProjects)
         })  
         // 0 is project name, 1 is accessed time, 2 is ID
 
