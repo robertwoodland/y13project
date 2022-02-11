@@ -11,7 +11,7 @@ export default function ProjectDropdown(props) {
 
     const {selectedProject, setSelectedProject} = props
     const {projectInput, setProjectInput} = props
-    const {recentProjects} = props
+    const {recentProjects, setProjectId} = props
 
 
     return(
@@ -30,7 +30,7 @@ export default function ProjectDropdown(props) {
                         </Col>
 
                         <Col align="centre" className="col-4">
-                            <ThemedButton onClick={() => handleProjectSubmit(uid, projectInput, recentProjects, setSelectedProject)}>Submit</ThemedButton>
+                            <ThemedButton onClick={() => handleProjectSubmit(uid, projectInput, recentProjects, setSelectedProject, setProjectId)}>Submit</ThemedButton>
                         </Col>
                     </Row>
 

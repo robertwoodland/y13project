@@ -1,6 +1,6 @@
 import app from "../base"
 
-export default function handleProjectSubmit(uid, projectInput, recentProjects, setSelectedProject){
+export default function handleProjectSubmit(uid, projectInput, recentProjects, setSelectedProject, setProjectId){
     const recentProjectNames = recentProjects.map(item => item[0])
     if (projectInput && !recentProjectNames.includes(projectInput)){
         const creationTime = Date.now()
@@ -10,7 +10,11 @@ export default function handleProjectSubmit(uid, projectInput, recentProjects, s
             creationTime: creationTime,
             accessedTime: creationTime,
             userId: uid
-        })
+        }).then((docRef) => {
+            setProjectId(docRef.id)
+            console.log(docRef.id)
+        }
+        )
     } else {
         setSelectedProject(projectInput)
     }

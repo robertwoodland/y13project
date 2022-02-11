@@ -67,10 +67,18 @@ export default function TaskDetails(props) {
             const projectNames = recentProjects.map((project) => project[0])
             let index = projectNames.indexOf(selectedProject)
 
-            setProjectId(recentProjects[index][2])
+            if (index >= 0) {
+                setProjectId(recentProjects[index][2])
+            }
         }
     }, [selectedProject]);
     
+
+    // Sets projectId after project is created and added to database
+    useEffect(() => {
+        
+    
+    }, [])
 
     useEffect(() => {
       if (taskSubmitted && setSelectedTask) {
@@ -101,7 +109,7 @@ export default function TaskDetails(props) {
                 
                 <ProjectDropdown selectedProject={selectedProject} setSelectedProject={setSelectedProject}
                 projectInput={projectInput} recentProjects={recentProjects}
-                setProjectInput={setProjectInput} />
+                setProjectInput={setProjectInput} setProjectId={setProjectId} />
 
                 <Form.Group className="mb-3 mt-3" controlId="formDueDate">
                     <Row>
