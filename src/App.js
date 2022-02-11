@@ -16,7 +16,6 @@ export const UserContext = createContext();
 
 export default function App() {
     const [auth, setAuth] = useState(null)
-    const [taskCount, setTaskCount] = useState(0)
 
     const [userColours, setUserColours] = useState(['#c4b5fd', '#9333ea']) // [backgroundColour, buttonColour]
     const [uid, setUid] = useState()
@@ -31,13 +30,12 @@ export default function App() {
 
             app.firestore().collection("users").doc(uid).get().then((data) => {
                 if (!data.exists) {
+                    const taskCount = 0
                     app.firestore().collection("users").doc(uid).set({
                         firstName,
                         email,
                         taskCount
                     })
-                } else {
-                    setTaskCount(data.data().taskCount)
                 }
             })
     }}, [auth])
@@ -62,7 +60,7 @@ export default function App() {
 
                     <Secured auth={auth}>
                         <ThemeContext.Provider value={{userColours: userColours, setUserColours: setUserColours}}>
-                        <UserContext.Provider value={{uid: uid, taskCount: taskCount, setTaskCount: setTaskCount}}>
+                        <UserContext.Provider value={{uid: uid}}>
 
                             <Route exact path="/menu" component={MenuPage}/>
                             <Route exact path="/scratch" component={ScratchPage}/>

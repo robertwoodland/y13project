@@ -7,7 +7,7 @@ import { UserContext } from '../../App';
 
 export default function ShowRecentTasks(props){
 
-    const {taskCount, setTaskCount, uid} = useContext(UserContext)
+    const {uid} = useContext(UserContext)
 
     const {recentTasks} = props
     const {pageNum} = props
@@ -45,7 +45,7 @@ export default function ShowRecentTasks(props){
 
             <Row>
                 <Col>
-                    <ThemedButton onClick={() => markComplete(selectedTask, setSelectedProject, setSelectedTask, setDueDate, taskCount, setTaskCount, uid)}>Mark As Complete</ThemedButton>
+                    <ThemedButton onClick={() => markComplete(selectedTask, setSelectedProject, setSelectedTask, setDueDate, uid)}>Mark As Complete</ThemedButton>
                 </Col>
                 <Col>
                     <ThemedButton onClick={handleShowDetails}>Edit Details</ThemedButton>
