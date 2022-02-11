@@ -50,9 +50,6 @@ export default function TaskDetails(props) {
     }, [taskInput]);
     
     function handleSubmit(updateProjectAccessed, setTaskSubmitted, taskInputName, selectedProject, dateInput, projectId, update, selectedTask){
-        if (selectedTask || taskInputName) {
-            setShowToast(true)
-        }
         taskSubmit(updateProjectAccessed, setTaskSubmitted, taskInputName, selectedProject, dateInput, projectId, update, selectedTask)
     }
     
@@ -72,24 +69,20 @@ export default function TaskDetails(props) {
             }
         }
     }, [selectedProject]);
-    
 
-    // Sets projectId after project is created and added to database
-    useEffect(() => {
-        
     
-    }, [])
-
     useEffect(() => {
-      if (taskSubmitted && setSelectedTask) {
-          setSelectedTask()
-          setTaskSubmitted(false)
-      } else if (taskSubmitted) {
-          setTaskInput("")
-          setSelectedProject()
-          setDateInput("")
-          setTaskSubmitted(false)
-      }
+        if (taskSubmitted && setSelectedTask) {
+            setSelectedTask()
+            setTaskSubmitted(false)
+            setShowToast(true)
+        } else if (taskSubmitted) {
+            setTaskInput("")
+            setSelectedProject()
+            setDateInput("")
+            setTaskSubmitted(false)
+            setShowToast(true)
+        }
     }, [taskSubmitted]);
     
 
@@ -122,7 +115,7 @@ export default function TaskDetails(props) {
             </Form.Group>
 
             <div className="mt-5">
-                <ThemedButton onClick={() => handleSubmit(updateProjectAccessed, setTaskSubmitted, taskInputName, selectedProject, dateInput, projectId, update, selectedTask)}>
+                <ThemedButton onClick={() => taskSubmit(updateProjectAccessed, setTaskSubmitted, taskInputName, selectedProject, dateInput, projectId, update, selectedTask)}>
                     {props.children}
                 </ThemedButton>
             </div>

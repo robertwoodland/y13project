@@ -45,7 +45,7 @@ export default function ShowRecentTasks(props){
 
             <Row>
                 <Col>
-                    <ThemedButton onClick={() => markComplete(selectedTask, setSelectedProject, setSelectedTask, setDueDate, uid)}>Mark As Complete</ThemedButton>
+                    <ThemedButton onClick={() => markComplete(selectedTask, setSelectedProject, setSelectedTask, setDueDate)}>Mark As Complete</ThemedButton>
                 </Col>
                 <Col>
                     <ThemedButton onClick={handleShowDetails}>Edit Details</ThemedButton>
