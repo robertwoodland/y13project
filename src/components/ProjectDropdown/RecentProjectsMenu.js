@@ -7,7 +7,10 @@ export default function RecentProjectsMenu(props){
     const {recentProjects} = props
     const {setSelectedProject} = props
     
-    const recentProjectNames = recentProjects.map(project => project[0])
+    let recentProjectNames = []
+    if (recentProjects) {
+        recentProjectNames = recentProjects.map(project => project[0])
+    }
 
     let len = 0
     if (recentProjectNames) {
