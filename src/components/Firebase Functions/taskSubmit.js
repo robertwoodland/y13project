@@ -1,6 +1,8 @@
+import { useContext } from "react";
 import app from "../base";
+import { UserContext } from '../../App';
 
-export default async function taskSubmit(updateProjectAccessed, setTaskSubmitted, taskInputName, selectedProject, dateInput, projectId, update, selectedTask){
+export default async function taskSubmit(updateProjectAccessed, setTaskSubmitted, taskInputName, selectedProject, dateInput, projectId, update, selectedTask, uid){
 
     let taskId = ""
     if (selectedTask) {
@@ -21,7 +23,8 @@ export default async function taskSubmit(updateProjectAccessed, setTaskSubmitted
                 projectId: projectId,
                 creationTime: currentTime,
                 modifiedTime: currentTime,
-                dueDate: dateInput
+                dueDate: dateInput,
+                uid: uid
             })
             setTaskSubmitted(true)
         } else if (projectId && update && taskId) {
@@ -30,7 +33,8 @@ export default async function taskSubmit(updateProjectAccessed, setTaskSubmitted
                 projectName: selectedProject,
                 projectId: projectId,
                 modifiedTime: currentTime,
-                dueDate: dateInput
+                dueDate: dateInput,
+                uid: uid
             })
             setTaskSubmitted(true)
         }

@@ -9,7 +9,8 @@ Maybe use objects with names rather than just indexes - bad idea as you can't us
 })  
 
 Fix not getting the tasks only for that user - getTasks.js  
-Only then can I make updateTaskCount work.
+Only then can I make updateTaskCount work.  
+Sorting tasks  
 
 Fix white box height on mobile on ShowTasksPage  
 

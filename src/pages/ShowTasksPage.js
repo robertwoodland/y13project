@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useContext, useState } from 'react';
 import { Col, Row, Form } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
 import ThemedButton from '../components/styled/ThemedButton';
@@ -8,9 +8,12 @@ import markComplete from '../components/Firebase Functions/markComplete';
 import SubmissionToast from '../components/styled/SubmissionToast';
 import ShowRecentTasks from '../components/ShowTasksPage/ShowRecentTasks';
 import getProjects from '../components/Firebase Functions/getProjects';
-
+import { UserContext } from '../App';
 
 export default function ShowTasksPage() {
+
+    const {uid} = useContext(UserContext)
+    
     const [recentTasks, setRecentTasks] = useState([]);
     const [recentProjects, setRecentProjects] = useState([]);
 
@@ -27,7 +30,7 @@ export default function ShowTasksPage() {
     getProjects(setRecentProjects)
     // 0 is project name, 1 is accessed time, 2 is ID
     
-    getTasks(setRecentTasks, setMaxPageNum, recentProjects)
+    getTasks(setRecentTasks, setMaxPageNum, uid)
 
     function handleShowDetails(){
         if (selectedTask){

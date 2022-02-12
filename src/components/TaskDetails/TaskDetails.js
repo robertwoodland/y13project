@@ -1,12 +1,17 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import { Col, Row, Form, Toast, ToastContainer } from 'react-bootstrap';
+import React, { useState, useEffect, Fragment, useContext } from 'react';
+import { Col, Row, Form } from 'react-bootstrap';
 import ThemedButton from '../styled/ThemedButton';
 import ProjectDropdown from '../ProjectDropdown/ProjectDropdown';
 import getProjects from '../Firebase Functions/getProjects';
 import taskSubmit from '../Firebase Functions/taskSubmit';
 import updateProjectAccessed from '../Firebase Functions/updateProjectAccessed';
+import { UserContext } from '../../App';
 
 export default function TaskDetails(props) {
+
+    const {uid} = useContext(UserContext)
+
+
     const [recentProjects, setRecentProjects] = useState();
     const [selectedProject, setSelectedProject] = useState();
     const [projectInput, setProjectInput] = useState();
@@ -48,10 +53,6 @@ export default function TaskDetails(props) {
             setTaskInputName(taskInputValid)
         }
     }, [taskInput]);
-    
-    function handleSubmit(updateProjectAccessed, setTaskSubmitted, taskInputName, selectedProject, dateInput, projectId, update, selectedTask){
-        taskSubmit(updateProjectAccessed, setTaskSubmitted, taskInputName, selectedProject, dateInput, projectId, update, selectedTask)
-    }
     
 
     getProjects(setRecentProjects)
@@ -115,7 +116,7 @@ export default function TaskDetails(props) {
             </Form.Group>
 
             <div className="mt-5">
-                <ThemedButton onClick={() => taskSubmit(updateProjectAccessed, setTaskSubmitted, taskInputName, selectedProject, dateInput, projectId, update, selectedTask)}>
+                <ThemedButton onClick={() => taskSubmit(updateProjectAccessed, setTaskSubmitted, taskInputName, selectedProject, dateInput, projectId, update, selectedTask, uid)}>
                     {props.children}
                 </ThemedButton>
             </div>
