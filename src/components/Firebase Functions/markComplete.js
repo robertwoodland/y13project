@@ -14,10 +14,6 @@ export default function markComplete(selectedTask, setSelectedProject, setSelect
                 taskCount: taskCount + 1
             })
         })
-        /*
-        setTaskCount((prevState) => prevState += 1)
-        console.log(taskCount)
-        */
     }
 
 }

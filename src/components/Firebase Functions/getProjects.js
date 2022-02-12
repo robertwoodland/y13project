@@ -1,5 +1,5 @@
-import { useEffect, useContext } from 'react'
-import app from '../base'
+import { useEffect, useContext } from 'react';
+import app from '../base';
 import { UserContext } from '../../App';
 
 export default function getProjects(setRecentProjects){

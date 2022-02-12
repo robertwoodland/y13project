@@ -1,5 +1,5 @@
-import React, { Fragment } from "react"
-import { Col, Row, Form } from "react-bootstrap"
+import React, { Fragment } from "react";
+import { Col, Row, Form } from "react-bootstrap";
 
 export default function RecentTask(props){
     const {formattedDueDate} = props

@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
-import app from '../base'
+import { useEffect } from 'react';
+import app from '../base';
 
 
 export default function getTaskCount(uid, setTaskCount) {

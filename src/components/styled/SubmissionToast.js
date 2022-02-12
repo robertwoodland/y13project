@@ -1,5 +1,5 @@
-import { Fragment } from "react"
-import { ToastContainer, Toast } from "react-bootstrap"
+import { Fragment } from "react";
+import { ToastContainer, Toast } from "react-bootstrap";
 
 export default function SubmissionToast(props) {
     const {showToast, setShowToast} = props

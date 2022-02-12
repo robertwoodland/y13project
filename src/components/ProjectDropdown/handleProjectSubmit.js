@@ -1,4 +1,4 @@
-import app from "../base"
+import app from "../base";
 
 export default function handleProjectSubmit(uid, projectInput, recentProjects, setSelectedProject, setProjectId){
     const recentProjectNames = recentProjects.map(item => item[0])
