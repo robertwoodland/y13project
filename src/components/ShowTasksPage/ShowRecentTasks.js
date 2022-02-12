@@ -17,6 +17,7 @@ export default function ShowRecentTasks(props){
     const {selectedTask, setSelectedProject, setSelectedTask, setDueDate} = props
     const {maxPageNum} = props
     const {setFormattedDueDate} = props
+    const {taskCount} = props
 
     function handleTaskSelect(e){
         // 0 is name, 1 is project name, 2 is due date, 3 is task ID, 4 is project ID
@@ -45,7 +46,7 @@ export default function ShowRecentTasks(props){
 
             <Row>
                 <Col>
-                    <ThemedButton onClick={() => markComplete(selectedTask, setSelectedProject, setSelectedTask, setDueDate)}>Mark As Complete</ThemedButton>
+                    <ThemedButton onClick={() => markComplete(selectedTask, setSelectedProject, setSelectedTask, setDueDate, taskCount, uid)}>Mark As Complete</ThemedButton>
                 </Col>
                 <Col>
                     <ThemedButton onClick={handleShowDetails}>Edit Details</ThemedButton>

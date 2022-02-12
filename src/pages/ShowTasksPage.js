@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState } from 'react';
+import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { Col, Row, Form } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
 import ThemedButton from '../components/styled/ThemedButton';
@@ -9,6 +9,7 @@ import SubmissionToast from '../components/styled/SubmissionToast';
 import ShowRecentTasks from '../components/ShowTasksPage/ShowRecentTasks';
 import getProjects from '../components/Firebase Functions/getProjects';
 import { UserContext } from '../App';
+import getTaskCount from '../components/Firebase Functions/getTaskCount';
 
 export default function ShowTasksPage() {
 
@@ -26,11 +27,14 @@ export default function ShowTasksPage() {
     const [maxPageNum, setMaxPageNum] = useState(0);
     const [dueDate, setDueDate] = useState();
     const [showToast, setShowToast] = useState(false);
+    const [taskCount, setTaskCount] = useState(0)
     
     getProjects(setRecentProjects)
     // 0 is project name, 1 is accessed time, 2 is ID
     
     getTasks(setRecentTasks, setMaxPageNum, uid)
+
+    getTaskCount(uid, setTaskCount)
 
     function handleShowDetails(){
         if (selectedTask){
@@ -73,6 +77,10 @@ export default function ShowTasksPage() {
             <SubmissionToast showToast={showToast} setShowToast={setShowToast} update={true}/>
             <Form>
                 <Form.Group className="mb-3">
+                    <Row>
+                        <Form.Label>Number of tasks completed: {taskCount}</Form.Label>
+                    </Row>
+
                     <Form.Label>Recent tasks:</Form.Label>
                     
                     <Row>
@@ -82,7 +90,7 @@ export default function ShowTasksPage() {
                             markComplete={markComplete} incPageNum={incPageNum}
                             decPageNum={decPageNum} selectedTask={selectedTask} setSelectedProject={setSelectedProject}
                             setSelectedTask={setSelectedTask} setDueDate={setDueDate} maxPageNum={maxPageNum}
-                            setFormattedDueDate={setFormattedDueDate} />
+                            setFormattedDueDate={setFormattedDueDate} taskCount={taskCount} />
                             
                         </Col>
                         <Col>
