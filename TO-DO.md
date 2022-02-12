@@ -2,15 +2,11 @@
 Standardise task states as output of getTasks  
 Standardise project states as output of getProjects  
 Standardise array of functions to pass as props  
-Maybe use objects with names rather than just indexes - bad idea as you can't use .map()  
-(const task = {  
-    name: taskName,  
-    id: taskId  
-})  
+Using objects with names rather than just indexes? - bad idea as you can't use .map()  
 
-Fix not getting the tasks only for that user - getTasks.js  
-Only then can I make updateTaskCount work.  
-Sorting tasks  
+
+Make updateTaskCount work.  
+
 
 Fix white box height on mobile on ShowTasksPage  
 
@@ -60,3 +56,7 @@ Fixed sorting of getProjects
 Break out ShowRecentTasks from ShowTasksPage  
 
 Use Bootstrap toasts with autohide property to show task being added to database or updated  
+
+Fix not getting the tasks only for that user  
+
+Sorting tasks  
