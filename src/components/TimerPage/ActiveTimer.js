@@ -55,9 +55,22 @@ export default function ActiveTimer(props) {
 
             } else if (querySnapshot.docs.length > 1) {
 
+                console.log(querySnapshot.docs.length)
+
                 querySnapshot.forEach((doc) => {
-                    // TO-DO:
-                    console.log("NEED TO CLEAR ACTIVE TIMERS!!")
+                    let docId = doc.id
+
+                    app.firestore().collection("timers").doc(docId).update({
+                        active: false
+                    }).then(() => {
+                        setStartTime("")
+                        setEndTime("")
+                        setTimerName("")
+                        setSelectedProject()
+                        setTimerActive(false)
+                        setTimerSubmitted(false)
+                        setActiveTimer()
+                    })
                 })
 
             } else {
