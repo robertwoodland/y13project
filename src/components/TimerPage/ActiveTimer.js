@@ -1,5 +1,5 @@
 import { Fragment, useEffect } from "react";
-import { Row, Col, Form, } from "react-bootstrap";
+import { Row, Col, Form } from "react-bootstrap";
 import ThemedButton from "../styled/ThemedButton";
 import ProjectDropdown from "../ProjectDropdown/ProjectDropdown";
 import timerSubmit from "../Firebase Functions/timerSubmit";
@@ -140,7 +140,7 @@ export default function ActiveTimer(props) {
                 <Col>
                     <Form>
                         <Row>
-                            <Form.Label>Current Timer:</Form.Label>
+                            <Form.Label>{timerActive ? "Active timer:" : "Set a timer:"}</Form.Label>
                         </Row>
                         
                         <Row className="my-2">

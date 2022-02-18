@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Col, Row, Form } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
 import ThemedButton from '../components/styled/ThemedButton';
-import ProjectDropdown from '../components/ProjectDropdown/ProjectDropdown';
 import getProjects from '../components/Firebase Functions/getProjects';
 import { UserContext } from '../App';
 import ActiveTimer from '../components/TimerPage/ActiveTimer';
@@ -84,7 +83,14 @@ export default function TimerPage() {
                 activeTimer={activeTimer} setActiveTimer={setActiveTimer} timerSubmitted={timerSubmitted}
                 setTimerSubmitted={setTimerSubmitted} uid={uid} /> 
                 
-                : <HistoricTimer/>}
+                
+                : <HistoricTimer timerName={timerName} selectedProject={selectedProject} 
+                setSelectedProject={setSelectedProject} projectInput={projectInput} setProjectInput={setProjectInput}
+                recentProjects={recentProjects} projectId={projectId} setProjectId={setProjectId} startTime={startTime} 
+                setStartTime={setStartTime} endTime={endTime} setEndTime={setEndTime} setTimerName={setTimerName} 
+                timerActive={timerActive} setTimerActive={setTimerActive} timerId={timerId} setTimerId={setTimerId} 
+                activeTimer={activeTimer} setActiveTimer={setActiveTimer} timerSubmitted={timerSubmitted}
+                setTimerSubmitted={setTimerSubmitted} uid={uid} />}
             </Row>
 
             <hr/>
