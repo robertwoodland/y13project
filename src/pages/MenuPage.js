@@ -35,6 +35,14 @@ export default function MenuPage() {
                         </Link>
                     </Col>
                 </Row>
+
+                <Row>
+                    <Col>
+                        <Link to="/timer">
+                            <Button variant='outline-primary my-1'>Timer</Button>
+                        </Link>
+                    </Col>
+                </Row>
             </Container>
         </ContainerPage>
     )}

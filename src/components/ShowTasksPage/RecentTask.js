@@ -4,7 +4,7 @@ import { Col, Row, Form } from "react-bootstrap";
 export default function RecentTask(props){
     const {formattedDueDate} = props
 
-    // Text: 0 is name, 1 is project name, 2 is due date, 3 is task ID, 4 is project ID
+    // Text: 0 is task name, 1 is project name, 2 is due date, 3 is task ID, 4 is project ID
     const {text} = props
     const name = text[0]
     const project = text[1]

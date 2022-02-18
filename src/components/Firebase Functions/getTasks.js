@@ -28,7 +28,7 @@ export default function getTasks(setRecentTasks, setMaxPageNum, uid){
             setRecentTasks(tasks)
             setMaxPageNum(Math.floor(tasks.length/10) + 1)
         })
-        // 0 is name, 1 is project name, 2 is due date, 3 is task ID, 4 is project ID, (5 is formatted date)
+        // 0 is task name, 1 is project name, 2 is due date, 3 is task ID, 4 is project ID, (5 is formatted date)
     
       return () => unsubscribe()
     }, []);

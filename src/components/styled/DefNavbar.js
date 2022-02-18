@@ -27,7 +27,7 @@ export default function DefNavbar() {
                                 Tasks
                             </Nav.Link>
 
-                            <Nav.Link as={Link} to="#/timer">
+                            <Nav.Link as={Link} to="/timer">
                                 Timer
                             </Nav.Link>
 

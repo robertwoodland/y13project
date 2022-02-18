@@ -7,6 +7,7 @@ import ScratchPage from "./pages/ScratchPage";
 import AddTaskPage from "./pages/AddTaskPage";
 import ShowTasksPage from "./pages/ShowTasksPage";
 import TasksMenuPage from "./pages/TasksMenuPage";
+import TimerPage from "./pages/TimerPage";
 import Secured from './components/Secured';
 import app from "./components/base";
 
@@ -15,10 +16,10 @@ export const ThemeContext = createContext();
 export const UserContext = createContext();
 
 export default function App() {
-    const [auth, setAuth] = useState(null)
+    const [auth, setAuth] = useState(null);
 
-    const [userColours, setUserColours] = useState(['#c4b5fd', '#9333ea']) // [backgroundColour, buttonColour]
-    const [uid, setUid] = useState()
+    const [userColours, setUserColours] = useState(['#c4b5fd', '#9333ea']); // [backgroundColour, buttonColour]
+    const [uid, setUid] = useState();
     
     useEffect(() => {
         if (auth) {
@@ -67,6 +68,7 @@ export default function App() {
                             <Route exact path="/tasks-menu" component={TasksMenuPage}/>
                             <Route exact path="/add-tasks" component={AddTaskPage}/>
                             <Route exact path="/show-tasks" component={ShowTasksPage}/>
+                            <Route exact path="/timer" component={TimerPage}/>
                         </UserContext.Provider>
                         </ThemeContext.Provider>
                     </Secured>

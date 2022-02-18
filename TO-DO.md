@@ -5,17 +5,21 @@ Standardise array of functions to pass as props
 Using objects with names rather than just indexes? - bad idea as you can't use .map()  
 
 
-Make updateTaskCount work.  
-
 
 Fix white box height on mobile on ShowTasksPage  
 
-Completed tasks count (store in users, use as context, increment when task completed)  
 
 
 
 ## All other areas of the app  
-### Timers
+### Timers  
+Historic timer  
+Set it up so that a timer can be added with no end time (current), and show that a timer is active in database  
+Set a function for timerActive that gets from data - useContext?  
+Handle having multiple active timers in ActiveTimer.js  
+
+
+
 ### Preferences
 
 <br/><br/>
@@ -60,3 +64,7 @@ Use Bootstrap toasts with autohide property to show task being added to database
 Fix not getting the tasks only for that user  
 
 Sorting tasks  
+
+Make updateTaskCount work  
+
+Completed tasks count (stored as state, increment when task completed through markComplete())  

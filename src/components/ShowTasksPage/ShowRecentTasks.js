@@ -20,7 +20,7 @@ export default function ShowRecentTasks(props){
     const {taskCount} = props
 
     function handleTaskSelect(e){
-        // 0 is name, 1 is project name, 2 is due date, 3 is task ID, 4 is project ID
+        // 0 is task name, 1 is project name, 2 is due date, 3 is task ID, 4 is project ID
         const value = e.target.value.split(",")
         setSelectedTask(value)
         setSelectedProject(value[1])
