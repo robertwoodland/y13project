@@ -28,6 +28,7 @@ export default function TimerPage() {
     const [endTime, setEndTime] = useState();
 
     const [showTimer, setShowTimer] = useState(true);
+    const [timerSubmitted, setTimerSubmitted] = useState(false);
 
 
     getProjects(setRecentProjects)
@@ -56,6 +57,18 @@ export default function TimerPage() {
         }
     }, [activeTimer])
 
+    useEffect(() => {
+        if (timerSubmitted) {
+            setStartTime("")
+            setEndTime("")
+            setTimerName("")
+            setSelectedProject()
+            setTimerActive(false)
+            setTimerSubmitted(false)
+            setActiveTimer()
+        }
+    }, [timerSubmitted])
+
 
     return (
         <ContainerPage>
@@ -68,7 +81,8 @@ export default function TimerPage() {
                 recentProjects={recentProjects} projectId={projectId} setProjectId={setProjectId} startTime={startTime} 
                 setStartTime={setStartTime} endTime={endTime} setEndTime={setEndTime} setTimerName={setTimerName} 
                 timerActive={timerActive} setTimerActive={setTimerActive} timerId={timerId} setTimerId={setTimerId} 
-                activeTimer={activeTimer} setActiveTimer={setActiveTimer} uid={uid} /> 
+                activeTimer={activeTimer} setActiveTimer={setActiveTimer} timerSubmitted={timerSubmitted}
+                setTimerSubmitted={setTimerSubmitted} uid={uid} /> 
                 
                 : <HistoricTimer/>}
             </Row>
