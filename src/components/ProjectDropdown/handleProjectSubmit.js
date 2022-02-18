@@ -12,7 +12,6 @@ export default function handleProjectSubmit(uid, projectInput, recentProjects, s
             userId: uid
         }).then((docRef) => {
             setProjectId(docRef.id)
-            console.log(docRef.id)
         }
         )
     } else {

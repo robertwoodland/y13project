@@ -4,6 +4,7 @@ import ThemedButton from "../styled/ThemedButton";
 import ProjectDropdown from "../ProjectDropdown/ProjectDropdown";
 import timerSubmit from "../Firebase Functions/timerSubmit";
 import app from '../base';
+import endTimer from "../Firebase Functions/endTimer";
 
 export default function ActiveTimer(props) {
     const {timerName, setTimerName} = props
@@ -15,6 +16,7 @@ export default function ActiveTimer(props) {
     const {endTime, setEndTime} = props
     const {timerActive, setTimerActive} = props
     const {timerId, setTimerId} = props
+    const {activeTimer, setActiveTimer} = props
     const {uid} = props
 
 
@@ -29,14 +31,25 @@ export default function ActiveTimer(props) {
 
 
     useEffect(() => {
-        const unsubscribe = app.firestore().collection("timers").where("active", "==", true)
-        .onSnapshot((querySnapshot) => {
+        const unsubscribe = app.firestore().collection("timers").where("uid", "==", uid)
+        .where("active", "==", true).onSnapshot((querySnapshot) => {
             if (querySnapshot.docs.length == 1) {
 
                 querySnapshot.forEach((doc) => {
+                    setTimerActive(true)
+
                     let id = doc.id
+
+                    let name = doc.data().name
+                    let projName = doc.data().projectName
+                    let projId = doc.data().projectId
+                    let end = doc.data().endTime
                     let start = doc.data().startTime
-                    console.log(doc.data())
+                    let activeBool = doc.data().active
+
+                    setActiveTimer([name, projName, id, projId, start, end])
+                    // 0 is timer name, 1 is project, 2 is id, 3 is projectID, 4 is start, 5 is end
+
                 })
 
             } else if (querySnapshot.docs.length > 1) {
@@ -47,10 +60,11 @@ export default function ActiveTimer(props) {
                 })
 
             } else {
-
                 setTimerActive(false)
             }
         })
+
+
 
         return () => unsubscribe()
     }, [])
@@ -58,19 +72,23 @@ export default function ActiveTimer(props) {
 
 
     function handleEndTimer() {
-        const now = Date.now()
-        const hours = new Date(now).getHours()
-        let minutes = new Date(now).getMinutes()
+        if (!timerActive) {
+            const now = Date.now()
+            const hours = new Date(now).getHours()
+            let minutes = new Date(now).getMinutes()
 
-        if (String(hours).length == 1){
-            hours = "0" + hours
-        }
-        
-        if (String(minutes).length == 1) {
-            minutes = '0' + minutes
-        }
+            if (String(hours).length == 1){
+                hours = "0" + hours
+            }
+            
+            if (String(minutes).length == 1) {
+                minutes = '0' + minutes
+            }
 
-        setEndTime(hours + ":" + minutes)
+            setEndTime(hours + ":" + minutes)
+        } else {
+            endTimer(activeTimer)
+        }
     }
 
     function clearTimes() {
@@ -83,7 +101,10 @@ export default function ActiveTimer(props) {
             return(
                 <Fragment>
                     <Col align="right">
+                        {!timerActive ? 
                         <ThemedButton onClick={() => handleStartTimer()}>{endTime? "Add Timer" : "Start Timer"}</ThemedButton>
+                        
+                        : <h2 className="mt-3">Timer active</h2>}
                     </Col>
                 </Fragment>
             )
@@ -139,7 +160,7 @@ export default function ActiveTimer(props) {
                                             </Col>
                                             
                                             <Col className="my-1">
-                                                <ThemedButton onClick={handleEndTimer}>End Now</ThemedButton>
+                                                <ThemedButton onClick={() => handleEndTimer()}>End Now</ThemedButton>
                                             </Col>
 
                                         </Row>

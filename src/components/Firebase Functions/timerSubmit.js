@@ -7,10 +7,7 @@ export default async function timerSubmit(setTimerActive, timerName, selectedPro
         startTime = getUnixTime(startTime)
 
         if (endTime) {
-            console.log(endTime)
             endTime = getUnixTime(endTime)
-        } else {
-            console.log("Correct")
         }
         
         await app.firestore().collection("timers").add({
