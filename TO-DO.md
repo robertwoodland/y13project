@@ -14,11 +14,7 @@ Fix white box height on mobile on ShowTasksPage
 ## All other areas of the app  
 ### Timers  
 Historic timer  
-Set it up so that a timer can be added with no end time (current), and show that a timer is active in database  
-Set a function for timerActive that gets from data - useContext?  
 Handle having multiple active timers in ActiveTimer.js  
-Have 'Start Timer' become 'Update Timer' with end time  
-Clear fields after submission  
 
 
 
