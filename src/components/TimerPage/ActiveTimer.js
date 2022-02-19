@@ -22,7 +22,12 @@ export default function ActiveTimer(props) {
 
 
     function handleStartTimer() {
-        if (timerName && selectedProject && startTime && projectId){
+        if (timerName && selectedProject && startTime && projectId && endTime) {
+            setTimerActive(false)
+            setActiveTimer()
+            setTimerSubmitted(true)
+            timerSubmit(setTimerActive, timerName, selectedProject, projectId, startTime, endTime, setTimerId, uid)
+        } else if (timerName && selectedProject && startTime && projectId){
             setTimerActive(true)
             timerSubmit(setTimerActive, timerName, selectedProject, projectId, startTime, endTime, setTimerId, uid)
             

@@ -1,13 +1,9 @@
-import { Fragment, useEffect } from "react";
-import { Row, Col, Form } from "react-bootstrap";
-import ThemedButton from "../styled/ThemedButton";
-import timerSubmit from "../Firebase Functions/timerSubmit";
-import app from '../base';
-import endTimer from "../Firebase Functions/endTimer";
+import { Fragment } from "react";
+import { Form } from "react-bootstrap";
 import TimerHeader from "./TimerHeader";
 import ShowRecentTimers from "./ShowRecentTimers";
 
-export default function HistoricTimer(props) {
+export default function ShowTimersPage(props) {
     const {timerName, setTimerName} = props
     const {selectedProject, setSelectedProject} = props
     const {projectInput, setProjectInput} = props
@@ -34,7 +30,12 @@ export default function HistoricTimer(props) {
             {timerActive ? <TimerHeader timerName={timerName} selectedProject={selectedProject} startTime={startTime} /> 
             
             
-            : <Fragment/>}
+            : 
+            <Form>
+                <Form.Label>
+                    No active timer
+                </Form.Label>
+            </Form>}
 
             <hr/>
 

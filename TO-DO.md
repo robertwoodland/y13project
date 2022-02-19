@@ -14,7 +14,6 @@ Fix white box height on mobile on ShowTasksPage
 ## All other areas of the app  
 ### Timers  
 Historic timer  
-Handle having multiple active timers in ActiveTimer.js  
 Break out into components  
 Updating other fields from timer menu  
 

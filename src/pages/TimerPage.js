@@ -5,7 +5,7 @@ import ThemedButton from '../components/styled/ThemedButton';
 import getProjects from '../components/Firebase Functions/getProjects';
 import { UserContext } from '../App';
 import ActiveTimer from '../components/TimerPage/ActiveTimer';
-import HistoricTimer from '../components/TimerPage/HistoricTimer';
+import ShowTimersPage from '../components/TimerPage/ShowTimersPage';
 import getHHMM from '../components/TimerPage/getHHMM';
 
 export default function TimerPage() {
@@ -93,7 +93,7 @@ export default function TimerPage() {
                 setTimerSubmitted={setTimerSubmitted} uid={uid} /> 
                 
                 
-                : <HistoricTimer timerName={timerName} selectedProject={selectedProject} 
+                : <ShowTimersPage timerName={timerName} selectedProject={selectedProject} 
                 setSelectedProject={setSelectedProject} projectInput={projectInput} setProjectInput={setProjectInput}
                 recentProjects={recentProjects} projectId={projectId} setProjectId={setProjectId} startTime={startTime} 
                 setStartTime={setStartTime} endTime={endTime} setEndTime={setEndTime} setTimerName={setTimerName} 
@@ -108,7 +108,7 @@ export default function TimerPage() {
 
             <Row className="my-3">
                 <ThemedButton onClick={() => setShowTimer(prev => !prev)}>
-                    <h2>Toggle View</h2>
+                    <h2>{showTimer ? "Show Previous Timers" : "Add Timer"}</h2>
                 </ThemedButton>
             </Row>
 
