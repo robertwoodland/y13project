@@ -22,6 +22,7 @@ export default function TimerPage() {
     const [timerName, setTimerName] = useState();
     const [timerId, setTimerId] = useState();
     const [timerActive, setTimerActive] = useState(false);
+    const [selectedTimer, setSelectedTimer] = useState();
     
     const [startTime, setStartTime] = useState();
     const [endTime, setEndTime] = useState();
@@ -29,9 +30,17 @@ export default function TimerPage() {
     const [showTimer, setShowTimer] = useState(true);
     const [timerSubmitted, setTimerSubmitted] = useState(false);
 
+    const [recentTimers, setRecentTimers] = useState([]);
+    const [pageNum, setPageNum] = useState(0);
+    const [maxPageNum, setMaxPageNum] = useState(0);
+
 
     getProjects(setRecentProjects)
     // 0 is project name, 1 is accessed time, 2 is ID
+
+
+    // Put get timers here
+    
 
     // Sets project ID when a project is selected
     useEffect(() => {
@@ -90,7 +99,9 @@ export default function TimerPage() {
                 setStartTime={setStartTime} endTime={endTime} setEndTime={setEndTime} setTimerName={setTimerName} 
                 timerActive={timerActive} setTimerActive={setTimerActive} timerId={timerId} setTimerId={setTimerId} 
                 activeTimer={activeTimer} setActiveTimer={setActiveTimer} timerSubmitted={timerSubmitted}
-                setTimerSubmitted={setTimerSubmitted} uid={uid} />}
+                setTimerSubmitted={setTimerSubmitted} recentTimers={recentTimers} setRecentTimers={setRecentTimers}
+                pageNum={pageNum} setPageNum={setPageNum} maxPageNum={maxPageNum} setMaxPageNum={setMaxPageNum} 
+                selectedTimer={selectedTimer} setSelectedTimer={setSelectedTimer} uid={uid} />}
             </Row>
 
             <hr/>

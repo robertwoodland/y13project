@@ -40,7 +40,7 @@ export default function TimerHeader(props) {
                         <Form.Label>Project: {selectedProject}</Form.Label>
                     </Col>
 
-                    <Col className="col-1">  
+                    <Col className="col-2">  
                         <Form.Label>Start time: {startTime}</Form.Label>
                     </Col>
 

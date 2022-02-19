@@ -5,6 +5,7 @@ import timerSubmit from "../Firebase Functions/timerSubmit";
 import app from '../base';
 import endTimer from "../Firebase Functions/endTimer";
 import TimerHeader from "./TimerHeader";
+import ShowRecentTimers from "./ShowRecentTimers";
 
 export default function HistoricTimer(props) {
     const {timerName, setTimerName} = props
@@ -18,6 +19,10 @@ export default function HistoricTimer(props) {
     const {timerId, setTimerId} = props
     const {activeTimer, setActiveTimer} = props
     const {timerSubmitted, setTimerSubmitted} = props
+    const {recentTimers, setRecentTimers} = props
+    const {maxPageNum, setMaxPageNum} = props
+    const {pageNum, setPageNum} = props
+    const {selectedTimer, setSelectedTimer} = props
     const {uid} = props
 
 
@@ -30,7 +35,20 @@ export default function HistoricTimer(props) {
             
             
             : <Fragment/>}
-            <h1>HistoricTimer</h1>
+
+            <hr/>
+
+            <ShowRecentTimers timerName={timerName} selectedProject={selectedProject} 
+                setSelectedProject={setSelectedProject} projectInput={projectInput} setProjectInput={setProjectInput}
+                recentProjects={recentProjects} projectId={projectId} setProjectId={setProjectId} startTime={startTime} 
+                setStartTime={setStartTime} endTime={endTime} setEndTime={setEndTime} setTimerName={setTimerName} 
+                timerActive={timerActive} setTimerActive={setTimerActive} timerId={timerId} setTimerId={setTimerId} 
+                activeTimer={activeTimer} setActiveTimer={setActiveTimer} timerSubmitted={timerSubmitted}
+                setTimerSubmitted={setTimerSubmitted} recentTimers={recentTimers} setRecentTimers={setRecentTimers} 
+                maxPageNum={maxPageNum} setMaxPageNum={setMaxPageNum} pageNum={pageNum} setPageNum={setPageNum} 
+                selectedTimer={selectedTimer} setSelectedTimer={setSelectedTimer} uid={uid} />
+
+
         </Fragment>
     )
 }
