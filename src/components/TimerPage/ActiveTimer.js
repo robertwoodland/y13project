@@ -60,8 +60,6 @@ export default function ActiveTimer(props) {
 
             } else if (querySnapshot.docs.length > 1) {
 
-                console.log(querySnapshot.docs.length)
-
                 querySnapshot.forEach((doc) => {
                     let docId = doc.id
 
