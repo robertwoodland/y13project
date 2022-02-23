@@ -93,7 +93,7 @@ export default function ActiveTimer(props) {
     function handleEndTimer() {
         if (!timerActive) {
             const now = Date.now()
-            const hours = new Date(now).getHours()
+            let hours = new Date(now).getHours()
             let minutes = new Date(now).getMinutes()
 
             if (String(hours).length == 1){

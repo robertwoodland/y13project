@@ -16,6 +16,7 @@ Fix white box height on mobile on ShowTasksPage
 Historic timer  
 Break out into components  
 Updating other fields from timer menu  
+Editing timers from historic - EditTimerPage  
 
 
 
