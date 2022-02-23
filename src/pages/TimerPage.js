@@ -80,6 +80,14 @@ export default function TimerPage() {
     }, [timerSubmitted])
 
 
+    function handleToggle() {
+        setShowTimer(prev => !prev)
+        setStartTime("")
+        setEndTime("")
+        setTimerName()
+    }
+
+
     return (
         <ContainerPage>
 
@@ -110,7 +118,7 @@ export default function TimerPage() {
             <hr/>
 
             <Row className="my-3">
-                <ThemedButton onClick={() => setShowTimer(prev => !prev)}>
+                <ThemedButton onClick={() => handleToggle()}>
                     <h2>{showTimer ? "Show Previous Timers" : "Add Timer Page"}</h2>
                 </ThemedButton>
             </Row>

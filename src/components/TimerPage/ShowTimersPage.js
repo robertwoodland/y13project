@@ -3,6 +3,7 @@ import { Form } from "react-bootstrap";
 import TimerHeader from "./TimerHeader";
 import ShowRecentTimers from "./ShowRecentTimers";
 import EditTimerPage from "./EditTimerPage";
+import getHHMM from "./getHHMM";
 
 export default function ShowTimersPage(props) {
     const {timerName, setTimerName} = props
@@ -25,11 +26,11 @@ export default function ShowTimersPage(props) {
 
 
 
-
+    
 
     return(
         <Fragment>
-            {timerActive ? <TimerHeader timerName={timerName} selectedProject={selectedProject} startTime={startTime} /> 
+            {timerActive ? <TimerHeader timerName={activeTimer[0]} selectedProject={activeTimer[1]} startTime={getHHMM(activeTimer[4])} /> 
             
             
             : 
