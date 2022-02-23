@@ -23,6 +23,7 @@ export default function ShowRecentTimers(props){
     const {maxPageNum, setMaxPageNum} = props
     const {pageNum, setPageNum} = props
     const {selectedTimer, setSelectedTimer} = props
+    const {editTimer, setEditTimer} = props
     const {uid} = props
 
 
@@ -41,6 +42,12 @@ export default function ShowRecentTimers(props){
         }
     }
 
+
+    function handleEditTimer(){
+        if (selectedTimer) {
+            setEditTimer(true)
+        }
+    }
 
 
 
@@ -70,7 +77,7 @@ export default function ShowRecentTimers(props){
                     <ThemedButton onClick={() => removeTimer(selectedTimer, setSelectedProject, setSelectedTimer)}>Mark As Complete</ThemedButton>
                 </Col>
                 <Col>
-                    <ThemedButton>Edit Details</ThemedButton>
+                    <ThemedButton onClick={() => handleEditTimer()}>Edit Details</ThemedButton>
                 </Col>
             </Row>
 

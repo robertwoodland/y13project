@@ -34,6 +34,8 @@ export default function TimerPage() {
     const [pageNum, setPageNum] = useState(0);
     const [maxPageNum, setMaxPageNum] = useState(0);
 
+    const [editTimer, setEditTimer] = useState(false);
+
 
     getProjects(setRecentProjects)
     // 0 is project name, 1 is accessed time, 2 is ID
@@ -101,7 +103,8 @@ export default function TimerPage() {
                 activeTimer={activeTimer} setActiveTimer={setActiveTimer} timerSubmitted={timerSubmitted}
                 setTimerSubmitted={setTimerSubmitted} recentTimers={recentTimers} setRecentTimers={setRecentTimers}
                 pageNum={pageNum} setPageNum={setPageNum} maxPageNum={maxPageNum} setMaxPageNum={setMaxPageNum} 
-                selectedTimer={selectedTimer} setSelectedTimer={setSelectedTimer} uid={uid} />}
+                selectedTimer={selectedTimer} setSelectedTimer={setSelectedTimer} editTimer={editTimer}
+                setEditTimer={setEditTimer} uid={uid} />}
             </Row>
 
             <hr/>
