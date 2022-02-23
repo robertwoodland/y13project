@@ -1,4 +1,5 @@
 # Stuff yet to do
+### Tasks
 Standardise task states as output of getTasks  
 Standardise project states as output of getProjects  
 Standardise array of functions to pass as props  
@@ -14,10 +15,8 @@ Fix white box height on mobile on ShowTasksPage
 ## All other areas of the app  
 ### Timers  
 Break out into components  
-Updating other fields from timer menu  
-Editing timers from historic - EditTimerPage  
-Prevent showing of live task in historic tasks?  
-
+Clean up passed states  
+Creating a timer and then showing historic causes error - reading '0' for TimerHeader  
 
 
 ### Preferences

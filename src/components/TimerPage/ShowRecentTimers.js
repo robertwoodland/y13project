@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import ThemedButton from '../styled/ThemedButton';
 import { Form, Col, Row } from 'react-bootstrap';
 import getTimers from '../Firebase Functions/getTimers';
@@ -42,13 +42,20 @@ export default function ShowRecentTimers(props){
         }
     }
 
+    useEffect(() => {
+        if (pageNum >= maxPageNum && pageNum != 0) {
+            console.log(maxPageNum)
+            setPageNum(maxPageNum - 1)
+        }
+    }, [maxPageNum, pageNum])
+    
 
+     
     function handleEditTimer(){
         if (selectedTimer) {
             setEditTimer(true)
         }
     }
-
 
 
     function handleTimerSelect(e){

@@ -1,11 +1,13 @@
 import React, { Fragment } from "react";
 import { Col, Row, Form } from "react-bootstrap";
 import getHHMM from "./getHHMM";
+import getDuration from './getDuration';
 
 export default function RecentTimer(props){
 
     // Text: 0 is timer name, 1 is project, 2 is id, 3 is projectId, 4 is start, 5 is end
     const {text} = props
+
     const name = text[0]
     const project = text[1]
     const startTime = getHHMM(text[4])
@@ -13,6 +15,8 @@ export default function RecentTimer(props){
     
     const date = new Date(text[5])
     const endDate = (date.getDate().toString()) + "/" +  (date.getMonth() + 1).toString()
+
+    const len = getDuration(startTime, endTime)
 
     return(
         <Fragment>
@@ -26,7 +30,7 @@ export default function RecentTimer(props){
                 </Col>
 
                 <Col>
-                    <Form.Label>{startTime + " - " + endTime}</Form.Label>
+                    <Form.Label>{startTime + " - " + endTime + " = " + len + " mins"}</Form.Label>
                 </Col>
             </Row>
         </Fragment>

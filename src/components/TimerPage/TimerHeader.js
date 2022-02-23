@@ -13,7 +13,7 @@ export default function TimerHeader(props) {
     useEffect(() => {
 
         setInterval(() => {
-            getDuration(startTime, setDuration)
+            getDuration(startTime, null, setDuration)
         }, 1000);
 
     }, [])

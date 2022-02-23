@@ -1,6 +1,6 @@
 import getUnixTime from './getUnixTime';
 
-export default function getDuration(startTime, setDuration, endTime) {
+export default function getDuration(startTime, endTime, setDuration) {
 
     let unixStart = getUnixTime(startTime)
     let unixEnd = 0
@@ -8,8 +8,8 @@ export default function getDuration(startTime, setDuration, endTime) {
     if (!endTime) {
         unixEnd = Date.now()
     } else {
-        unixEnd = new Date(endTime)
-    } // NOT TESTED THIS
+        unixEnd = getUnixTime(endTime)
+    }
 
 
     let difference = (parseInt(unixEnd) - parseInt(unixStart)) // in milliseconds
@@ -22,5 +22,28 @@ export default function getDuration(startTime, setDuration, endTime) {
     let durationHours = Math.floor(durationMinutes / 60)
     let leftOverMinutes = durationMinutes % 60
 
-    setDuration(durationHours + " hours, " + leftOverMinutes + " minutes and " + leftOverSeconds + " seconds")
+    if (durationHours.toString().length == 1) {
+        durationHours = "0" + durationHours
+    }
+    if (leftOverMinutes.toString().length == 1) {
+        leftOverMinutes = "0" + leftOverMinutes
+    }
+    if (leftOverSeconds.toString().length == 1) {
+        leftOverSeconds = "0" + leftOverSeconds
+    }
+
+
+    let duration = ""
+    if (durationHours != "00") {
+        duration = durationHours + ":" + leftOverMinutes
+    } else {
+        duration = leftOverMinutes
+    }
+
+
+    if (setDuration) {
+        setDuration(durationHours + " hours, " + leftOverMinutes + " minutes and " + leftOverSeconds + " seconds")
+    } else {
+        return duration
+    }
 }

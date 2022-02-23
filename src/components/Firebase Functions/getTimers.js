@@ -21,7 +21,10 @@ export default function getTimers(setRecentTimers, setMaxPageNum, uid){
             })
 
             setRecentTimers(timers)
-            setMaxPageNum(Math.floor(timers.length/10) + 1)
+            setMaxPageNum(Math.floor(timers.length/10))
+            if (timers.length % 10 != 0) {
+                setMaxPageNum(prev => prev += 1)
+            }
         })
         // 0 is timer name, 1 is project, 2 is id, 3 is projectId, 4 is start time, 5 is end time
     
