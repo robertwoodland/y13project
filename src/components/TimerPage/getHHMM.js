@@ -1,7 +1,9 @@
 export default function getHHMM(time) {
-    let currentHours = new Date(time).getHours()
-    let currentMins = new Date(time).getMinutes()
+    let intTime = parseInt(time)
+    let currentHours = new Date(intTime).getHours()
+    let currentMins = new Date(intTime).getMinutes()
 
+    console.log(intTime)
     if (currentHours.toString().length == 1) {
         currentHours = "0" + currentHours
     }
