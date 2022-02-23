@@ -13,11 +13,9 @@ Fix white box height on mobile on ShowTasksPage
 
 ## All other areas of the app  
 ### Timers  
-Historic timer  
 Break out into components  
 Updating other fields from timer menu  
 Editing timers from historic - EditTimerPage  
-Active Timer bar shows selected timer - states  
 Format end times on RecentTimer  
 
 
