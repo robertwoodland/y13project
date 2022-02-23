@@ -1,6 +1,8 @@
 import { Fragment, useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
+import updateTimer from "../Firebase Functions/updateTimer";
 import ProjectDropdown from "../ProjectDropdown/ProjectDropdown";
+import ThemedButton from "../styled/ThemedButton";
 import getHHMM from "./getHHMM";
 import getUnixTime from "./getUnixTime";
 
@@ -39,21 +41,27 @@ export default function EditTimerPage(props) {
 
 
     return(
-        <Form>
-            <Form.Label>Timer:</Form.Label>
-            <Form.Control onChange={(e) => setTimerName(e.target.value)} value={timerName} />
+        <Fragment>
+            <Form>
+                <Form.Label>Timer:</Form.Label>
+                <Form.Control onChange={(e) => setTimerName(e.target.value)} value={timerName} />
 
-            <Form.Label className="mt-3">Project:</Form.Label>
-            <ProjectDropdown selectedProject={selectedProject} setSelectedProject={setSelectedProject}
-            projectInput={projectInput} setProjectInput={setProjectInput} recentProjects={recentProjects}
-            setProjectId={setProjectId} />
+                <Form.Label className="mt-3">Project:</Form.Label>
+                <ProjectDropdown selectedProject={selectedProject} setSelectedProject={setSelectedProject}
+                projectInput={projectInput} setProjectInput={setProjectInput} recentProjects={recentProjects}
+                setProjectId={setProjectId} />
 
-            <Form.Label>Start Time:</Form.Label>
-            <input type="time" className="mx-3" onChange={(e) => setStartTime(e.target.value)} value={startTime} />
+                <Form.Label>Start Time:</Form.Label>
+                <input type="time" className="mx-3" onChange={(e) => setStartTime(e.target.value)} value={startTime} />
 
 
-            <Form.Label>End Time:</Form.Label>
-            <input type="time" className="mx-3" onChange={(e) => setEndTime(e.target.value)} value={endTime} />
-        </Form>
+                <Form.Label>End Time:</Form.Label>
+                <input type="time" className="mx-3" onChange={(e) => setEndTime(e.target.value)} value={endTime} />
+            </Form>
+
+            <div className="mt-3">
+                <ThemedButton onClick={() => updateTimer(selectedTimer, timerName, startTime, endTime, selectedProject, projectId, setEditTimer)}>Update Timer</ThemedButton>
+            </div>
+        </Fragment>
     )
 }

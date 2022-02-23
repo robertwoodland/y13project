@@ -52,7 +52,7 @@ export default function ShowRecentTimers(props){
 
 
     function handleTimerSelect(e){
-        // 0 is timer name, 1 is project, 2 is id, 3 is projectID, 4 is start, 5 is end
+        // 0 is timer name, 1 is project, 2 is id, 3 is projectId, 4 is start, 5 is end
         const value = e.target.value.split(",")
         setSelectedTimer(value)
         setSelectedProject(value[1])
@@ -72,9 +72,9 @@ export default function ShowRecentTimers(props){
             <div onChange={(e) => handleTimerSelect(e)}>{names}</div>
             <br></br>
 
-            <Row>
+            <Row className="mt-3">
                 <Col>
-                    <ThemedButton onClick={() => removeTimer(selectedTimer, setSelectedProject, setSelectedTimer)}>Mark As Complete</ThemedButton>
+                    <ThemedButton onClick={() => removeTimer(selectedTimer, setSelectedProject, setSelectedTimer)}>Delete</ThemedButton>
                 </Col>
                 <Col>
                     <ThemedButton onClick={() => handleEditTimer()}>Edit Details</ThemedButton>
@@ -98,7 +98,7 @@ export default function ShowRecentTimers(props){
         return(
         <Fragment>
             <Row>
-                <Form.Label className="ml-3 mt-2 disabled">No active timer</Form.Label>
+                <Form.Label className="ml-3 mt-2 disabled">No previous timers</Form.Label>
             </Row>
         </Fragment>)
     }
