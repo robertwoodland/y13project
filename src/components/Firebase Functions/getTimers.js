@@ -23,7 +23,7 @@ export default function getTimers(setRecentTimers, setMaxPageNum, uid){
             setRecentTimers(timers)
             setMaxPageNum(Math.floor(timers.length/10) + 1)
         })
-        // 0 is timer name, 1 is project, 2 is id, 3 is projectID, 4 is start time, 5 is end time
+        // 0 is timer name, 1 is project, 2 is id, 3 is projectId, 4 is start time, 5 is end time
     
       return () => unsubscribe()
     }, []);

@@ -13,7 +13,7 @@ export default function TimerPage() {
     const {uid} = useContext(UserContext);
 
     const [activeTimer, setActiveTimer] = useState(); 
-    // 0 is timer name, 1 is project, 2 is id, 3 is projectID, 4 is start, 5 is end
+    // 0 is timer name, 1 is project, 2 is id, 3 is projectId, 4 is start, 5 is end
 
     const [selectedProject, setSelectedProject] = useState();
     const [projectInput, setProjectInput] = useState();
@@ -84,7 +84,8 @@ export default function TimerPage() {
         setShowTimer(prev => !prev)
         setStartTime("")
         setEndTime("")
-        setTimerName()
+        setTimerName("")
+        setSelectedProject()
     }
 
 

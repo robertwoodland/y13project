@@ -54,7 +54,7 @@ export default function ActiveTimer(props) {
                     let activeBool = doc.data().active
 
                     setActiveTimer([name, projName, id, projId, start, end])
-                    // 0 is timer name, 1 is project, 2 is id, 3 is projectID, 4 is start, 5 is end
+                    // 0 is timer name, 1 is project, 2 is id, 3 is projectId, 4 is start, 5 is end
 
                 })
 

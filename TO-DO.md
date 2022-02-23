@@ -16,7 +16,7 @@ Fix white box height on mobile on ShowTasksPage
 Break out into components  
 Updating other fields from timer menu  
 Editing timers from historic - EditTimerPage  
-Format end times on RecentTimer  
+Prevent showing of live task in historic tasks?  
 
 
 
