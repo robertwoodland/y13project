@@ -17,6 +17,7 @@ Historic timer
 Break out into components  
 Updating other fields from timer menu  
 Editing timers from historic - EditTimerPage  
+Active Timer bar shows selected timer - states  
 
 
 

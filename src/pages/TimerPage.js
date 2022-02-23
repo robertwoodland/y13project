@@ -111,7 +111,7 @@ export default function TimerPage() {
 
             <Row className="my-3">
                 <ThemedButton onClick={() => setShowTimer(prev => !prev)}>
-                    <h2>{showTimer ? "Show Previous Timers" : "Add Timer"}</h2>
+                    <h2>{showTimer ? "Show Previous Timers" : "Add Timer Page"}</h2>
                 </ThemedButton>
             </Row>
 

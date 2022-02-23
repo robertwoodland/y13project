@@ -54,7 +54,16 @@ export default function ShowTimersPage(props) {
             selectedTimer={selectedTimer} setSelectedTimer={setSelectedTimer} editTimer={editTimer}
             setEditTimer={setEditTimer} uid={uid} />
             
-            : <EditTimerPage/>}
+            : <EditTimerPage timerName={timerName} selectedProject={selectedProject} 
+            setSelectedProject={setSelectedProject} projectInput={projectInput} setProjectInput={setProjectInput}
+            recentProjects={recentProjects} projectId={projectId} setProjectId={setProjectId} startTime={startTime} 
+            setStartTime={setStartTime} endTime={endTime} setEndTime={setEndTime} setTimerName={setTimerName} 
+            timerActive={timerActive} setTimerActive={setTimerActive} timerId={timerId} setTimerId={setTimerId} 
+            activeTimer={activeTimer} setActiveTimer={setActiveTimer} timerSubmitted={timerSubmitted}
+            setTimerSubmitted={setTimerSubmitted} recentTimers={recentTimers} setRecentTimers={setRecentTimers} 
+            maxPageNum={maxPageNum} setMaxPageNum={setMaxPageNum} pageNum={pageNum} setPageNum={setPageNum} 
+            selectedTimer={selectedTimer} setSelectedTimer={setSelectedTimer} editTimer={editTimer}
+            setEditTimer={setEditTimer} uid={uid} />}
 
 
 
