@@ -19,6 +19,7 @@ Can't fix pagination when timer deleted
 
 
 ### Preferences
+Getting user info and using it upon login  
 
 <br/><br/>
 
