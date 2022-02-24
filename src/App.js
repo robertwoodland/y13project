@@ -31,20 +31,23 @@ export default function App() {
             const firstName = auth.displayName.split(" ")[0]
 
             setUid(uid)
-            // setUsername(firstName)
+            setUsername(firstName)
 
             app.firestore().collection("users").doc(uid).get().then((res) => {
                 if (!res.exists) {
                     const taskCount = 0
                     app.firestore().collection("users").doc(uid).set({
-                        firstName,
+                        username: firstName,
                         email,
                         taskCount,
                         primaryColour,
                         secondaryColour
                     })
                 } else {
-                    console.log(res.data()) // returns all qualities from users collection - finish
+                    const data = res.data() // returns all qualities from users collection - finish
+                    setUsername(data.username)
+                    setPrimaryColour(data.primaryColour)
+                    setSecondaryColour(data.secondaryColour)
                 }
             })
     }}, [auth])

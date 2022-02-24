@@ -54,7 +54,7 @@ export default function PreferencesPage() {
                         <ThemedButton onClick={() => restoreDefault()}>Reset Defaults</ThemedButton>
                     </Col>
                     <Col>
-                        <ThemedButton onClick={() => updatePreferences(primaryColour, secondaryColour, uid)}>Save Changes</ThemedButton>
+                        <ThemedButton onClick={() => updatePreferences(username, primaryColour, secondaryColour, uid)}>Save Changes</ThemedButton>
                     </Col>
                 </Row>
             </Form>
