@@ -22,6 +22,7 @@ export default function App() {
     const [primaryColour, setPrimaryColour] = useState('#c4b5fd'); // background colour
     const [secondaryColour, setSecondaryColour] = useState('#9333ea'); // button colour
     const [uid, setUid] = useState();
+    const [username, setUsername] = useState();
     
     useEffect(() => {
         if (auth) {
@@ -30,15 +31,20 @@ export default function App() {
             const firstName = auth.displayName.split(" ")[0]
 
             setUid(uid)
+            // setUsername(firstName)
 
-            app.firestore().collection("users").doc(uid).get().then((data) => {
-                if (!data.exists) {
+            app.firestore().collection("users").doc(uid).get().then((res) => {
+                if (!res.exists) {
                     const taskCount = 0
                     app.firestore().collection("users").doc(uid).set({
                         firstName,
                         email,
-                        taskCount
+                        taskCount,
+                        primaryColour,
+                        secondaryColour
                     })
+                } else {
+                    console.log(res.data()) // returns all qualities from users collection - finish
                 }
             })
     }}, [auth])
@@ -64,7 +70,7 @@ export default function App() {
                     <Secured auth={auth}>
                         <ThemeContext.Provider value={{primaryColour: primaryColour, setPrimaryColour: setPrimaryColour,
                         secondaryColour: secondaryColour, setSecondaryColour: setSecondaryColour}}>
-                        <UserContext.Provider value={{uid: uid}}>
+                        <UserContext.Provider value={{username: username, setUsername: setUsername, uid: uid}}>
 
                             <Route exact path="/menu" component={MenuPage}/>
                             <Route exact path="/scratch" component={ScratchPage}/>
