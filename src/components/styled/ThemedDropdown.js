@@ -3,9 +3,9 @@ import { Dropdown } from 'react-bootstrap';
 import { ThemeContext } from '../../App';
 
 export default function ThemedDropdown(props) {
-    const value = useContext(ThemeContext)
+    const {secondaryColour} = useContext(ThemeContext)
     return (
-        <Dropdown.Toggle style={{backgroundColor: value.userColours[1], minWidth:"100%"}}>
+        <Dropdown.Toggle style={{backgroundColor: secondaryColour, minWidth:"100%"}}>
             {props.children}
         </Dropdown.Toggle>
     )
