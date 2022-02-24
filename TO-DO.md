@@ -7,7 +7,7 @@ Using objects with names rather than just indexes? - bad idea as you can't use .
 
 
 
-Fix white box height on mobile on ShowTasksPage  
+Fix white box height on mobile on ShowTasksPage (if even possible)  
 
 
 
@@ -15,8 +15,8 @@ Fix white box height on mobile on ShowTasksPage
 ## All other areas of the app  
 ### Timers  
 Break out into components  
-Clean up passed states  
-Creating a timer and then showing historic causes error - reading '0' for TimerHeader  
+Clean up passed states   
+Can't fix pagination when timer deleted  
 
 
 ### Preferences

@@ -30,7 +30,7 @@ export default function ShowTimersPage(props) {
 
     return(
         <Fragment>
-            {timerActive ? <TimerHeader timerName={activeTimer[0]} selectedProject={activeTimer[1]} startTime={getHHMM(activeTimer[4])} /> 
+            {activeTimer ? <TimerHeader timerName={activeTimer[0]} selectedProject={activeTimer[1]} startTime={getHHMM(activeTimer[4])} /> 
             
             
             : 

@@ -72,7 +72,9 @@ export default function TimerPage() {
             setStartTime("")
             setEndTime("")
             setTimerName("")
+            setTimerId()
             setSelectedProject()
+            setProjectId()
             setTimerActive(false)
             setTimerSubmitted(false)
             setActiveTimer()
@@ -86,6 +88,8 @@ export default function TimerPage() {
         setEndTime("")
         setTimerName("")
         setSelectedProject()
+        setProjectId()
+        setTimerId()
     }
 
 

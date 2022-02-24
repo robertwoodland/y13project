@@ -43,9 +43,9 @@ export default function ShowRecentTimers(props){
     }
 
     useEffect(() => {
-        if (pageNum >= maxPageNum && pageNum != 0) {
-            console.log(maxPageNum)
-            setPageNum(maxPageNum - 1)
+        if ((pageNum >= maxPageNum) && pageNum != 0) {
+            console.log(pageNum, maxPageNum)
+            setPageNum((prevState) => prevState - 1)
         }
     }, [maxPageNum, pageNum])
     
