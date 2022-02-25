@@ -10,22 +10,12 @@ import incPageNum from '../PageNums/incPageNum';
 
 export default function ShowRecentTimers(props){
 
-    const {timerName, setTimerName} = props
-    const {selectedProject, setSelectedProject} = props
-    const {projectInput, setProjectInput} = props
-    const {recentProjects} = props
-    const {projectId, setProjectId} = props
-    const {startTime, setStartTime} = props
-    const {endTime, setEndTime} = props
-    const {timerActive, setTimerActive} = props
-    const {timerId, setTimerId} = props
-    const {activeTimer, setActiveTimer} = props
-    const {timerSubmitted, setTimerSubmitted} = props
+    const {setSelectedProject} = props
     const {recentTimers, setRecentTimers} = props
     const {maxPageNum, setMaxPageNum} = props
     const {pageNum, setPageNum} = props
     const {selectedTimer, setSelectedTimer} = props
-    const {editTimer, setEditTimer} = props
+    const {setEditTimer} = props
     const {uid} = props
 
 

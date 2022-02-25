@@ -103,8 +103,8 @@ export default function TimerPage() {
                 setSelectedProject={setSelectedProject} projectInput={projectInput} setProjectInput={setProjectInput}
                 recentProjects={recentProjects} projectId={projectId} setProjectId={setProjectId} startTime={startTime} 
                 setStartTime={setStartTime} endTime={endTime} setEndTime={setEndTime} setTimerName={setTimerName} 
-                timerActive={timerActive} setTimerActive={setTimerActive} timerId={timerId} setTimerId={setTimerId} 
-                activeTimer={activeTimer} setActiveTimer={setActiveTimer} timerSubmitted={timerSubmitted}
+                timerActive={timerActive} setTimerActive={setTimerActive} setTimerId={setTimerId} 
+                activeTimer={activeTimer} setActiveTimer={setActiveTimer}
                 setTimerSubmitted={setTimerSubmitted} uid={uid} /> 
                 
                 
@@ -112,9 +112,8 @@ export default function TimerPage() {
                 setSelectedProject={setSelectedProject} projectInput={projectInput} setProjectInput={setProjectInput}
                 recentProjects={recentProjects} projectId={projectId} setProjectId={setProjectId} startTime={startTime} 
                 setStartTime={setStartTime} endTime={endTime} setEndTime={setEndTime} setTimerName={setTimerName} 
-                timerActive={timerActive} setTimerActive={setTimerActive} timerId={timerId} setTimerId={setTimerId} 
-                activeTimer={activeTimer} setActiveTimer={setActiveTimer} timerSubmitted={timerSubmitted}
-                setTimerSubmitted={setTimerSubmitted} recentTimers={recentTimers} setRecentTimers={setRecentTimers}
+                setTimerId={setTimerId} 
+                activeTimer={activeTimer} recentTimers={recentTimers} setRecentTimers={setRecentTimers}
                 pageNum={pageNum} setPageNum={setPageNum} maxPageNum={maxPageNum} setMaxPageNum={setMaxPageNum} 
                 selectedTimer={selectedTimer} setSelectedTimer={setSelectedTimer} editTimer={editTimer}
                 setEditTimer={setEditTimer} uid={uid} />}

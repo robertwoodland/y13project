@@ -13,10 +13,8 @@ export default function ShowTimersPage(props) {
     const {projectId, setProjectId} = props
     const {startTime, setStartTime} = props
     const {endTime, setEndTime} = props
-    const {timerActive, setTimerActive} = props
-    const {timerId, setTimerId} = props
-    const {activeTimer, setActiveTimer} = props
-    const {timerSubmitted, setTimerSubmitted} = props
+    const {setTimerId} = props
+    const {activeTimer} = props
     const {recentTimers, setRecentTimers} = props
     const {maxPageNum, setMaxPageNum} = props
     const {pageNum, setPageNum} = props
@@ -44,27 +42,19 @@ export default function ShowTimersPage(props) {
 
 
             {!editTimer ? 
-            <ShowRecentTimers timerName={timerName} selectedProject={selectedProject} 
-            setSelectedProject={setSelectedProject} projectInput={projectInput} setProjectInput={setProjectInput}
-            recentProjects={recentProjects} projectId={projectId} setProjectId={setProjectId} startTime={startTime} 
-            setStartTime={setStartTime} endTime={endTime} setEndTime={setEndTime} setTimerName={setTimerName} 
-            timerActive={timerActive} setTimerActive={setTimerActive} timerId={timerId} setTimerId={setTimerId} 
-            activeTimer={activeTimer} setActiveTimer={setActiveTimer} timerSubmitted={timerSubmitted}
-            setTimerSubmitted={setTimerSubmitted} recentTimers={recentTimers} setRecentTimers={setRecentTimers} 
+            <ShowRecentTimers setSelectedProject={setSelectedProject} 
+            recentTimers={recentTimers} setRecentTimers={setRecentTimers} 
             maxPageNum={maxPageNum} setMaxPageNum={setMaxPageNum} pageNum={pageNum} setPageNum={setPageNum} 
-            selectedTimer={selectedTimer} setSelectedTimer={setSelectedTimer} editTimer={editTimer}
+            selectedTimer={selectedTimer} setSelectedTimer={setSelectedTimer}
             setEditTimer={setEditTimer} uid={uid} />
             
             : <EditTimerPage timerName={timerName} selectedProject={selectedProject} 
             setSelectedProject={setSelectedProject} projectInput={projectInput} setProjectInput={setProjectInput}
             recentProjects={recentProjects} projectId={projectId} setProjectId={setProjectId} startTime={startTime} 
             setStartTime={setStartTime} endTime={endTime} setEndTime={setEndTime} setTimerName={setTimerName} 
-            timerActive={timerActive} setTimerActive={setTimerActive} timerId={timerId} setTimerId={setTimerId} 
-            activeTimer={activeTimer} setActiveTimer={setActiveTimer} timerSubmitted={timerSubmitted}
-            setTimerSubmitted={setTimerSubmitted} recentTimers={recentTimers} setRecentTimers={setRecentTimers} 
-            maxPageNum={maxPageNum} setMaxPageNum={setMaxPageNum} pageNum={pageNum} setPageNum={setPageNum} 
-            selectedTimer={selectedTimer} setSelectedTimer={setSelectedTimer} editTimer={editTimer}
-            setEditTimer={setEditTimer} uid={uid} />}
+            setTimerId={setTimerId}
+            selectedTimer={selectedTimer}
+            setEditTimer={setEditTimer} />}
 
 
 

@@ -15,9 +15,9 @@ export default function ActiveTimer(props) {
     const {startTime, setStartTime} = props
     const {endTime, setEndTime} = props
     const {timerActive, setTimerActive} = props
-    const {timerId, setTimerId} = props
+    const {setTimerId} = props
     const {activeTimer, setActiveTimer} = props
-    const {timerSubmitted, setTimerSubmitted} = props
+    const {setTimerSubmitted} = props
     const {uid} = props
 
 
@@ -115,27 +115,16 @@ export default function ActiveTimer(props) {
     }
 
     function ShowTimerCount() {
-        // if (!timerActive) {
-            return(
-                <Fragment>
-                    <Col align="right">
-                        {!activeTimer ? 
-                        <ThemedButton onClick={() => handleStartTimer()}>{endTime ? "Add Timer" : "Start Timer"}</ThemedButton>
-                        
-                        : <ThemedButton onClick={() => handleEndTimer()}>End Timer</ThemedButton>}
-                    </Col>
-                </Fragment>
-            )
-        /*} else {
-            return(
-                <Fragment>
-                    <Col>
-                        <h1>Active</h1>
-                    </Col>
-
-                </Fragment>
-            )
-        }*/
+        return(
+            <Fragment>
+                <Col align="right">
+                    {!activeTimer ? 
+                    <ThemedButton onClick={() => handleStartTimer()}>{endTime ? "Add Timer" : "Start Timer"}</ThemedButton>
+                    
+                    : <ThemedButton onClick={() => handleEndTimer()}>End Timer</ThemedButton>}
+                </Col>
+            </Fragment>
+        )
     }
 
     return(
