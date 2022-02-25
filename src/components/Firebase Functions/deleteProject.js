@@ -1,6 +1,6 @@
 import app from "../base";
 
-export default function deleteProject(projectId, setSelectedProject, setProjectId){
+export default function deleteProject(projectId, setProjectId){
     if (projectId) {
 
         app.firestore().collection("tasks").where("projectId", "==", projectId)
@@ -20,7 +20,6 @@ export default function deleteProject(projectId, setSelectedProject, setProjectI
 
         app.firestore().collection("projects").doc(projectId).delete()
         .then(() => {
-            setSelectedProject()
             setProjectId()
         })
     }

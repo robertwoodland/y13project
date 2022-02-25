@@ -1,7 +1,6 @@
-import React, { Fragment, useContext } from 'react'
+import React, { Fragment } from 'react'
 import ThemedButton from '../styled/ThemedButton';
 import { Form, Col, Row } from 'react-bootstrap';
-import { UserContext } from '../../App';
 import deleteProject from '../Firebase Functions/deleteProject';
 import RecentProjectItem from './RecentProjectItem';
 import decPageNum from '../PageNums/decPageNum';
@@ -9,18 +8,13 @@ import incPageNum from '../PageNums/incPageNum';
 
 
 export default function ShowRecentProjects(props){
-
-    const {uid} = useContext(UserContext)
-
-    const {recentProjects, selectedProject, setSelectedProject} = props
+    const {recentProjects} = props
     const {pageNum, setPageNum, maxPageNum} = props
-    const {handleShowDetails} = props
     const {projectId, setProjectId} = props
 
     function handleProjectSelect(e){
         // 0 is project name, 1 is accessed time, 2 is ID
         const value = e.target.value.split(",")
-        setSelectedProject(value[0])
         setProjectId(value[2])
     }
 
@@ -42,7 +36,7 @@ export default function ShowRecentProjects(props){
 
             <Row>
                 <Col>
-                    <ThemedButton onClick={() => deleteProject(projectId, setSelectedProject, setProjectId)}>Delete</ThemedButton>
+                    <ThemedButton onClick={() => deleteProject(projectId, setProjectId)}>Delete</ThemedButton>
                 </Col>
             </Row>
 
