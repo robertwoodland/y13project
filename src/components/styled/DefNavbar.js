@@ -31,7 +31,7 @@ export default function DefNavbar() {
                                 Timer
                             </Nav.Link>
 
-                            <Nav.Link as={Link} to="#/projects">
+                            <Nav.Link as={Link} to="/projects">
                                 Projects
                             </Nav.Link>
 

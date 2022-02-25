@@ -8,6 +8,7 @@ import AddTaskPage from "./pages/AddTaskPage";
 import ShowTasksPage from "./pages/ShowTasksPage";
 import TasksMenuPage from "./pages/TasksMenuPage";
 import TimerPage from "./pages/TimerPage";
+import ProjectsPage from "./pages/ProjectsPage";
 import PreferencesPage from "./pages/PreferencesPage";
 import Secured from './components/Secured';
 import app from "./components/base";
@@ -82,6 +83,7 @@ export default function App() {
                             <Route exact path="/show-tasks" component={ShowTasksPage}/>
                             <Route exact path="/timer" component={TimerPage}/>
                             <Route exact path="/preferences" component={PreferencesPage} />
+                            <Route exact path="/projects" component={ProjectsPage} />
                         </UserContext.Provider>
                         </ThemeContext.Provider>
                     </Secured>

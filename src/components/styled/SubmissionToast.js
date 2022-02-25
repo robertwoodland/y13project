@@ -13,7 +13,7 @@ export default function SubmissionToast(props) {
                         <strong className="mx-auto">Tasks</strong>
                     </Toast.Header>
 
-                    <Toast.Body>{update ? "Task updated in database" : "Task submitted to database"}</Toast.Body>
+                    <Toast.Body>{update ? "Updated in database" : "Submitted to database"}</Toast.Body>
                 </Toast>
             </ToastContainer>
         </Fragment>

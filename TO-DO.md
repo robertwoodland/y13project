@@ -16,7 +16,12 @@ Fix white box height on mobile on ShowTasksPage (if even possible)
 Break out into components  
 Clean up passed states   
 Can't fix pagination when timer deleted  
+Toast  
 
+
+### Projects
+ProjectDetails  
+ShowRecentProjects  
 
 <br/><br/>
 
