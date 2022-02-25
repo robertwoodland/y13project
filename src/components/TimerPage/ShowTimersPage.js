@@ -13,7 +13,6 @@ export default function ShowTimersPage(props) {
     const {projectId, setProjectId} = props
     const {startTime, setStartTime} = props
     const {endTime, setEndTime} = props
-    const {setTimerId} = props
     const {activeTimer} = props
     const {recentTimers, setRecentTimers} = props
     const {maxPageNum, setMaxPageNum} = props
