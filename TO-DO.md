@@ -20,7 +20,7 @@ Toast
 
 
 ### Projects
-ProjectDetails  
+ProjectDetails submit  
 ShowRecentProjects  
 
 <br/><br/>

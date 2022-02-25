@@ -6,17 +6,22 @@ export default function deleteProject(projectId, setSelectedProject, setProjectI
         app.firestore().collection("tasks").where("projectId", "==", projectId)
         .get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                console.log(doc.id)
+                app.firestore().collection("tasks").doc(doc.id).delete()
+            })
+        })
+
+        app.firestore().collection("timers").where("projectId", "==", projectId)
+        .get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                app.firestore().collection("timers").doc(doc.id).delete()
             })
         })
 
 
-        /*
         app.firestore().collection("projects").doc(projectId).delete()
         .then(() => {
             setSelectedProject()
             setProjectId()
         })
-        */
     }
 }

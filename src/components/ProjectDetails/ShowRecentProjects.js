@@ -40,10 +40,7 @@ export default function ShowRecentProjects(props){
 
             <Row>
                 <Col>
-                    <ThemedButton onClick={() => deleteProject(projectId, setSelectedProject, setProjectId)}>Mark As Complete</ThemedButton>
-                </Col>
-                <Col>
-                    <ThemedButton onClick={() => handleShowDetails()}>Edit Details</ThemedButton>
+                    <ThemedButton onClick={() => deleteProject(projectId, setSelectedProject, setProjectId)}>Delete</ThemedButton>
                 </Col>
             </Row>
 
