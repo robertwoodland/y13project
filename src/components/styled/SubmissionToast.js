@@ -3,7 +3,6 @@ import { ToastContainer, Toast } from "react-bootstrap";
 
 export default function SubmissionToast(props) {
     const {showToast, setShowToast} = props
-    const {update} = props
 
     return(
         <Fragment>
@@ -13,7 +12,7 @@ export default function SubmissionToast(props) {
                         <strong className="mx-auto">Tasks</strong>
                     </Toast.Header>
 
-                    <Toast.Body>{update ? "Updated in database" : "Submitted to database"}</Toast.Body>
+                    <Toast.Body>{props.children}</Toast.Body>
                 </Toast>
             </ToastContainer>
         </Fragment>

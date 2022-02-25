@@ -1,11 +1,7 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { Col, Row, Form } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
-import TaskDetails from '../components/TaskDetails/TaskDetails';
-import getTasks from '../components/Firebase Functions/getTasks';
-import markComplete from '../components/Firebase Functions/markComplete';
 import SubmissionToast from '../components/styled/SubmissionToast';
-import ShowRecentTasks from '../components/ShowTasksPage/ShowRecentTasks';
 import getProjects from '../components/Firebase Functions/getProjects';
 import { UserContext } from '../App';
 import getTaskCount from '../components/Firebase Functions/getTaskCount';
@@ -93,7 +89,7 @@ export default function ShowTasksPage() {
 
     return (
         <ContainerPage>
-            <SubmissionToast showToast={showToast} setShowToast={setShowToast} update={true}/>
+            <SubmissionToast showToast={showToast} setShowToast={setShowToast}>Removed from database</SubmissionToast>
             <Form>
                 <Form.Group className="mb-3">
 

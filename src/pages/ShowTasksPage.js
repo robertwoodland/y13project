@@ -73,7 +73,7 @@ export default function ShowTasksPage() {
 
     return (
         <ContainerPage>
-            <SubmissionToast showToast={showToast} setShowToast={setShowToast} update={true}/>
+            <SubmissionToast showToast={showToast} setShowToast={setShowToast}>Updated in database</SubmissionToast>
             <Form>
                 <Form.Group className="mb-3">
                     <Row>

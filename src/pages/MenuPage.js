@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
+import ThemedButton from '../components/styled/ThemedButton';
 
 export default function MenuPage() {
     return (
@@ -15,7 +16,7 @@ export default function MenuPage() {
                 <Row>
                     <Col>
                         <Link to='/logout'>
-                            <Button variant='primary mt-1 mb-1'>Log Out</Button>
+                            <ThemedButton>Log Out</ThemedButton>
                         </Link>
                     </Col>
                 </Row>

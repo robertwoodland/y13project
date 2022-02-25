@@ -22,6 +22,7 @@ Toast
 ### Projects
 ProjectDetails submit  
 ShowRecentProjects  
+Break into components  
 
 <br/><br/>
 
