@@ -23,16 +23,8 @@ export default function MenuPage() {
 
                 <Row>
                     <Col>
-                        <Link to="/add-tasks">
-                            <Button variant='outline-primary my-1'>Add Task</Button>
-                        </Link>
-                    </Col>
-                </Row>
-
-                <Row>
-                    <Col>
-                        <Link to="/show-tasks">
-                            <Button variant='outline-primary my-1'>Show Tasks</Button>
+                        <Link to="/tasks-menu">
+                            <Button variant='outline-primary my-1'>Tasks</Button>
                         </Link>
                     </Col>
                 </Row>
@@ -41,6 +33,14 @@ export default function MenuPage() {
                     <Col>
                         <Link to="/timer">
                             <Button variant='outline-primary my-1'>Timer</Button>
+                        </Link>
+                    </Col>
+                </Row>
+
+                <Row>
+                    <Col>
+                        <Link to="/projects">
+                            <Button variant='outline-primary my-1'>Manage Projects</Button>
                         </Link>
                     </Col>
                 </Row>
