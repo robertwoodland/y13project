@@ -34,25 +34,6 @@ export default function ShowTasksPage() {
     }
 
 
-    function SelectedDetails(){
-        if (showProjectDetails && selectedProject){
-            return(
-                <Fragment>
-
-                    <ProjectDetails projectPlaceholder={selectedProject} update={true} selectedProject={selectedProject}
-                    recentProjects={recentProjects} setRecentProjects={setRecentProjects}>
-                        Update Project
-                    </ProjectDetails>
-                
-                </Fragment>
-            )
-        } else {
-            return(<Fragment/>)
-        }
-    }
-
-
-
     return (
         <ContainerPage>
             <SubmissionToast showToast={showToast} setShowToast={setShowToast}>Removed from database</SubmissionToast>
@@ -68,9 +49,7 @@ export default function ShowTasksPage() {
                             setSelectedProject={setSelectedProject} maxPageNum={maxPageNum} projectId={projectId} setProjectId={setProjectId} />
                         </Col>
                         <Col>
-                            {SelectedDetails()}
-                            {/* Some weird bug makes it work only when the function is called like this :/ 
-                            Still need to finish. */}
+                            
                         </Col>
                     </Row>
                 </Form.Group>
