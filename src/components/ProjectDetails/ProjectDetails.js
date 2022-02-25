@@ -14,7 +14,6 @@ export default function ProjectDetails(props) {
 
     const [selectedProject, setSelectedProject] = useState();
     const [projectInput, setProjectInput] = useState();
-    const [taskInput, setTaskInput] = useState();
     const [projectId, setProjectId] = useState();
     const [dateInput, setDateInput] = useState();
     const [taskSubmitted, setTaskSubmitted] = useState(false);
@@ -31,25 +30,6 @@ export default function ProjectDetails(props) {
         }
     }, [projectPlaceholder]);
 
-    useEffect(() => {
-        if (dueDate) {
-            setDateInput(dueDate)
-        }
-    }, [dueDate]);
-
-    useEffect(() => {
-        if (selectedTask) {
-            setTaskInputName(selectedTask[0])
-            setProjectId(selectedTask[4])
-        } 
-    }, [selectedTask]);
-    
-    useEffect(() => {
-        if (taskInput) {
-            let taskInputValid = taskInput.replace(',', '')
-            setTaskInputName(taskInputValid)
-        }
-    }, [taskInput]);
     
 
     getProjects(setRecentProjects)
@@ -75,7 +55,7 @@ export default function ProjectDetails(props) {
             setTaskSubmitted(false)
             setShowToast(true)
         } else if (taskSubmitted) {
-            setTaskInput("")
+            setProjectInput("")
             setSelectedProject()
             setDateInput("")
             setTaskSubmitted(false)
@@ -87,33 +67,16 @@ export default function ProjectDetails(props) {
     return (
         <Fragment>
             <Form.Group className="mb-3" controlId="formProject">
-                <Form.Label>Task:</Form.Label>
+                <Form.Label>Project Name:</Form.Label>
                 <Row>
                     <Col>
-                        <Form.Control onChange={(e) => setTaskInput(e.target.value)} value={taskInput} type="task" placeholder={taskInputPlaceholder ? taskInputPlaceholder : "Enter task name"}/>
+                        <Form.Control onChange={(e) => setProjectInput(e.target.value)} value={projectInput} type="task"/>
                     </Col>
                 </Row>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formDropdown">
-                <Form.Label>Project:</Form.Label>
-                
-                <ProjectDropdown selectedProject={selectedProject} setSelectedProject={setSelectedProject}
-                projectInput={projectInput} recentProjects={recentProjects}
-                setProjectInput={setProjectInput} setProjectId={setProjectId} />
-
-                <Form.Group className="mb-3 mt-3" controlId="formDueDate">
-                    <Row>
-                        <Form.Label>Due Date:</Form.Label>
-                    </Row>
-
-                    <input type="date" onChange={(e) => setDateInput(e.target.value)} value={dateInput}></input>
-
-                </Form.Group>
-            </Form.Group>
-
-            <div className="mt-5">
-                <ThemedButton onClick={() => taskSubmit(updateProjectAccessed, setTaskSubmitted, taskInputName, selectedProject, dateInput, projectId, update, selectedTask, uid)}>
+            <div className="mt-3">
+                <ThemedButton onClick={() => console.log("Need complete") /*taskSubmit(updateProjectAccessed, setTaskSubmitted, taskInputName, selectedProject, dateInput, projectId, update, selectedTask, uid)*/}>
                     {props.children}
                 </ThemedButton>
             </div>

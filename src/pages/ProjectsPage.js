@@ -4,7 +4,6 @@ import ContainerPage from '../components/styled/ContainerPage';
 import TaskDetails from '../components/TaskDetails/TaskDetails';
 import getTasks from '../components/Firebase Functions/getTasks';
 import markComplete from '../components/Firebase Functions/markComplete';
-// import deleteProject from '../components/Firebase Functions/deleteProject'
 import SubmissionToast from '../components/styled/SubmissionToast';
 import ShowRecentTasks from '../components/ShowTasksPage/ShowRecentTasks';
 import getProjects from '../components/Firebase Functions/getProjects';
@@ -23,7 +22,7 @@ export default function ShowTasksPage() {
     const [selectedTask, setSelectedTask] = useState();
     const [selectedProject, setSelectedProject] = useState();
     
-    const [showTaskDetails, setShowTaskDetails] = useState(false);
+    const [showProjectDetails, setShowProjectDetails] = useState(false);
     const [formattedDueDate, setFormattedDueDate] = useState();
     const [pageNum, setPageNum] = useState(0);
     const [maxPageNum, setMaxPageNum] = useState(0);
@@ -35,13 +34,16 @@ export default function ShowTasksPage() {
     getProjects(setRecentProjects)
     // 0 is project name, 1 is accessed time, 2 is ID
     
-    getTasks(setRecentTasks, setMaxPageNum, uid)
+    useEffect(() => {
+        const num = Math.floor(recentProjects.length/10) + 1
+        setMaxPageNum(num)
+    }, [recentProjects])
 
     getTaskCount(uid, setTaskCount)
 
     function handleShowDetails(){
-        if (selectedTask){
-            setShowTaskDetails(true)
+        if (selectedProject){
+            setShowProjectDetails(true)
         }
     }
 
@@ -59,7 +61,7 @@ export default function ShowTasksPage() {
 
 
     function SelectedDetails(){
-        if (showTaskDetails && selectedTask){
+        if (showProjectDetails && selectedProject){
             return(
                 <Fragment>
                     {/* 
@@ -75,7 +77,9 @@ export default function ShowTasksPage() {
 
 
                     <ProjectDetails projectPlaceholder={selectedProject} update={true} selectedProject={selectedProject}
-                    recentProjects={recentProjects} setRecentProjects={setRecentProjects} />
+                    recentProjects={recentProjects} setRecentProjects={setRecentProjects}>
+                        Update Project
+                    </ProjectDetails>
                     
 
                 </Fragment>
@@ -97,24 +101,14 @@ export default function ShowTasksPage() {
                     
                     <Row>
                         <Col>
-                            {/*
-                            <ShowRecentTasks recentTasks={recentTasks} pageNum={pageNum} handleShowDetails={handleShowDetails}
-                            markComplete={markComplete} incPageNum={incPageNum}
-                            decPageNum={decPageNum} selectedTask={selectedTask} setSelectedProject={setSelectedProject}
-                            setSelectedTask={setSelectedTask} setDueDate={setDueDate} maxPageNum={maxPageNum}
-                            setFormattedDueDate={setFormattedDueDate} taskCount={taskCount} />
-                             */}
-
-                            {/* 
                             <ShowRecentProjects recentProjects={recentProjects} pageNum={pageNum} handleShowDetails={handleShowDetails}
-                            deleteProject={deleteProject} incPageNum={incPageNum} decPageNum={decPageNum} selectedProject={selectedProject}
+                            incPageNum={incPageNum} decPageNum={decPageNum} selectedProject={selectedProject}
                             setSelectedProject={setSelectedProject} maxPageNum={maxPageNum} projectId={projectId} setProjectId={setProjectId} />
-                            */}
-                            
                         </Col>
                         <Col>
                             {SelectedDetails()}
-                            {/* Some weird bug makes it work only when the function is called like this :/ */}
+                            {/* Some weird bug makes it work only when the function is called like this :/ 
+                            Still need to finish. */}
                         </Col>
                     </Row>
                 </Form.Group>

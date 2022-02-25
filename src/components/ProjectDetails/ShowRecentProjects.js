@@ -2,7 +2,8 @@ import React, { Fragment, useContext } from 'react'
 import ThemedButton from '../styled/ThemedButton';
 import { Form, Col, Row } from 'react-bootstrap';
 import { UserContext } from '../../App';
-import RecentProject from '../ProjectDropdown/RecentProject';
+import deleteProject from '../Firebase Functions/deleteProject';
+import RecentProjectItem from './RecentProjectItem';
 
 
 export default function ShowRecentProjects(props){
@@ -11,7 +12,7 @@ export default function ShowRecentProjects(props){
 
     const {recentProjects, selectedProject, setSelectedProject} = props
     const {pageNum, incPageNum, decPageNum, maxPageNum} = props
-    const {handleShowDetails, deleteProject} = props
+    const {handleShowDetails} = props
     const {projectId, setProjectId} = props
 
     function handleProjectSelect(e){
@@ -26,32 +27,34 @@ export default function ShowRecentProjects(props){
     if (len > 0) {
         const names = recentProjects.map(function(project, index) {
             if (index >= 10 * pageNum && index < (10 * pageNum) + 10) {
-                return <RecentProject key={index} text={project}/>
+                return <RecentProjectItem key={index} text={project}/>
             }
         })
 
         return(
         <Fragment>
-            <div onChange={(e) => handleProjectSelect(e)}>{names}</div>
+            <div onChange={(e) => handleProjectSelect(e)}>
+                {names}
+            </div>
             <br></br>
 
             <Row>
                 <Col>
-                    <ThemedButton onClick={() => markComplete(selectedProject, setSelectedProject, uid)}>Mark As Complete</ThemedButton>
+                    <ThemedButton onClick={() => deleteProject(projectId, setSelectedProject, setProjectId)}>Mark As Complete</ThemedButton>
                 </Col>
                 <Col>
-                    <ThemedButton onClick={handleShowDetails()}>Edit Details</ThemedButton>
+                    <ThemedButton onClick={() => handleShowDetails()}>Edit Details</ThemedButton>
                 </Col>
             </Row>
 
             <Row className="mt-3">
                 <Col>
-                    <ThemedButton onClick={decPageNum()}>Previous Page</ThemedButton>
+                    <ThemedButton onClick={() => decPageNum()}>Previous Page</ThemedButton>
                     <Form.Label className="mx-3">{"Page " + (pageNum + 1) + " of " + maxPageNum}</Form.Label>
                 </Col>
 
                 <Col>
-                    <ThemedButton onClick={incPageNum()}>Next Page</ThemedButton>
+                    <ThemedButton onClick={() => incPageNum()}>Next Page</ThemedButton>
                 </Col>
             </Row>
         </Fragment>
