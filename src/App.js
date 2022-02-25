@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MenuPage from "./pages/MenuPage";
 import LoginPage from "./pages/LoginPage";
 import LogoutPage from './pages/LogoutPage'
-import ScratchPage from "./pages/ScratchPage";
 import AddTaskPage from "./pages/AddTaskPage";
 import ShowTasksPage from "./pages/ShowTasksPage";
 import TasksMenuPage from "./pages/TasksMenuPage";
@@ -77,7 +76,6 @@ export default function App() {
                         <UserContext.Provider value={{username: username, setUsername: setUsername, uid: uid}}>
 
                             <Route exact path="/menu" component={MenuPage}/>
-                            <Route exact path="/scratch" component={ScratchPage}/>
                             <Route exact path="/tasks-menu" component={TasksMenuPage}/>
                             <Route exact path="/add-tasks" component={AddTaskPage}/>
                             <Route exact path="/show-tasks" component={ShowTasksPage}/>

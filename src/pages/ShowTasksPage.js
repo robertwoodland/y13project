@@ -15,24 +15,18 @@ export default function ShowTasksPage() {
     const {uid} = useContext(UserContext)
     
     const [recentTasks, setRecentTasks] = useState([]);
-    const [recentProjects, setRecentProjects] = useState([]);
 
     const [selectedTask, setSelectedTask] = useState();
     const [selectedProject, setSelectedProject] = useState();
     
     const [showTaskDetails, setShowTaskDetails] = useState(false);
-    const [formattedDueDate, setFormattedDueDate] = useState();
     const [pageNum, setPageNum] = useState(0);
     const [maxPageNum, setMaxPageNum] = useState(0);
     const [dueDate, setDueDate] = useState();
     const [showToast, setShowToast] = useState(false);
     const [taskCount, setTaskCount] = useState(0)
-    
-    getProjects(setRecentProjects)
-    // 0 is project name, 1 is accessed time, 2 is ID
-    
+        
     getTasks(setRecentTasks, setMaxPageNum, uid)
-
     getTaskCount(uid, setTaskCount)
 
     function handleShowDetails(){
@@ -85,11 +79,9 @@ export default function ShowTasksPage() {
                     <Row>
                         <Col>
                             
-                            <ShowRecentTasks recentTasks={recentTasks} pageNum={pageNum} handleShowDetails={handleShowDetails}
-                            markComplete={markComplete} incPageNum={incPageNum}
-                            decPageNum={decPageNum} selectedTask={selectedTask} setSelectedProject={setSelectedProject}
-                            setSelectedTask={setSelectedTask} setDueDate={setDueDate} maxPageNum={maxPageNum}
-                            setFormattedDueDate={setFormattedDueDate} taskCount={taskCount} />
+                            <ShowRecentTasks recentTasks={recentTasks} pageNum={pageNum} handleShowDetails={handleShowDetails} markComplete={markComplete}
+                            incPageNum={incPageNum} decPageNum={decPageNum} selectedTask={selectedTask} setSelectedProject={setSelectedProject}
+                            setSelectedTask={setSelectedTask} setDueDate={setDueDate} maxPageNum={maxPageNum} taskCount={taskCount} />
                             
                         </Col>
                         <Col>

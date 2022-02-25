@@ -27,7 +27,6 @@ export default function ShowRecentTasks(props){
     
         const date = value[2].split("-")
         setDueDate(value[2])
-        setFormattedDueDate(date[1] + "/" + date[2])
     }
 
 

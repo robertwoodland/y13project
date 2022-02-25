@@ -10,21 +10,13 @@ import ShowRecentProjects from '../components/ProjectDetails/ShowRecentProjects'
 
 export default function ShowTasksPage() {
 
-    const {uid} = useContext(UserContext)
-    
-    const [recentTasks, setRecentTasks] = useState([]);
     const [recentProjects, setRecentProjects] = useState([]);
-
-    const [selectedTask, setSelectedTask] = useState();
     const [selectedProject, setSelectedProject] = useState();
     
     const [showProjectDetails, setShowProjectDetails] = useState(false);
-    const [formattedDueDate, setFormattedDueDate] = useState();
     const [pageNum, setPageNum] = useState(0);
     const [maxPageNum, setMaxPageNum] = useState(0);
-    const [dueDate, setDueDate] = useState();
     const [showToast, setShowToast] = useState(false);
-    const [taskCount, setTaskCount] = useState(0)
     const [projectId, setProjectId] = useState()
     
     getProjects(setRecentProjects)
@@ -34,8 +26,6 @@ export default function ShowTasksPage() {
         const num = Math.floor(recentProjects.length/10) + 1
         setMaxPageNum(num)
     }, [recentProjects])
-
-    getTaskCount(uid, setTaskCount)
 
     function handleShowDetails(){
         if (selectedProject){
@@ -60,24 +50,12 @@ export default function ShowTasksPage() {
         if (showProjectDetails && selectedProject){
             return(
                 <Fragment>
-                    {/* 
-
-                    <TaskDetails taskInputPlaceholder={selectedTask[0]} projectPlaceholder={selectedProject}
-                    dueDate={dueDate} update={true} selectedTask={selectedTask} setSelectedTask={setSelectedTask}
-                    setShowToast={setShowToast} selectedProject={selectedProject}>
-
-                        Update Task
-                    </TaskDetails>
-
-                    */}
-
 
                     <ProjectDetails projectPlaceholder={selectedProject} update={true} selectedProject={selectedProject}
                     recentProjects={recentProjects} setRecentProjects={setRecentProjects}>
                         Update Project
                     </ProjectDetails>
-                    
-
+                
                 </Fragment>
             )
         } else {
