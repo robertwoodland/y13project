@@ -3,6 +3,8 @@ import RecentTask from './RecentTask';
 import ThemedButton from '../styled/ThemedButton';
 import { Form, Col, Row } from 'react-bootstrap';
 import { UserContext } from '../../App';
+import decPageNum from '../PageNums/decPageNum';
+import incPageNum from '../PageNums/incPageNum';
 
 
 export default function ShowRecentTasks(props){
@@ -10,10 +12,9 @@ export default function ShowRecentTasks(props){
     const {uid} = useContext(UserContext)
 
     const {recentTasks} = props
-    const {pageNum} = props
+    const {pageNum, setPageNum} = props
     const {handleShowDetails} = props
     const {markComplete} = props
-    const {incPageNum, decPageNum} = props
     const {selectedTask, setSelectedProject, setSelectedTask, setDueDate} = props
     const {maxPageNum} = props
     const {setFormattedDueDate} = props
@@ -54,12 +55,12 @@ export default function ShowRecentTasks(props){
 
             <Row className="mt-3">
                 <Col>
-                    <ThemedButton onClick={decPageNum}>Previous Page</ThemedButton>
+                    <ThemedButton onClick={() => decPageNum(pageNum, setPageNum)}>Previous Page</ThemedButton>
                     <Form.Label className="mx-3">{"Page " + (pageNum + 1) + " of " + maxPageNum}</Form.Label>
                 </Col>
 
                 <Col>
-                    <ThemedButton onClick={incPageNum}>Next Page</ThemedButton>
+                    <ThemedButton onClick={() => incPageNum(pageNum, setPageNum, maxPageNum)}>Next Page</ThemedButton>
                 </Col>
             </Row>
         </Fragment>

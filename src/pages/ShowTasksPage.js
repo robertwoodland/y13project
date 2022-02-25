@@ -35,18 +35,6 @@ export default function ShowTasksPage() {
         }
     }
 
-    function decPageNum(){
-        if (pageNum > 0) {
-            setPageNum((prevState) => prevState - 1)
-        }
-    }
-
-    function incPageNum(){
-        if (pageNum + 1 < maxPageNum) {
-            setPageNum((prevState) => prevState + 1)
-        }
-    }
-
 
     function SelectedDetails(){
         if (showTaskDetails && selectedTask){
@@ -80,7 +68,7 @@ export default function ShowTasksPage() {
                         <Col>
                             
                             <ShowRecentTasks recentTasks={recentTasks} pageNum={pageNum} handleShowDetails={handleShowDetails} markComplete={markComplete}
-                            incPageNum={incPageNum} decPageNum={decPageNum} selectedTask={selectedTask} setSelectedProject={setSelectedProject}
+                            setPageNum={setPageNum} selectedTask={selectedTask} setSelectedProject={setSelectedProject}
                             setSelectedTask={setSelectedTask} setDueDate={setDueDate} maxPageNum={maxPageNum} taskCount={taskCount} />
                             
                         </Col>

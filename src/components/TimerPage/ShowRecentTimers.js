@@ -4,6 +4,8 @@ import { Form, Col, Row } from 'react-bootstrap';
 import getTimers from '../Firebase Functions/getTimers';
 import RecentTimer from './RecentTimer';
 import removeTimer from '../Firebase Functions/removeTimer';
+import decPageNum from '../PageNums/decPageNum';
+import incPageNum from '../PageNums/incPageNum';
 
 
 export default function ShowRecentTimers(props){
@@ -29,18 +31,6 @@ export default function ShowRecentTimers(props){
 
     getTimers(setRecentTimers, setMaxPageNum, uid)
 
-
-    function decPageNum(){
-        if (pageNum > 0) {
-            setPageNum((prevState) => prevState - 1)
-        }
-    }
-
-    function incPageNum(){
-        if (pageNum + 1 < maxPageNum) {
-            setPageNum((prevState) => prevState + 1)
-        }
-    }
 
     useEffect(() => {
         if ((pageNum >= maxPageNum) && pageNum != 0) {
@@ -90,12 +80,12 @@ export default function ShowRecentTimers(props){
 
             <Row className="mt-3">
                 <Col>
-                    <ThemedButton onClick={decPageNum}>Previous Page</ThemedButton>
+                    <ThemedButton onClick={() => decPageNum(pageNum, setPageNum)}>Previous Page</ThemedButton>
                     <Form.Label className="mx-3">{"Page " + (pageNum + 1) + " of " + maxPageNum}</Form.Label>
                 </Col>
 
                 <Col>
-                    <ThemedButton onClick={incPageNum}>Next Page</ThemedButton>
+                    <ThemedButton onClick={() => incPageNum(pageNum, setPageNum, maxPageNum)}>Next Page</ThemedButton>
                 </Col>
             </Row>
         </Fragment>

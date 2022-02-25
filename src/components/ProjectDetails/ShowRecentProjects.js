@@ -4,6 +4,8 @@ import { Form, Col, Row } from 'react-bootstrap';
 import { UserContext } from '../../App';
 import deleteProject from '../Firebase Functions/deleteProject';
 import RecentProjectItem from './RecentProjectItem';
+import decPageNum from '../PageNums/decPageNum';
+import incPageNum from '../PageNums/incPageNum';
 
 
 export default function ShowRecentProjects(props){
@@ -11,7 +13,7 @@ export default function ShowRecentProjects(props){
     const {uid} = useContext(UserContext)
 
     const {recentProjects, selectedProject, setSelectedProject} = props
-    const {pageNum, incPageNum, decPageNum, maxPageNum} = props
+    const {pageNum, setPageNum, maxPageNum} = props
     const {handleShowDetails} = props
     const {projectId, setProjectId} = props
 
@@ -46,12 +48,12 @@ export default function ShowRecentProjects(props){
 
             <Row className="mt-3">
                 <Col>
-                    <ThemedButton onClick={() => decPageNum()}>Previous Page</ThemedButton>
+                    <ThemedButton onClick={() => decPageNum(pageNum, setPageNum)}>Previous Page</ThemedButton>
                     <Form.Label className="mx-3">{"Page " + (pageNum + 1) + " of " + maxPageNum}</Form.Label>
                 </Col>
 
                 <Col>
-                    <ThemedButton onClick={() => incPageNum()}>Next Page</ThemedButton>
+                    <ThemedButton onClick={() => incPageNum(pageNum, setPageNum, maxPageNum)}>Next Page</ThemedButton>
                 </Col>
             </Row>
         </Fragment>
