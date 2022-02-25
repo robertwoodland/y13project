@@ -14,13 +14,11 @@ export default function EditTimerPage(props) {
     const {projectId, setProjectId} = props
     const {startTime, setStartTime} = props
     const {endTime, setEndTime} = props
-    const {setTimerId} = props
     const {selectedTimer} = props
     const {setEditTimer} = props
 
     useEffect(() => {
         setTimerName(selectedTimer[0])
-        setTimerId(selectedTimer[2])
 
         setStartTime(getHHMM(selectedTimer[4]))
         setEndTime(getHHMM(selectedTimer[5]))

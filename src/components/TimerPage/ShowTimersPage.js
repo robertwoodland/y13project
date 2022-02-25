@@ -52,7 +52,6 @@ export default function ShowTimersPage(props) {
             setSelectedProject={setSelectedProject} projectInput={projectInput} setProjectInput={setProjectInput}
             recentProjects={recentProjects} projectId={projectId} setProjectId={setProjectId} startTime={startTime} 
             setStartTime={setStartTime} endTime={endTime} setEndTime={setEndTime} setTimerName={setTimerName} 
-            setTimerId={setTimerId}
             selectedTimer={selectedTimer}
             setEditTimer={setEditTimer} />}
 

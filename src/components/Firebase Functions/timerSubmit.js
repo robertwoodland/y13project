@@ -2,7 +2,7 @@ import app from "../base";
 import getUnixTime from "../TimerPage/getUnixTime";
 import updateProjectAccessed from "./updateProjectAccessed";
 
-export default async function timerSubmit(setTimerActive, timerName, selectedProject, projectId, startTime, endTime, setTimerId, uid){
+export default async function timerSubmit(setTimerActive, timerName, selectedProject, projectId, startTime, endTime, uid){
     if (timerName && selectedProject && startTime && endTime){
         startTime = getUnixTime(startTime)
 
@@ -22,9 +22,6 @@ export default async function timerSubmit(setTimerActive, timerName, selectedPro
         .then((docRef) => {
             setTimerActive(true)
             updateProjectAccessed(projectId)
-
-            setTimerId(docRef.id)
-
         })
     } else if (timerName && selectedProject && startTime) {
         startTime = getUnixTime(startTime)
@@ -41,9 +38,6 @@ export default async function timerSubmit(setTimerActive, timerName, selectedPro
         .then((docRef) => {
             setTimerActive(true)
             updateProjectAccessed(projectId)
-
-            setTimerId(docRef.id)
-
         })
     }
 }

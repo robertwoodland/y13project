@@ -15,7 +15,6 @@ export default function ActiveTimer(props) {
     const {startTime, setStartTime} = props
     const {endTime, setEndTime} = props
     const {timerActive, setTimerActive} = props
-    const {setTimerId} = props
     const {activeTimer, setActiveTimer} = props
     const {setTimerSubmitted} = props
     const {uid} = props
@@ -26,10 +25,10 @@ export default function ActiveTimer(props) {
             setTimerActive(false)
             setActiveTimer()
             setTimerSubmitted(true)
-            timerSubmit(setTimerActive, timerName, selectedProject, projectId, startTime, endTime, setTimerId, uid)
+            timerSubmit(setTimerActive, timerName, selectedProject, projectId, startTime, endTime, uid)
         } else if (timerName && selectedProject && startTime && projectId){
             setTimerActive(true)
-            timerSubmit(setTimerActive, timerName, selectedProject, projectId, startTime, endTime, setTimerId, uid)
+            timerSubmit(setTimerActive, timerName, selectedProject, projectId, startTime, endTime, uid)
             
         }
     }
