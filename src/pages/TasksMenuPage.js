@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
+import ThemedButton from '../components/styled/ThemedButton';
 
 export default function TasksMenuPage() {
     return (
@@ -14,10 +15,10 @@ export default function TasksMenuPage() {
                     </Col>
                 </Row>
 
-                <Row>
+                <Row className="mb-1">
                     <Col>
                         <Link to="/add-tasks">
-                            <Button variant='outline-primary my-1'>Add Tasks</Button>
+                            <ThemedButton>Add Tasks</ThemedButton>
                         </Link>
                     </Col>
                 </Row>
@@ -25,7 +26,7 @@ export default function TasksMenuPage() {
                 <Row>
                     <Col>
                         <Link to="/show-tasks">
-                            <Button variant='outline-primary my-1'>Show Tasks</Button>
+                            <ThemedButton>Show Tasks</ThemedButton>
                         </Link>
                     </Col>
                 </Row>
