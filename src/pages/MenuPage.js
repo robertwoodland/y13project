@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
 import ThemedButton from '../components/styled/ThemedButton';
+import { UserContext } from '../App';
 
 export default function MenuPage() {
+    const {username} = useContext(UserContext);
     return (
         <ContainerPage>
             <Container align="center">
 
                 <Row align="center">
-                    <h1 className="my-3">Welcome to the Menu Page</h1>
+                    <h1 className="my-3">Hello {username}, Welcome to the Menu Page</h1>
                 </Row>
 
                 <Row>
