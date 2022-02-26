@@ -6,7 +6,7 @@ import ThemedButton from '../components/styled/ThemedButton';
 import { UserContext } from '../App';
 
 export default function MenuPage() {
-    const {username} = useContext(UserContext);
+    const {username} = useContext(UserContext); // Gets username from UserContext provider
     return (
         <ContainerPage>
             <Container align="center">
@@ -14,6 +14,11 @@ export default function MenuPage() {
                 <Row align="center">
                     <h1 className="my-3">Hello {username}, Welcome to the Menu Page</h1>
                 </Row>
+
+
+                {/* 
+                    All of the following are the button links to each area:
+                */}
 
                 <Row>
                     <Col>
@@ -49,3 +54,4 @@ export default function MenuPage() {
             </Container>
         </ContainerPage>
     )}
+    

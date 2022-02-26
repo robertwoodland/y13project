@@ -13,13 +13,13 @@ import Secured from './components/Secured';
 import app from "./components/base";
 
 
-export const ThemeContext = createContext();
+export const ThemeContext = createContext(); // Creating Contexts
 export const UserContext = createContext();
 
 export default function App() {
     const [auth, setAuth] = useState(null);
 
-    const [primaryColour, setPrimaryColour] = useState('#c4b5fd'); // background colour
+    const [primaryColour, setPrimaryColour] = useState('#c4b5fd'); // background colour (as state hook)
     const [secondaryColour, setSecondaryColour] = useState('#9333ea'); // button colour
     const [uid, setUid] = useState();
     const [username, setUsername] = useState();
@@ -44,7 +44,7 @@ export default function App() {
                         secondaryColour
                     })
                 } else {
-                    const data = res.data() // returns all qualities from users collection - finish
+                    const data = res.data() // returns all qualities from users collection
                     setUsername(data.username)
                     setPrimaryColour(data.primaryColour)
                     setSecondaryColour(data.secondaryColour)
@@ -74,6 +74,7 @@ export default function App() {
                         <ThemeContext.Provider value={{primaryColour: primaryColour, setPrimaryColour: setPrimaryColour,
                         secondaryColour: secondaryColour, setSecondaryColour: setSecondaryColour}}>
                         <UserContext.Provider value={{username: username, setUsername: setUsername, uid: uid}}>
+                        {/* Passes state and setState down through UseContext hook*/}
 
                             <Route exact path="/menu" component={MenuPage}/>
                             <Route exact path="/tasks-menu" component={TasksMenuPage}/>
