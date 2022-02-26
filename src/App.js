@@ -51,7 +51,7 @@ export default function App() {
                 }
             })
     }}, [auth])
-    // THIS IS BIG SECURITY VULNERABILITY, AS USER CREATION CAN BE SPAMMED
+    // THIS IS A SECURITY VULNERABILITY, AS USER CREATION CAN BE SPAMMED
     // Use a cloud function in future
 
 
@@ -89,18 +89,3 @@ export default function App() {
             </Router>
         </Fragment>
     )}
-
-
-
-    /* How to use setState():
-    
-    
-    setUserColors(prevState => prevSate + 1)
-     setUserColors(prevState => {
-        return prevSate + 1
-    })
-
-    setUserColors("newColorID")
-
-
-    */
