@@ -3,7 +3,7 @@ import { Col, Dropdown, Row, Form } from 'react-bootstrap';
 import ThemedDropdown from '../styled/ThemedDropdown';
 import ThemedButton from '../styled/ThemedButton';
 import { UserContext } from '../../App';
-import handleProjectSubmit from './handleProjectSubmit';
+import handleProjectSubmit from '../Firebase Functions/handleProjectSubmit';
 import RecentProjectsMenu from './RecentProjectsMenu';
 
 export default function ProjectDropdown(props) {

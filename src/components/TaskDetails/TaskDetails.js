@@ -40,6 +40,7 @@ export default function TaskDetails(props) {
         }
     }, [dueDate]);
 
+    // Updates relevant states when a task is selected from the list
     useEffect(() => {
         if (selectedTask) {
             setTaskInputName(selectedTask[0])
@@ -47,6 +48,7 @@ export default function TaskDetails(props) {
         } 
     }, [selectedTask]);
     
+    // Removes commas from where an array is passed back
     useEffect(() => {
         if (taskInput) {
             let taskInputValid = taskInput.replace(',', '')
@@ -54,7 +56,7 @@ export default function TaskDetails(props) {
         }
     }, [taskInput]);
     
-
+0
     getProjects(setRecentProjects)
     // 0 is project name, 1 is accessed time, 2 is ID
 
@@ -71,7 +73,7 @@ export default function TaskDetails(props) {
         }
     }, [selectedProject]);
 
-    
+    // Clears fields when a task is submitted
     useEffect(() => {
         if (taskSubmitted && setSelectedTask) {
             setSelectedTask()
@@ -93,7 +95,8 @@ export default function TaskDetails(props) {
                 <Form.Label>Task:</Form.Label>
                 <Row>
                     <Col>
-                        <Form.Control onChange={(e) => setTaskInput(e.target.value)} value={taskInput} type="task" placeholder={taskInputPlaceholder ? taskInputPlaceholder : "Enter task name"}/>
+                        <Form.Control onChange={(e) => setTaskInput(e.target.value)} value={taskInput} type="task" 
+                        placeholder={taskInputPlaceholder ? taskInputPlaceholder : "Enter task name"}/>
                     </Col>
                 </Row>
             </Form.Group>
@@ -116,7 +119,8 @@ export default function TaskDetails(props) {
             </Form.Group>
 
             <div className="mt-5">
-                <ThemedButton onClick={() => taskSubmit(updateProjectAccessed, setTaskSubmitted, taskInputName, selectedProject, dateInput, projectId, update, selectedTask, uid)}>
+                <ThemedButton onClick={() => taskSubmit(updateProjectAccessed, setTaskSubmitted, taskInputName,
+                    selectedProject, dateInput, projectId, update, selectedTask, uid)}>
                     {props.children}
                 </ThemedButton>
             </div>
