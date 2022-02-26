@@ -17,7 +17,6 @@ export default function ShowRecentTasks(props){
     const {markComplete} = props
     const {selectedTask, setSelectedProject, setSelectedTask, setDueDate} = props
     const {maxPageNum} = props
-    const {setFormattedDueDate} = props
     const {taskCount} = props
 
     function handleTaskSelect(e){
@@ -37,7 +36,7 @@ export default function ShowRecentTasks(props){
             if (index >= 10 * pageNum && index < (10 * pageNum) + 10) {
                 return <RecentTask key={index} text={task}/>
             }
-        })
+        }) // This 'maps' all of the <RecentTask> components into an array to be shown
 
         return(
         <Fragment>
@@ -46,7 +45,8 @@ export default function ShowRecentTasks(props){
 
             <Row>
                 <Col>
-                    <ThemedButton onClick={() => markComplete(selectedTask, setSelectedProject, setSelectedTask, setDueDate, taskCount, uid)}>Mark As Complete</ThemedButton>
+                    <ThemedButton onClick={() => markComplete(selectedTask, setSelectedProject, setSelectedTask,
+                        setDueDate, taskCount, uid)}>Mark As Complete</ThemedButton>
                 </Col>
                 <Col>
                     <ThemedButton onClick={handleShowDetails}>Edit Details</ThemedButton>

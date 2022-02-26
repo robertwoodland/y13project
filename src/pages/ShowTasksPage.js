@@ -6,7 +6,6 @@ import getTasks from '../components/Firebase Functions/getTasks';
 import markComplete from '../components/Firebase Functions/markComplete';
 import SubmissionToast from '../components/styled/SubmissionToast';
 import ShowRecentTasks from '../components/ShowTasksPage/ShowRecentTasks';
-import getProjects from '../components/Firebase Functions/getProjects';
 import { UserContext } from '../App';
 import getTaskCount from '../components/Firebase Functions/getTaskCount';
 
@@ -67,9 +66,10 @@ export default function ShowTasksPage() {
                     <Row>
                         <Col>
                             
-                            <ShowRecentTasks recentTasks={recentTasks} pageNum={pageNum} handleShowDetails={handleShowDetails} markComplete={markComplete}
-                            setPageNum={setPageNum} selectedTask={selectedTask} setSelectedProject={setSelectedProject}
-                            setSelectedTask={setSelectedTask} setDueDate={setDueDate} maxPageNum={maxPageNum} taskCount={taskCount} />
+                            <ShowRecentTasks recentTasks={recentTasks} pageNum={pageNum} handleShowDetails={handleShowDetails} 
+                            markComplete={markComplete} setPageNum={setPageNum} selectedTask={selectedTask} 
+                            setSelectedProject={setSelectedProject} setSelectedTask={setSelectedTask} setDueDate={setDueDate}
+                            maxPageNum={maxPageNum} taskCount={taskCount} />
                             
                         </Col>
                         <Col>
