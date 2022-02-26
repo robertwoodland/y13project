@@ -1,9 +1,12 @@
 import getUnixTime from './getUnixTime';
+import { useState } from 'react';
 
 export default function getDuration(startTime, endTime, setDuration) {
 
     let unixStart = getUnixTime(startTime)
     let unixEnd = 0
+    let special = false
+
 
     if (!endTime) {
         unixEnd = Date.now()
@@ -13,6 +16,10 @@ export default function getDuration(startTime, endTime, setDuration) {
 
 
     let difference = (parseInt(unixEnd) - parseInt(unixStart)) // in milliseconds
+
+    if (difference < 0) {
+        special = true
+    }
 
     let durationSeconds = Math.floor(difference / 1000)
 
@@ -32,6 +39,11 @@ export default function getDuration(startTime, endTime, setDuration) {
         leftOverSeconds = "0" + leftOverSeconds
     }
 
+    if (special) {
+        durationHours = 24 - durationHours
+        leftOverMinutes = 60 - leftOverMinutes
+    }
+
 
     let duration = ""
     if (durationHours != "00") {
@@ -39,6 +51,8 @@ export default function getDuration(startTime, endTime, setDuration) {
     } else {
         duration = leftOverMinutes
     }
+
+    console.log(duration)
 
 
     if (setDuration) {
