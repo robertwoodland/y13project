@@ -52,9 +52,6 @@ export default function getDuration(startTime, endTime, setDuration) {
         duration = leftOverMinutes
     }
 
-    console.log(duration)
-
-
     if (setDuration) {
         setDuration(durationHours + " hours, " + leftOverMinutes + " minutes and " + leftOverSeconds + " seconds")
     } else {

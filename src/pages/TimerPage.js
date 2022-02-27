@@ -7,6 +7,7 @@ import { UserContext } from '../App';
 import ActiveTimer from '../components/TimerPage/ActiveTimer';
 import ShowTimersPage from '../components/TimerPage/ShowTimersPage';
 import getHHMM from '../components/TimerPage/getHHMM';
+import getTimers from '../components/Firebase Functions/getTimers';
 
 export default function TimerPage() {
 
@@ -37,11 +38,10 @@ export default function TimerPage() {
 
 
     getProjects(setRecentProjects)
-    // 0 is project name, 1 is accessed time, 2 is ID
+    // 0 is project name, 1 is accessed time, 2 is ID    
 
-
-    // Put get timers here
-    
+    getTimers(setRecentTimers, setMaxPageNum, uid)
+    // 0 is timer name, 1 is project, 2 is id, 3 is projectId, 4 is start time, 5 is end time
 
     // Sets project ID when a project is selected
     useEffect(() => {
@@ -54,6 +54,7 @@ export default function TimerPage() {
         }
     }, [selectedProject])
 
+    // Updates states when a timer is selected
     useEffect(() => {
         if (timerActive && activeTimer) {
             setTimerName(activeTimer[0])
@@ -65,6 +66,7 @@ export default function TimerPage() {
         }
     }, [activeTimer])
 
+    // Clears states when a timer is added
     useEffect(() => {
         if (timerSubmitted) {
             setStartTime("")
@@ -78,7 +80,7 @@ export default function TimerPage() {
         }
     }, [timerSubmitted])
 
-
+    // Clears states when the page changes
     function handleToggle() {
         setShowTimer(prev => !prev)
         setStartTime("")

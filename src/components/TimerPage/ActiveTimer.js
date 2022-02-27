@@ -5,6 +5,7 @@ import ProjectDropdown from "../ProjectDropdown/ProjectDropdown";
 import timerSubmit from "../Firebase Functions/timerSubmit";
 import app from '../base';
 import endTimer from "../Firebase Functions/endTimer";
+import updateActiveTimer from "../Firebase Functions/updateActiveTimer";
 
 export default function ActiveTimer(props) {
     const {timerName, setTimerName} = props
@@ -20,6 +21,7 @@ export default function ActiveTimer(props) {
     const {uid} = props
 
 
+    // Checks all the necessary information is present, then starts a timer
     function handleStartTimer() {
         if (timerName && selectedProject && startTime && projectId && endTime) {
             setTimerActive(false)
@@ -34,7 +36,8 @@ export default function ActiveTimer(props) {
     }
 
 
-
+    // Subscribes to the database, on parameters of the active timer
+    // This also deals with a case where there are multiple timers marked active
     useEffect(() => {
         const unsubscribe = app.firestore().collection("timers").where("uid", "==", uid)
         .where("active", "==", true).onSnapshot((querySnapshot) => {
@@ -50,7 +53,6 @@ export default function ActiveTimer(props) {
                     let projId = doc.data().projectId
                     let end = doc.data().endTime
                     let start = doc.data().startTime
-                    let activeBool = doc.data().active
 
                     setActiveTimer([name, projName, id, projId, start, end])
                     // 0 is timer name, 1 is project, 2 is id, 3 is projectId, 4 is start, 5 is end
@@ -87,7 +89,7 @@ export default function ActiveTimer(props) {
     }, [])
     
 
-
+    // Gets the current time, and then ends the timer
     function handleEndTimer() {
         if (!activeTimer) {
             const now = Date.now()
@@ -125,6 +127,12 @@ export default function ActiveTimer(props) {
             </Fragment>
         )
     }
+
+    // If there is an active timer and something changes, then it updates it in the database
+    useEffect(() => {
+        updateActiveTimer(timerName, selectedProject, projectId, startTime, uid)
+    }, [timerName, projectId, startTime])
+    
 
     return(
         <Fragment>
