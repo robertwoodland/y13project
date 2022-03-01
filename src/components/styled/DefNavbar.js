@@ -35,6 +35,10 @@ export default function DefNavbar() {
                                 Projects
                             </Nav.Link>
 
+                            <Nav.Link as={Link} to="/reports">
+                                Reports
+                            </Nav.Link>
+
                             <Nav.Link as={Link} to="/preferences">
                                 Preferences
                             </Nav.Link>

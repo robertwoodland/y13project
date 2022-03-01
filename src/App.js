@@ -11,6 +11,7 @@ import ProjectsPage from "./pages/ProjectsPage";
 import PreferencesPage from "./pages/PreferencesPage";
 import Secured from './components/Secured';
 import app from "./components/base";
+import ReportsPage from "./pages/ReportsPage";
 
 
 export const ThemeContext = createContext(); // Creating Contexts
@@ -83,6 +84,7 @@ export default function App() {
                             <Route exact path="/timer" component={TimerPage}/>
                             <Route exact path="/preferences" component={PreferencesPage} />
                             <Route exact path="/projects" component={ProjectsPage} />
+                            <Route exact path="/reports" component={ReportsPage} />
                         </UserContext.Provider>
                         </ThemeContext.Provider>
                     </Secured>

@@ -15,6 +15,8 @@ Fix white box height on mobile on ShowTasksPage (if even possible)
 ### Timers  
 Can't fix pagination when timer deleted  
 Toast?  
+Add limits to .get()s  
+Reports / statistics  
 
 <br/><br/>
 
