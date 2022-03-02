@@ -5,7 +5,7 @@ import SubmissionToast from '../components/styled/SubmissionToast';
 import getProjects from '../components/Firebase Functions/getProjects';
 import ShowRecentProjects from '../components/ProjectDetails/ShowRecentProjects';
 
-export default function ShowTasksPage() {
+export default function ProjectsPage() {
 
     const [recentProjects, setRecentProjects] = useState([]);
     
