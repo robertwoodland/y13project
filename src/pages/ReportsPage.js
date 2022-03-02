@@ -1,13 +1,10 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { Col, Row, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
 import getProjects from '../components/Firebase Functions/getProjects';
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, LineController } from 'chart.js';
-import { Chart, Doughnut } from 'react-chartjs-2';
-import app from '../components/base';
-import getDuration from '../components/TimerPage/getDuration';
-import getHHMM from '../components/TimerPage/getHHMM';
+import { Doughnut } from 'react-chartjs-2';
 import getProjectDuration from '../components/Firebase Functions/getProjectDuration';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -67,7 +64,7 @@ export default function ReportsPage() {
             const projectNames = recentProjects.map((project) => project[0])
             const projectIds = recentProjects.map((project) => project[2])
 
-            getProjectDuration(projectNames, projectIds, values, setValues, labels, setLabels)
+            getProjectDuration(projectNames, projectIds, setValues, setLabels)
         }
     }, [recentProjects])
 

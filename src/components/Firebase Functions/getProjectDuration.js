@@ -1,11 +1,8 @@
-import { useEffect, useContext } from 'react';
 import app from '../base';
-import { UserContext } from '../../App';
 import getDuration from '../TimerPage/getDuration';
 import getHHMM from '../TimerPage/getHHMM';
 
-export default async function getProjectDuration(projectNames, projectIds, values, setValues, labels, setLabels) {
-
+export default async function getProjectDuration(projectNames, projectIds, setValues, setLabels) {
     let vals = []
 
     for (let index = 0; index < projectNames.length; index++) {
@@ -14,7 +11,6 @@ export default async function getProjectDuration(projectNames, projectIds, value
         let projectDuration = 0
         
         const querySnapshot = await app.firestore().collection("timers").where("projectId", "==", projectId).get()
-
             querySnapshot.forEach((timer) => {
                 const data = timer.data()
                 if (data.endTime) {
@@ -39,12 +35,8 @@ export default async function getProjectDuration(projectNames, projectIds, value
         })  
         vals.push([projectDuration, projectName])      
     }
-
     const durations = vals.map((val) => val[0])
     const labs = vals.map((val) => val[1])
-
     setValues(durations)
     setLabels(labs)
-
 }
-
