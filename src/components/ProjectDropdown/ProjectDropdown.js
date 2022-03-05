@@ -2,7 +2,7 @@ import React, { useContext, Fragment } from 'react';
 import { Col, Dropdown, Row, Form } from 'react-bootstrap';
 import ThemedDropdown from '../styled/ThemedDropdown';
 import ThemedButton from '../styled/ThemedButton';
-import { UserContext } from '../../App';
+import { UserContext, validateInput } from '../../App';
 import handleProjectSubmit from '../Firebase Functions/handleProjectSubmit';
 import RecentProjectsMenu from './RecentProjectsMenu';
 
@@ -24,7 +24,7 @@ export default function ProjectDropdown(props) {
                 <Dropdown.Menu style={{minWidth: "100%"}}>
                     <Row>
                         <Col className="col-8">
-                            <Form.Control onChange={(e) => {setProjectInput(e.target.value)}} 
+                            <Form.Control onChange={(e) => {setProjectInput(validateInput(e.target.value))}} 
                             value={projectInput} placeholder="Project name" 
                             className="mx-1 overflow-hidden"/>
                         </Col>

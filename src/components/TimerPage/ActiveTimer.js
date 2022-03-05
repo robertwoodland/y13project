@@ -6,6 +6,7 @@ import timerSubmit from "../Firebase Functions/timerSubmit";
 import app from '../base';
 import endTimer from "../Firebase Functions/endTimer";
 import updateActiveTimer from "../Firebase Functions/updateActiveTimer";
+import { validateInput } from "../../App";
 
 export default function ActiveTimer(props) {
     const {timerName, setTimerName} = props
@@ -145,7 +146,7 @@ export default function ActiveTimer(props) {
                         
                         <Row className="my-2">
                             <Col>
-                                <Form.Control onChange={(e) => setTimerName(e.target.value)} value={timerName} placeholder='Enter timer name'/>
+                                <Form.Control onChange={(e) => setTimerName(validateInput(e.target.value))} value={timerName} placeholder='Enter timer name'/>
                             </Col>
 
                             <Col>

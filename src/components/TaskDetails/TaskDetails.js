@@ -5,7 +5,7 @@ import ProjectDropdown from '../ProjectDropdown/ProjectDropdown';
 import getProjects from '../Firebase Functions/getProjects';
 import taskSubmit from '../Firebase Functions/taskSubmit';
 import updateProjectAccessed from '../Firebase Functions/updateProjectAccessed';
-import { UserContext } from '../../App';
+import { UserContext, validateInput } from '../../App';
 
 export default function TaskDetails(props) {
 
@@ -56,7 +56,7 @@ export default function TaskDetails(props) {
         }
     }, [taskInput]);
     
-0
+
     getProjects(setRecentProjects)
     // 0 is project name, 1 is accessed time, 2 is ID
 
@@ -95,7 +95,7 @@ export default function TaskDetails(props) {
                 <Form.Label>Task:</Form.Label>
                 <Row>
                     <Col>
-                        <Form.Control onChange={(e) => setTaskInput(e.target.value)} value={taskInput} type="task" 
+                        <Form.Control onChange={(e) => setTaskInput(validateInput(e.target.value))} value={taskInput} type="task" 
                         placeholder={taskInputPlaceholder ? taskInputPlaceholder : "Enter task name"}/>
                     </Col>
                 </Row>

@@ -13,6 +13,10 @@ import Secured from './components/Secured';
 import app from "./components/base";
 import ReportsPage from "./pages/ReportsPage";
 
+// Used to validate inputs for project names, task names and timer names
+export function validateInput(input) {
+    return input.replaceAll(",", " ")
+}
 
 export const ThemeContext = createContext(); // Creating Contexts
 export const UserContext = createContext();
