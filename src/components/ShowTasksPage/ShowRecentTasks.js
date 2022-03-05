@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react'
+import React, { Fragment, useContext, useState } from 'react'
 import RecentTask from './RecentTask';
 import ThemedButton from '../styled/ThemedButton';
 import { Form, Col, Row } from 'react-bootstrap';
@@ -11,6 +11,8 @@ export default function ShowRecentTasks(props){
 
     const {uid} = useContext(UserContext)
 
+    const [selectedRadio, setSelectedRadio] = useState();
+
     const {recentTasks} = props
     const {pageNum, setPageNum} = props
     const {handleShowDetails} = props
@@ -20,6 +22,8 @@ export default function ShowRecentTasks(props){
     const {taskCount} = props
 
     function handleTaskSelect(e){
+        setSelectedRadio(e.target)
+
         // 0 is task name, 1 is project name, 2 is due date, 3 is task ID, 4 is project ID
         const value = e.target.value.split(",")
         setSelectedTask(value)
@@ -27,6 +31,18 @@ export default function ShowRecentTasks(props){
     
         const date = value[2].split("-")
         setDueDate(value[2])
+    }
+
+    function handleSubmit() {
+        setSelectedRadio((radio) => {
+            if (radio) {
+                radio.checked = false
+                return radio
+            }
+        })
+
+        markComplete(selectedTask, setSelectedProject, setSelectedTask,
+            setDueDate, taskCount, uid)
     }
 
 
@@ -45,8 +61,7 @@ export default function ShowRecentTasks(props){
 
             <Row>
                 <Col>
-                    <ThemedButton onClick={() => markComplete(selectedTask, setSelectedProject, setSelectedTask,
-                        setDueDate, taskCount, uid)}>Mark As Complete</ThemedButton>
+                    <ThemedButton onClick={() => handleSubmit()}>Mark As Complete</ThemedButton>
                 </Col>
                 <Col>
                     <ThemedButton onClick={handleShowDetails}>Edit Details</ThemedButton>

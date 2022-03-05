@@ -4,7 +4,7 @@ Standardise task states as output of getTasks
 Standardise project states as output of getProjects  
 Standardise array of functions to pass as props  
 
-
+Overdue section, use UNIX for due dates too...  
 
 Fix white box height on mobile on ShowTasksPage (if even possible)  
 
