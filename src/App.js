@@ -15,7 +15,7 @@ import ReportsPage from "./pages/ReportsPage";
 
 // Used to validate inputs for project names, task names and timer names
 export function validateInput(input) {
-    return input.replaceAll(",", " ")
+    return input.replaceAll(",", " ").substring(0, 100)
 }
 
 export const ThemeContext = createContext(); // Creating Contexts
