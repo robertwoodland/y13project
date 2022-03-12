@@ -17,12 +17,11 @@ export default function EditTimerPage(props) {
     const {selectedTimer} = props
     const {setEditTimer} = props
 
+    // If a timer is selected, the states are updated
     useEffect(() => {
         setTimerName(selectedTimer[0])
-
         setStartTime(getHHMM(selectedTimer[4]))
         setEndTime(getHHMM(selectedTimer[5]))
-       
     }, [selectedTimer])
 
 

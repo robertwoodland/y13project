@@ -33,7 +33,7 @@ export default async function taskSubmit(updateProjectAccessed, setTaskSubmitted
         dateInput = currentYear + "-" + currentMonth + "-" + currentDay
     }
 
-
+    // Adds task to database
     if (taskInputName && selectedProject && dateInput){
         if (projectId) {
             updateProjectAccessed(projectId)

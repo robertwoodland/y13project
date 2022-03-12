@@ -18,6 +18,7 @@ export default function DefNavbar() {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
 
+                            {/* Shows links to each key area of the program */}
                             <Nav.Link as={Link} to="/menu">
                                 Menu
                             </Nav.Link>

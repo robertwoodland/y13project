@@ -3,6 +3,7 @@ import getUnixTime from "../TimerPage/getUnixTime";
 import updateProjectAccessed from "./updateProjectAccessed";
 
 export default async function timerSubmit(setTimerActive, timerName, selectedProject, projectId, startTime, endTime, uid){
+    // If the timer isn't active, add to database with active = false
     if (timerName && selectedProject && startTime && endTime){
         startTime = getUnixTime(startTime)
 
@@ -19,10 +20,12 @@ export default async function timerSubmit(setTimerActive, timerName, selectedPro
             active: false,
             uid: uid
         })
-        .then((docRef) => {
+        .then(() => {
             setTimerActive(true)
             updateProjectAccessed(projectId)
         })
+
+    // If the timer is still running, add to the database with active = true
     } else if (timerName && selectedProject && startTime) {
         startTime = getUnixTime(startTime)
         endTime = getUnixTime(endTime)
@@ -35,7 +38,7 @@ export default async function timerSubmit(setTimerActive, timerName, selectedPro
             active: true,
             uid: uid
         })
-        .then((docRef) => {
+        .then(() => {
             setTimerActive(true)
             updateProjectAccessed(projectId)
         })

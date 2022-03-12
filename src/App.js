@@ -43,7 +43,7 @@ export default function App() {
             setUsername(firstName)
 
             app.firestore().collection("users").doc(uid).get().then((res) => {
-                if (!res.exists) {
+                if (!res.exists) { // Creates a new user in the datbase if the user doesn't exist
                     const taskCount = 0
                     app.firestore().collection("users").doc(uid).set({
                         username: firstName,
@@ -63,7 +63,7 @@ export default function App() {
     // THIS IS A SECURITY VULNERABILITY, AS USER CREATION CAN BE SPAMMED
     // Use a cloud function in future
 
-
+    // This provides the routing functionality for the project, so that it returns the correct page
     return (
         <Fragment>
             <Router>

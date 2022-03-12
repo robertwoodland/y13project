@@ -13,7 +13,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 
 export default function ReportsPage() {
-
+    // Sample data as a basis for the chart
     let data = {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [
@@ -45,9 +45,8 @@ export default function ReportsPage() {
     const [data1, setData1] = useState({});
     const [values, setValues] = useState([]);
     const [labels, setLabels] = useState([]);
-    const [redraw, setRedraw] = useState(false);
 
-    // Initialise data1
+    // Initialise data1 from sample data
     useEffect(() => {
         let dataCopy = data
         setData1(dataCopy)
@@ -68,6 +67,7 @@ export default function ReportsPage() {
         }
     }, [recentProjects])
 
+    // Upates the chart whenever the values change
     useEffect(() => {
         setData1((prev) => {
             let old = prev
@@ -79,6 +79,7 @@ export default function ReportsPage() {
     }, [values, labels])
     
 
+    // Shown if there is an error with the user's browser
     function FallbackComponent() {
         return(
             <Fragment>
@@ -95,7 +96,9 @@ export default function ReportsPage() {
             </Form>
 
 
-            {data1.datasets ? <Doughnut data={data1} options={{responsive:true, maintainAspectRatio:false,}} fallbackContent={<FallbackComponent/>} redraw={true} />
+            {data1.datasets ? <Doughnut data={data1} options={{responsive:true, maintainAspectRatio:false,}} 
+            fallbackContent={<FallbackComponent/>} redraw={true} />
+            
             : <FallbackComponent/>}  
 
 

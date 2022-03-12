@@ -21,10 +21,9 @@ export default function ShowRecentTimers(props){
 
     getTimers(setRecentTimers, setMaxPageNum, uid)
 
-
+    // If the page num is incremented above the maximum, it is reduced
     useEffect(() => {
         if ((pageNum >= maxPageNum) && pageNum != 0) {
-            console.log(pageNum, maxPageNum)
             setPageNum((prevState) => prevState - 1)
         }
     }, [maxPageNum, pageNum])
@@ -47,7 +46,7 @@ export default function ShowRecentTimers(props){
 
 
     const len = recentTimers.length;
-    if (len > 0) {
+    if (len > 0) { // If there are timers, then they are shown
         const names = recentTimers.map(function(timer, index) {
             if (index >= 10 * pageNum && index < (10 * pageNum) + 10) {
                 return <RecentTimer key={index} text={timer}/>
@@ -81,7 +80,7 @@ export default function ShowRecentTimers(props){
         </Fragment>
         )
 
-    } else {
+    } else { // If there aren't any previous timers, then a message is shown
         return(
         <Fragment>
             <Row>

@@ -24,13 +24,16 @@ export default function ProjectDropdown(props) {
                 <Dropdown.Menu style={{minWidth: "100%"}}>
                     <Row>
                         <Col className="col-8">
+                            {/* When a project is selected from the list, assign the ID to the state */}
                             <Form.Control onChange={(e) => {setProjectInput(validateInput(e.target.value))}} 
                             value={projectInput} placeholder="Project name" 
                             className="mx-1 overflow-hidden"/>
                         </Col>
 
                         <Col align="centre" className="col-4">
-                            <ThemedButton onClick={() => handleProjectSubmit(uid, projectInput, recentProjects, setSelectedProject, setProjectId)}>Submit</ThemedButton>
+                            <ThemedButton onClick={() => handleProjectSubmit(uid, projectInput, recentProjects, setSelectedProject, setProjectId)}>
+                                Submit
+                            </ThemedButton>
                         </Col>
                     </Row>
 
