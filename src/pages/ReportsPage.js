@@ -15,11 +15,11 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 export default function ReportsPage() {
     // Sample data as a basis for the chart
     let data = {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: [],
         datasets: [
         {
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [],
             backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -71,8 +71,18 @@ export default function ReportsPage() {
     useEffect(() => {
         setData1((prev) => {
             let old = prev
-            old.labels = labels
-            old.datasets[0].data = values
+
+            if (labels != 0) {
+                old.labels = labels
+            } else {
+                old.labels = []
+            }
+
+            if (values != 0) {
+                old.datasets[0].data = values
+            } else {
+                old.datasets[0].data = []
+            }
 
             return old
         })
@@ -96,10 +106,14 @@ export default function ReportsPage() {
             </Form>
 
 
-            {data1.datasets ? <Doughnut data={data1} options={{responsive:true, maintainAspectRatio:false,}} 
-            fallbackContent={<FallbackComponent/>} redraw={true} />
+            {data1.datasets ? (data1.datasets[0].data.length ? <Doughnut data={data1} options={{responsive:true, maintainAspectRatio:false,}} 
+            fallbackContent={<FallbackComponent/>} redraw={true} /> : <FallbackComponent/>)
             
-            : <FallbackComponent/>}  
+            : <FallbackComponent/>}
+
+            {data1.datasets? (!recentProjects.length ? <h6>No projects</h6> : <h6>No timers</h6>)
+            
+            : <FallbackComponent/>}
 
 
         </ContainerPage>

@@ -57,7 +57,7 @@ export default function ShowRecentProjects(props){
         return(
         <Fragment>
             <Row>
-                <Form.Label className="ml-3 mt-2 disabled">No active tasks</Form.Label>
+                <Form.Label className="ml-3 mt-2 disabled">No active projects</Form.Label>
             </Row>
         </Fragment>)
     }
