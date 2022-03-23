@@ -45,6 +45,7 @@ export default function ReportsPage() {
     const [data1, setData1] = useState({});
     const [values, setValues] = useState([]);
     const [labels, setLabels] = useState([]);
+    const [redraw, setRedraw] = useState(false);
 
     // Initialise data1 from sample data
     useEffect(() => {
@@ -86,8 +87,12 @@ export default function ReportsPage() {
 
             return old
         })
+        setRedraw(true)
     }, [values, labels])
     
+    useEffect(() => {
+        setRedraw(false)
+    }, [redraw])
 
     // Shown if there is an error with the user's browser
     function FallbackComponent() {
@@ -107,13 +112,13 @@ export default function ReportsPage() {
 
 
             {data1.datasets ? (data1.datasets[0].data.length ? <Doughnut data={data1} options={{responsive:true, maintainAspectRatio:false,}} 
-            fallbackContent={<FallbackComponent/>} redraw={true} /> : <FallbackComponent/>)
+            fallbackContent={<FallbackComponent/>} redraw={redraw} /> : <FallbackComponent/>)
             
             : <FallbackComponent/>}
 
-            {data1.datasets? (!recentProjects.length ? <h6>No projects</h6> : <h6>No timers</h6>)
+            {!data1.datasets? (!recentProjects.length ? <h6>No projects</h6> : <h6>No timers</h6>)
             
-            : <FallbackComponent/>}
+            : <Fragment/>}
 
 
         </ContainerPage>
