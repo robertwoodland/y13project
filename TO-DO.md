@@ -1,4 +1,9 @@
 # Stuff yet to do
+## General:
+Set up with icon and name in tab bar  
+Set up so that it can be installed as a web app  
+Push notifications on nearing due date??  
+
 ### Tasks
 Standardise task states as output of getTasks  
 Standardise project states as output of getProjects  
@@ -17,6 +22,9 @@ Can't fix pagination when timer deleted
 Toast?  
 Add limits to .get()s  
 Updating timers changes them to today  
+
+### Reports
+Total time spent  
 
 <br/><br/>
 
