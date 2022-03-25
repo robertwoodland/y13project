@@ -13,6 +13,8 @@ Overdue section, use UNIX for due dates too...
 
 Fix white box height on mobile on ShowTasksPage (if even possible)  
 
+### Projects
+Project in firebase stores a count of how many tasks have been marked complete for it.  
 
 
 
@@ -21,10 +23,10 @@ Fix white box height on mobile on ShowTasksPage (if even possible)
 Can't fix pagination when timer deleted  
 Toast?  
 Add limits to .get()s  
-Updating timers changes them to today  
+Updating timers changes them to today, which it shouldn't  
 
 ### Reports
-Total time spent  
+Total time spent count  
 
 <br/><br/>
 
