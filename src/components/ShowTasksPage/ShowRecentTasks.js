@@ -68,7 +68,7 @@ export default function ShowRecentTasks(props){
                 </Col>
             </Row>
 
-            <Row className="mt-3">
+            <Row className="my-3">
                 <Col>
                     <ThemedButton onClick={() => decPageNum(pageNum, setPageNum)}>Previous Page</ThemedButton>
                     <Form.Label className="mx-3">{"Page " + (pageNum + 1) + " of " + maxPageNum}</Form.Label>

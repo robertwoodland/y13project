@@ -64,7 +64,7 @@ export default function ShowTasksPage() {
                     <Form.Label>Recent tasks:</Form.Label>
                     
                     <Row>
-                        <Col>
+                        <Col className="col-12 col-md-6">
                             
                             <ShowRecentTasks recentTasks={recentTasks} pageNum={pageNum} handleShowDetails={handleShowDetails} 
                             markComplete={markComplete} setPageNum={setPageNum} selectedTask={selectedTask} 
