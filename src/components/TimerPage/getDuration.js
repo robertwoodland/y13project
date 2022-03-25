@@ -29,6 +29,11 @@ export default function getDuration(startTime, endTime, setDuration) {
     let durationHours = Math.floor(durationMinutes / 60)
     let leftOverMinutes = durationMinutes % 60
 
+    if (special) {
+        durationHours = 24 + durationHours
+        leftOverMinutes = 60 + leftOverMinutes
+    }
+
     if (durationHours.toString().length == 1) {
         durationHours = "0" + durationHours
     }
@@ -39,10 +44,6 @@ export default function getDuration(startTime, endTime, setDuration) {
         leftOverSeconds = "0" + leftOverSeconds
     }
 
-    if (special) {
-        durationHours = 24 - durationHours
-        leftOverMinutes = 60 - leftOverMinutes
-    }
 
 
     let duration = ""
