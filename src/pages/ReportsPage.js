@@ -3,7 +3,7 @@ import { Form } from 'react-bootstrap';
 import ContainerPage from '../components/styled/ContainerPage';
 import getProjects from '../components/Firebase Functions/getProjects';
 
-import { Chart as ChartJS, ArcElement, Tooltip, Legend, LineController } from 'chart.js';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import getProjectDuration from '../components/Firebase Functions/getProjectDuration';
 

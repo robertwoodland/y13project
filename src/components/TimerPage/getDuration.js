@@ -1,5 +1,4 @@
 import getUnixTime from './getUnixTime';
-import { useState } from 'react';
 
 export default function getDuration(startTime, endTime, setDuration) {
 

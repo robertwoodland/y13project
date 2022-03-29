@@ -21,7 +21,7 @@ Project in firebase stores a count of how many tasks have been marked complete f
 ## All other areas of the app  
 ### Timers  
 Can't fix pagination when timer deleted  
-Toast?  
+Toast pls  
 Add limits to .get()s  
 Updating timers changes them to today, which it shouldn't  
 
