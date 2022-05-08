@@ -9,6 +9,9 @@ firestore-debug.log
 /.pnp
 .pnp.js
 
+# notes to self
+To-Do.md
+
 # testing
 /coverage
 
